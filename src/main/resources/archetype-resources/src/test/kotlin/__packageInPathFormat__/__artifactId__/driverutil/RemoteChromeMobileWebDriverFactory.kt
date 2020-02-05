@@ -3,7 +3,9 @@
 #set( $curlyClose = '}' )
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
-package at.co.boris.secuton.driverutil
+
+
+package ${package}
 
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver

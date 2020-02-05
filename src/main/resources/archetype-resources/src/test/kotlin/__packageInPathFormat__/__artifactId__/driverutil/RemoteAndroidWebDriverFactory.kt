@@ -1,4 +1,10 @@
-package at.co.boris.secuton.driverutil
+#set( $dollar = '$' )
+#set( $curlyOpen = '{' )
+#set( $curlyClose = '}' )
+#set( $bracketOpen = '(' )
+#set( $bracketClose = ')' )
+
+package ${package}
 
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.AndroidElement
@@ -24,7 +30,6 @@ class RemoteAndroidWebDriverFactory : RemoteWebDriverFactory() {
         caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 12000)
 
         webDriver = AndroidDriver<AndroidElement>(URL("$dollar$curlyOpen getRemoteTestingServer$bracketOpen$bracketClose$curlyClose/wd/hub"), caps)
-        //webDriver = RemoteWebDriver(URI.create("$dollar$curlyOpen getRemoteTestingServer$bracketOpen$bracketClose$curlyClose/wd/hub").toURL(), caps)
         return webDriver
 
     }

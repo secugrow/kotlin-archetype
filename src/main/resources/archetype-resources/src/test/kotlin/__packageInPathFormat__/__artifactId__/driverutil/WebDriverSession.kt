@@ -1,9 +1,9 @@
-package at.co.boris.secuton.driverutil
+package ${package}
 
 import assertk.fail
-import at.co.boris.secuton.pageobjects.AbstractPage
-import at.co.boris.secuton.pageobjects.PageUrls
-import at.co.boris.secuton.step_definitions.TestDataContainer
+import ${package}.pageobjects.AbstractPage
+import ${package}.pageobjects.PageUrls
+import ${package}.step_definitions.TestDataContainer
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.remote.RemoteWebDriver
 import kotlin.reflect.KClass

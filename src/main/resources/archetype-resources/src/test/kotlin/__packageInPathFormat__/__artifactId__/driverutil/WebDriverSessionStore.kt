@@ -1,4 +1,4 @@
-package at.co.boris.secuton.driverutil
+package ${package}
 
 object WebDriverSessionStore {
 

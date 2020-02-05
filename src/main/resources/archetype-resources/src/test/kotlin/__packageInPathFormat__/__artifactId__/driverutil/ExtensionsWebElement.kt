@@ -1,4 +1,4 @@
-package at.co.boris.secuton.driverutil
+package ${package}
 
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebElement

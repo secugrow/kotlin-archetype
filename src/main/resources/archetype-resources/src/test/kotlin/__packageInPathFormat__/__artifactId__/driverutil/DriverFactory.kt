@@ -1,4 +1,4 @@
-package at.co.boris.secuton.driverutil
+package ${package}
 
 import logger
 import org.apache.commons.lang3.StringUtils

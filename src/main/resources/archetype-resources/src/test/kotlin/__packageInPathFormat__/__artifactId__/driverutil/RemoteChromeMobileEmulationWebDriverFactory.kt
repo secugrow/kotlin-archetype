@@ -1,4 +1,11 @@
-package at.co.boris.secuton.driverutil
+#set( $dollar = '$' )
+#set( $curlyOpen = '{' )
+#set( $curlyClose = '}' )
+#set( $bracketOpen = '(' )
+#set( $bracketClose = ')' )
+
+
+package ${package}
 
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeOptions

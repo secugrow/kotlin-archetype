@@ -1,4 +1,4 @@
-package at.co.boris.secuton.driverutil
+package ${package}
 
 import io.github.bonigarcia.wdm.WebDriverManager
 import org.openqa.selenium.WebDriver
@@ -11,8 +11,6 @@ class ChromeWebDriverFactory : WebDriverFactory() {
 
         WebDriverManager.chromedriver().version(getDriverVersion()).setup()
         val options = ChromeOptions()
-
-        options.addArguments("headless")
 
         webDriver = ChromeDriver(options)
         webDriver.manage().window().size = screenDimension.dimension
