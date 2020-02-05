@@ -7,7 +7,7 @@
 This archetype will generate you a SeCuton Skeleton for your projects with your choosen packagenames
 An ready to use showcase ca be cloned/downloaded/forked from https://github.com/boris779/SeCuton
 
-Thx to @adimusilek for support
+Thx to Adi Musilek (https://github.com/adimusilek) for support
 
 
      mvn archetype:generate \  
