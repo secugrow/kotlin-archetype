@@ -5,7 +5,6 @@ import assertk.assertions.endsWith
 import assertk.assertions.isEqualTo
 import ${package}.${artifactId}.pageobjects.MainPage
 import ${package}.${artifactId}.pageobjects.PageUrls
-import ${package}.${artifactId}.pageobjects.TeamPage
 
 class SessionSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(testDataContainer) {
 
@@ -18,9 +17,7 @@ class SessionSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(test
         When("{string} is activated") { sessionID: String ->
             getWebDriverSession(sessionID)
         }
-        When("{string} opens the team site") { sessionID: String ->
-            getWebDriverSession(sessionID).gotoUrl(PageUrls.TEAM,TeamPage::class, testDataContainer)
-        }
+
         Then("{string} should be still on start page") { sessionID: String ->
             assertThat(getWebDriverSession(sessionID).webDriver.currentUrl).isEqualTo((testDataContainer.getTestData("baseurl") as String) + "/")
         }
@@ -29,8 +26,5 @@ class SessionSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(test
             assertThat(getWebDriverSession().webDriver.windowHandles.size).isEqualTo(expCount)
         }
 
-        And("{string} should be still on team site") { sessionID: String ->
-            assertThat(getWebDriverSession(sessionID).webDriver.currentUrl).endsWith(PageUrls.TEAM.subUrl + "/")
-        }
     }
 }
