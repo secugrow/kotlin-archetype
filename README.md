@@ -6,7 +6,7 @@
 
 This archetype will generate you a SeCuton Skeleton for your projects with your choosen packagenames
 A ready to use showcase ca be cloned/downloaded/forked from https://github.com/boris779/SeCuton.
-Before being able to make use of the `archetype:generate` command, the project has to be built from the root directory 
+Before being able to make use of the `archetype:generate` command, the project has to be built from its root directory 
 via `mvn install`. This will result in a jar being copied to your local maven-repo. 
 
 You're all set - feel free to use the archetype.
