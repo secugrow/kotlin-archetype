@@ -54,11 +54,11 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         if (jobname != null) {
             log.debug("#".padEnd(debuglength, fillchar))
             log.debug("################## JENKINS INFOS: ".padEnd(debuglength, fillchar))
-            log.debug("# BUILD_NUMBER: " +  System.getenv("BUILD_NUMBER") +.padEnd(debuglength, fillchar))
-            log.debug("# JOB_NAME: $dollar$curlyOpen System.getenv$bracketOpen"JOB_NAME"$bracketClose$curlyClose".padEnd(debuglength, fillchar))
-            log.debug("# JENKINS_URL: $dollar$curlyOpen System.getenv$bracketOpen"JENKINS_URL"$bracketClose$curlyClose".padEnd(debuglength, fillchar))
-            log.debug("# WORKSPACE: $dollar$curlyOpen System.getenv$bracketOpen"WORKSPACE"$bracketClose$curlyClose".padEnd(debuglength, fillchar))
-            log.debug("# NODE_NAME: $dollar$curlyOpen System.getenv$bracketOpen"NODE_NAME"$bracketClose$curlyClose".padEnd(debuglength, fillchar))
+            log.debug("# BUILD_NUMBER: " +  System.getenv("BUILD_NUMBER") +"".padEnd(debuglength, fillchar))
+            log.debug("# JOB_NAME: " + System.getenv("JOB_NAME") + "".padEnd(debuglength, fillchar))
+            log.debug("# JENKINS_URL: " +  System.getenv("JENKINS_URL") + "".padEnd(debuglength, fillchar))
+            log.debug("# WORKSPACE: " +  System.getenv("WORKSPACE") + "".padEnd(debuglength, fillchar))
+            log.debug("# NODE_NAME: " +  System.getenv("NODE_NAME") + "".padEnd(debuglength, fillchar))
             log.debug("#".padEnd(debuglength, fillchar))
             testDataContainer.setTestData("localRun", false)
         } else {
@@ -66,7 +66,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         }
 
         log.debug("#".padEnd(debuglength, fillchar))
-        log.info("# executing Scenario: $dollar$curlyOpen scenario.name$curlyClose ".padEnd(debuglength, fillchar))
+        log.info("# executing Scenario: " +  scenario.name + "".padEnd(debuglength, fillchar))
         log.debug("#".padEnd(debuglength, fillchar))
     }
 
