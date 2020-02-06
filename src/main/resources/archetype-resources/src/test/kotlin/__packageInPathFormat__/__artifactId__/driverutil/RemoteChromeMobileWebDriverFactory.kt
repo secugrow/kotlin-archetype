@@ -5,7 +5,7 @@
 #set( $bracketClose = ')' )
 
 
-package ${package}
+package ${package}.${artifactId}.driverutil
 
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver

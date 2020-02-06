@@ -1,11 +1,11 @@
-package ${groupId}
+package ${package}.${artifactId}.step_definitions
 
 import assertk.assertThat
 import assertk.assertions.endsWith
 import assertk.assertions.isEqualTo
-import ${package}.pageobjects.MainPage
-import ${package}.pageobjects.PageUrls
-import ${package}.pageobjects.TeamPage
+import ${package}.${artifactId}.pageobjects.MainPage
+import ${package}.${artifactId}.pageobjects.PageUrls
+import ${package}.${artifactId}.pageobjects.TeamPage
 
 class SessionSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(testDataContainer) {
 

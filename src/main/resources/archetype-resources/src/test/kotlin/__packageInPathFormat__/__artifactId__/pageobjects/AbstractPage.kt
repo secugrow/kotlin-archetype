@@ -1,6 +1,6 @@
-package ${groupId}
+package ${package}.${artifactId}.pageobjects
 
-import ${package}.driverutil.WebDriverSession
+import ${package}.${artifactId}.driverutil.WebDriverSession
 import org.openqa.selenium.WebDriver
 
 

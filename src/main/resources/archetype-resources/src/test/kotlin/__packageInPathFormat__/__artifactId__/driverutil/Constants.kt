@@ -1,4 +1,4 @@
-package ${package}
+package ${package}.${artifactId}.driverutil
 
 import org.openqa.selenium.Dimension
 

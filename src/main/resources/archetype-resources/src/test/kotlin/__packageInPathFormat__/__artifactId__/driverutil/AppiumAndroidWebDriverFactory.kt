@@ -3,7 +3,7 @@
 #set( $curlyClose = '}' )
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
-package ${package}
+package ${package}.${artifactId}.driverutil
 
 import assertk.fail
 import io.appium.java_client.android.AndroidDriver

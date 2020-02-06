@@ -4,7 +4,7 @@
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
 
-package ${package}
+package ${package}.${artifactId}.driverutil
 
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeOptions

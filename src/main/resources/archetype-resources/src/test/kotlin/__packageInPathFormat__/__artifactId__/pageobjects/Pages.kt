@@ -1,8 +1,7 @@
-package ${groupId}
+package ${groupId}.${artifactId}.pageobjects
 
 enum class PageUrls(val subUrl: String) {
     HOME("/"),
-    TEAM("/team"),
     TERMS("/discolsure"),
     CONTACT("/contact");
 

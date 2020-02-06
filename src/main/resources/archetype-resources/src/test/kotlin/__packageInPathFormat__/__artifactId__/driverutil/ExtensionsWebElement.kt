@@ -1,4 +1,4 @@
-package ${package}
+package ${package}.${artifactId}.driverutil
 
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebElement

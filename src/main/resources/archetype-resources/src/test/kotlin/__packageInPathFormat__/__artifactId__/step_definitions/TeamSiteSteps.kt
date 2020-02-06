@@ -1,8 +1,8 @@
-package ${groupId}
+package ${package}.${artifactId}.step_definitions
 
 import assertk.assertThat
 import assertk.assertions.contains
-import ${package}.pageobjects.TeamPage
+import ${package}.${artifactId}.pageobjects.TeamPage
 
 
 class TeamSiteSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(testDataContainer) {

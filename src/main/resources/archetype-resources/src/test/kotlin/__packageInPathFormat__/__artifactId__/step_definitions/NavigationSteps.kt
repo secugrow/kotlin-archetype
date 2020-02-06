@@ -1,7 +1,7 @@
-package ${groupId}
+package ${package}.${artifactId}.step_definitions
 
-import ${package}.pageobjects.MainPage
-import ${package}.pageobjects.PageUrls
+import ${package}.${artifactId}.pageobjects.MainPage
+import ${package}.${artifactId}.pageobjects.PageUrls
 
 
 class NavigationSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(testDataContainer) {

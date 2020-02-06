@@ -1,6 +1,6 @@
-package ${groupId}
+package ${package}.${artifactId}.step_definitions
 
-import ${package}.driverutil.DriverType
+import ${package}.${artifactId}.driverutil.DriverType
 import io.cucumber.core.api.Scenario
 import java.util.*
 

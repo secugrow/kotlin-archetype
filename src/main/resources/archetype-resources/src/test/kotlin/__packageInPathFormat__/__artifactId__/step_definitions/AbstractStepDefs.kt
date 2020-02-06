@@ -1,13 +1,13 @@
-package ${groupId}
+package ${package}.${artifactId}.step_definitions
 
 import assertk.fail
-import ${groupId}.driverutil.PageNotFoundException
-import ${groupId}.driverutil.WebDriverSession
-import ${groupId}.driverutil.WebDriverSessionStore
+import ${package}.${artifactId}.driverutil.PageNotFoundException
+import ${package}.${artifactId}.driverutil.WebDriverSession
+import ${package}.${artifactId}.driverutil.WebDriverSessionStore
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.remote.RemoteWebDriver
-import ${groupId}.pageobjects.AbstractPage
+import ${package}.${artifactId}.pageobjects.AbstractPage
 import io.cucumber.java8.En
 import kotlin.reflect.KClass
 import logger

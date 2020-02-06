@@ -1,4 +1,4 @@
-package ${package}
+package ${package}.${artifactId}.driverutil
 
 import io.github.bonigarcia.wdm.WebDriverManager
 import org.openqa.selenium.WebDriver
