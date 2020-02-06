@@ -1,4 +1,4 @@
-package at.co.boris.secuton.pageobjects
+package ${groupId}
 
 enum class PageUrls(val subUrl: String) {
     HOME("/"),

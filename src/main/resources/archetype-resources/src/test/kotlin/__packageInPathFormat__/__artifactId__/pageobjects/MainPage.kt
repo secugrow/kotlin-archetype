@@ -1,6 +1,6 @@
-package at.co.boris.secuton.pageobjects
+package ${groupId}
 
-import at.co.boris.secuton.driverutil.WebDriverSession
+import ${package}.driverutil.WebDriverSession
 import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 

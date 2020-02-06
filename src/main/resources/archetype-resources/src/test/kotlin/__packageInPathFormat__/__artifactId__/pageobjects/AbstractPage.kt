@@ -1,4 +1,3 @@
-//package at.co.boris.secuton.pageobjects
 package ${groupId}
 
 import ${package}.driverutil.WebDriverSession
