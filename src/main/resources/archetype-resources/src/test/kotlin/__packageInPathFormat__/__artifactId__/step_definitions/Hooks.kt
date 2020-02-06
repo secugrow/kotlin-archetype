@@ -1,9 +1,3 @@
-#set( $dollar = '$' )
-#set( $curlyOpen = '{' )
-#set( $curlyClose = '}' )
-#set( $bracketOpen = '(' )
-#set( $bracketClose = ')' )
-
 package ${package}.${artifactId}.step_definitions
 
 import ${package}.${artifactId}.driverutil.WebDriverSessionStore
@@ -54,6 +48,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         if (jobname != null) {
             log.debug("#".padEnd(debuglength, fillchar))
             log.debug("################## JENKINS INFOS: ".padEnd(debuglength, fillchar))
+            log.debug(String.format("BUILD_NUMBER: %s", java.lang.System.getenv("BUILD_NUMBER")).padEnd(debuglength, fillchar))
             log.debug("# BUILD_NUMBER: " +  System.getenv("BUILD_NUMBER") +"".padEnd(debuglength, fillchar))
             log.debug("# JOB_NAME: " + System.getenv("JOB_NAME") + "".padEnd(debuglength, fillchar))
             log.debug("# JENKINS_URL: " +  System.getenv("JENKINS_URL") + "".padEnd(debuglength, fillchar))
