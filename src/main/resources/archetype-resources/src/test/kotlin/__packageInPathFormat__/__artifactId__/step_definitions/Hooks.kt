@@ -47,7 +47,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
         if (jobname != null) {
             log.debug("#".padEnd(debuglength, fillchar))
-            log.debug("################## JENKINS INFOS: ".padEnd(debuglength, fillchar))
+            log.debug(" JENKINS INFOS: ".padStart(18, fillchar).padEnd(debuglength, fillchar))
             log.debug(String.format("BUILD_NUMBER: %s", java.lang.System.getenv("BUILD_NUMBER")).padEnd(debuglength, fillchar))
             log.debug("# BUILD_NUMBER: " +  System.getenv("BUILD_NUMBER") +"".padEnd(debuglength, fillchar))
             log.debug("# JOB_NAME: " + System.getenv("JOB_NAME") + "".padEnd(debuglength, fillchar))
@@ -100,7 +100,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
                         while (pos < heightDocument) {
                             scenario.addResizedScreenshotToReport(webDriverSession.webDriver)
                             pos += heightViewport
-                            jsExecutor.executeScript("window.scrollBy(0,$dollar heightViewport)")
+                            jsExecutor.executeScript("window.scrollBy(0," + heightViewport + ")")
                         }
                     }
                     scenario.addResizedScreenshotToReport(webDriverSession.webDriver)
