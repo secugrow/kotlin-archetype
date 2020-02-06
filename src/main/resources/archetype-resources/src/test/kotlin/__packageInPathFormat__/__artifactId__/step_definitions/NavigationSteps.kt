@@ -11,9 +11,6 @@ class NavigationSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(t
             getWebDriverSession().gotoUrl(PageUrls.HOME, MainPage::class, testDataContainer)
         }
 
-        When("the team site is opened") {
-            getPage(MainPage::class).clickMenuEntry("Team")
-        }
     }
 
 }
