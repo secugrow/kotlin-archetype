@@ -1,7 +1,13 @@
-package ${groupId}
+#set( $dollar = '$' )
+#set( $curlyOpen = '{' )
+#set( $curlyClose = '}' )
+#set( $bracketOpen = '(' )
+#set( $bracketClose = ')' )
 
-import ${package}.driverutil.WebDriverSessionStore
-import ${package}.driverutil.isMobile
+package ${package}.${artifactId}.step_definitions
+
+import ${package}.${artifactId}.driverutil.WebDriverSessionStore
+import ${package}.${artifactId}.driverutil.isMobile
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import io.cucumber.core.api.Scenario
@@ -48,11 +54,11 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         if (jobname != null) {
             log.debug("#".padEnd(debuglength, fillchar))
             log.debug("################## JENKINS INFOS: ".padEnd(debuglength, fillchar))
-            log.debug("# BUILD_NUMBER: ${System.getenv("BUILD_NUMBER")}".padEnd(debuglength, fillchar))
-            log.debug("# JOB_NAME: ${System.getenv("JOB_NAME")}".padEnd(debuglength, fillchar))
-            log.debug("# JENKINS_URL: ${System.getenv("JENKINS_URL")}".padEnd(debuglength, fillchar))
-            log.debug("# WORKSPACE: ${System.getenv("WORKSPACE")}".padEnd(debuglength, fillchar))
-            log.debug("# NODE_NAME: ${System.getenv("NODE_NAME")}".padEnd(debuglength, fillchar))
+            log.debug("# BUILD_NUMBER: " +  System.getenv("BUILD_NUMBER") +.padEnd(debuglength, fillchar))
+            log.debug("# JOB_NAME: $dollar$curlyOpen System.getenv$bracketOpen"JOB_NAME"$bracketClose$curlyClose".padEnd(debuglength, fillchar))
+            log.debug("# JENKINS_URL: $dollar$curlyOpen System.getenv$bracketOpen"JENKINS_URL"$bracketClose$curlyClose".padEnd(debuglength, fillchar))
+            log.debug("# WORKSPACE: $dollar$curlyOpen System.getenv$bracketOpen"WORKSPACE"$bracketClose$curlyClose".padEnd(debuglength, fillchar))
+            log.debug("# NODE_NAME: $dollar$curlyOpen System.getenv$bracketOpen"NODE_NAME"$bracketClose$curlyClose".padEnd(debuglength, fillchar))
             log.debug("#".padEnd(debuglength, fillchar))
             testDataContainer.setTestData("localRun", false)
         } else {
@@ -60,7 +66,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         }
 
         log.debug("#".padEnd(debuglength, fillchar))
-        log.info("# executing Scenario: ${scenario.name}".padEnd(debuglength, fillchar))
+        log.info("# executing Scenario: $dollar$curlyOpen scenario.name$curlyClose ".padEnd(debuglength, fillchar))
         log.debug("#".padEnd(debuglength, fillchar))
     }
 
@@ -78,8 +84,8 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         if (webDriverSession?.currentPage != null) {
             try {
                 val isMobile = (webDriverSession.webDriver as RemoteWebDriver).isMobile()
-                scenario.write("isMobile active for used webdriver: $isMobile")
-                scenario.write("Last page which was used: ${webDriverSession.currentPage}")
+                scenario.write("isMobile active for used webdriver: " + isMobile)
+                scenario.write("Last page which was used: " + webDriverSession.currentPage)
                 scenario.embed(webDriverSession.webDriver.pageSource.toByteArray(), "text/html")
 
                 if (isMobile) {
@@ -99,7 +105,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
                         while (pos < heightDocument) {
                             scenario.addResizedScreenshotToReport(webDriverSession.webDriver)
                             pos += heightViewport
-                            jsExecutor.executeScript("window.scrollBy(0,$heightViewport)")
+                            jsExecutor.executeScript("window.scrollBy(0,$dollar heightViewport)")
                         }
                     }
                     scenario.addResizedScreenshotToReport(webDriverSession.webDriver)
@@ -108,7 +114,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
                 if (testDataContainer.isLocalRun()) {
                     val screenshot = (webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.FILE)
-                    FileUtils.copyFile(screenshot, File(System.getProperty("user.dir") + "/target/error_selenium_${testId}_${testDataContainer.getCurrentSessionId()}.png"))
+                    FileUtils.copyFile(screenshot, File(System.getProperty("user.dir") + "/target/error_selenium_" + testId + "_" + testDataContainer.getCurrentSessionId() + ".png"))
                 } else {
                     scenario.embed((webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES), "image/png")
                 }
