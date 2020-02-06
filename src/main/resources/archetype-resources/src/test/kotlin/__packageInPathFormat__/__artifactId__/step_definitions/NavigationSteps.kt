@@ -1,7 +1,7 @@
-package at.co.boris.secuton.step_definitions
+package ${groupId}
 
-import at.co.boris.secuton.pageobjects.MainPage
-import at.co.boris.secuton.pageobjects.PageUrls
+import ${package}.pageobjects.MainPage
+import ${package}.pageobjects.PageUrls
 
 
 class NavigationSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(testDataContainer) {

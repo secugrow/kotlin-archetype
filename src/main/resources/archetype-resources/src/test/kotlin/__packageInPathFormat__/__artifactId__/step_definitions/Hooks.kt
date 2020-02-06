@@ -1,7 +1,7 @@
-package at.co.boris.secuton.step_definitions
+package ${groupId}
 
-import at.co.boris.secuton.driverutil.WebDriverSessionStore
-import at.co.boris.secuton.driverutil.isMobile
+import ${package}.driverutil.WebDriverSessionStore
+import ${package}.driverutil.isMobile
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import io.cucumber.core.api.Scenario
@@ -89,7 +89,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
                     (webDriverSession.webDriver as AppiumDriver<*>).context(currentContext)
                 } else {
                     val jsExecutor = (webDriverSession.webDriver as JavascriptExecutor)
-                    jsExecutor.executeScript("window.scrollTo(0,0)")
+                    jsExecutor.executeScript("windowscrollTo(0,0)")
                     val isScrollbarPresent = jsExecutor.executeScript("return document.documentElement.scrollHeigh>window.screen.height") as Boolean
                     if (isScrollbarPresent) {
                         val heightDocument = jsExecutor.executeScript("return document.body.scrollHeight") as Long

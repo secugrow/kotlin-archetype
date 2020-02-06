@@ -1,9 +1,9 @@
-package at.co.boris.secuton.step_definitions
+package ${groupId}
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.isGreaterThan
-import at.co.boris.secuton.pageobjects.MainPage
+import ${package}.pageobjects.MainPage
 
 
 class MainPageSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(testDataContainer) {
