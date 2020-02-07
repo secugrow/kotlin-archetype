@@ -16,7 +16,7 @@
         <include>**/*.java</include>
       </includes>
     </fileSet>
-    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+    <fileSet filtered="true" encoding="UTF-8">
       <directory>src/test/kotlin</directory>
       <includes>
         <include>**/*.kt</include>
