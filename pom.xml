@@ -4,7 +4,7 @@
 
     <groupId>at.co.boris</groupId>
     <artifactId>secuton-archetype</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>secuton-kotlin-archetype</name>

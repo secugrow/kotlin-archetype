@@ -26,5 +26,10 @@ class SessionSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(test
             assertThat(getWebDriverSession().webDriver.windowHandles.size).isEqualTo(expCount)
         }
 
+        Then("{string} should be still on software testing") { sessionID: String ->
+            assertThat(getWebDriverSession(sessionID).webDriver.currentUrl).endsWith("/Software_testing")
+        }
+
+
     }
 }

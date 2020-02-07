@@ -2,9 +2,7 @@ package ${groupId}.${artifactId}.pageobjects
 
 enum class PageUrls(val subUrl: String) {
     HOME("/"),
-    TERMS("/discolsure"),
-    CONTACT("/contact");
-
+    SOFTWARETEST("/wiki/Software_testing");
 
     fun getFullUrl(baseUrl: String): String? {
         return baseUrl + subUrl
