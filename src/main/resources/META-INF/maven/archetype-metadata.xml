@@ -17,12 +17,6 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
-      <directory>.idea/runConfigurations</directory>
-      <includes>
-        <include>**/*.xml</include>
-      </includes>
-    </fileSet>
-    <fileSet encoding="UTF-8">
       <includes>
         <include>LICENSE.txt</include>
         <include>README.md</include>
