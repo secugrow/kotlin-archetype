@@ -1,9 +1,9 @@
 package ${package}.driverutil
 
 import assertk.fail
-import ${package}.${artifactId}.pageobjects.AbstractPage
-import ${package}.${artifactId}.pageobjects.PageUrls
-import ${package}.${artifactId}.step_definitions.TestDataContainer
+import ${package}.pageobjects.AbstractPage
+import ${package}.pageobjects.PageUrls
+import ${package}.step_definitions.TestDataContainer
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.remote.RemoteWebDriver
 import kotlin.reflect.KClass
