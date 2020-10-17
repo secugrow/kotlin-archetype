@@ -1,5 +1,7 @@
 # SeCuton - Selenium Cucumber Skeleton
 
+main
+
 If you want to start as fast as possible with [Selenium](https://github.com/SeleniumHQ/selenium) in combination with [Cucumber](https://github.com/cucumber/cucumber) you are absolutely right here. Just clone this repo and start it. It contains executable minimalistic examples so you can create your own scenarios easily and fast.
 
 You should be familiar with [Kotlin](https://kotlinlang.org/) (or Java) and Cucumber to create new scenarios and corresponding glue code.
