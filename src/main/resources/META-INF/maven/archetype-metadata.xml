@@ -8,6 +8,7 @@
       <includes>
         <include>**/*.feature</include>
         <include>**/*.java</include>
+        <include>junit-platform.properties</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
