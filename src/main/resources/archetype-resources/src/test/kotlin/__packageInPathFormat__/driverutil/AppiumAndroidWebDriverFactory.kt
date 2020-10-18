@@ -17,9 +17,9 @@ import java.net.URL
 
 class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
-        WebDriverManager.chromedriver().version(getBrowserVersion()).setup()
+        WebDriverManager.chromedriver().driverVersion(getBrowserVersion()).setup()
 
-        val path2chromeDriver = WebDriverManager.chromedriver().binaryPath.substringBeforeLast(File.separator)
+        val path2chromeDriver = WebDriverManager.chromedriver().downloadedDriverPath.substringBeforeLast(File.separator)
 
 
         caps.setCapability("chromedriverExecutableDir", path2chromeDriver)

@@ -9,7 +9,7 @@ class IEWebDriverFactory : WebDriverFactory(){
     override fun createDriver(): WebDriver {
 
         //FIXME Hardcoded Version!
-        WebDriverManager.iedriver().version("3.9.0").setup()
+        WebDriverManager.iedriver().driverVersion("3.9.0").setup()
         val options = InternetExplorerOptions()
 
         webDriver = InternetExplorerDriver(options)

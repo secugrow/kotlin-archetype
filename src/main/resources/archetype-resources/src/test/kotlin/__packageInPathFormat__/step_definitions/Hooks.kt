@@ -4,11 +4,12 @@ import ${package}.driverutil.WebDriverSessionStore
 import ${package}.driverutil.isMobile
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
-import io.cucumber.core.api.Scenario
 import io.cucumber.java.After
 import io.cucumber.java.Before
+import io.cucumber.java.Scenario
 import logger
 import org.apache.commons.io.FileUtils
+import org.imgscalr.Scalr
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.OutputType
 import org.openqa.selenium.TakesScreenshot
@@ -19,7 +20,6 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.File
 import javax.imageio.ImageIO
-import org.imgscalr.Scalr
 
 
 class Hooks(private val testDataContainer: TestDataContainer) {
@@ -28,7 +28,6 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
     @Before
     fun beforeScrenario(scenario: Scenario) {
-
 
         val fillchar = '#'
         val debuglength = 80
@@ -79,14 +78,15 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         if (webDriverSession?.currentPage != null) {
             try {
                 val isMobile = (webDriverSession.webDriver as RemoteWebDriver).isMobile()
-                scenario.write("isMobile active for used webdriver: " + isMobile)
-                scenario.write("Last page which was used: " + webDriverSession.currentPage)
-                scenario.embed(webDriverSession.webDriver.pageSource.toByteArray(), "text/html")
+                scenario.log("isMobile active for used webdriver: " + isMobile)
+                scenario.log("Last page which was used: " + webDriverSession.currentPage)
+                scenario.attach(webDriverSession.webDriver.pageSource.toByteArray(), "text/html","pagesource")
 
                 if (isMobile) {
                     val currentContext = (webDriverSession.webDriver as AppiumDriver<*>).context
                     (webDriverSession.webDriver as AppiumDriver<*>).context("NATIVE_APP")
-                    scenario.embed((webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES), "image/png")
+                    scenario.attach((webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),"image/png", "Screenshot")
+
                     (webDriverSession.webDriver as AppiumDriver<*>).context(currentContext)
                 } else {
                     val jsExecutor = (webDriverSession.webDriver as JavascriptExecutor)
@@ -111,11 +111,11 @@ class Hooks(private val testDataContainer: TestDataContainer) {
                     val screenshot = (webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.FILE)
                     FileUtils.copyFile(screenshot, File(System.getProperty("user.dir") + "/target/error_selenium_" + testId + "_" + testDataContainer.getCurrentSessionId() + ".png"))
                 } else {
-                    scenario.embed((webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES), "image/png")
+                    scenario.attach((webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES), "image/png", "Screenshot")
                 }
 
             } finally {
-                WebDriverSessionStore.quitAll()
+                WebDriverSessionStore.remove(testId)
             }
         }
     }
@@ -123,17 +123,17 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
     private fun Scenario.addResizedScreenshotToReport(webDriver: WebDriver) {
         if (testDataContainer.isMobileEmulation()) {
-            this.embed(resizeScreenshot(webDriver), "image/png", "Mobile Screenshot")
+            this.attach(resizeScreenshot(webDriver), "image/png", "Mobile Screenshot")
             return
         }
 
         if (webDriver is AndroidDriver<*>) {
-            this.embed(resizeScreenshot(webDriver), "image/png", "Android Screenshot")
+            this.attach(resizeScreenshot(webDriver), "image/png", "Android Screenshot")
             return
         }
 
         //else
-        this.embed((webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES), "image/png", "Screenshot")
+        this.attach((webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES), "image/png", "Screenshot")
 
     }
 

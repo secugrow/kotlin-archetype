@@ -7,7 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver
 class EdgeWebDriverFactory : WebDriverFactory(){
     override fun createDriver(): WebDriver {
 
-        WebDriverManager.edgedriver().version(getDriverVersion()).setup()
+        WebDriverManager.edgedriver().driverVersion(getDriverVersion()).setup()
         checkEnvironment()
 
         webDriver = EdgeDriver()
