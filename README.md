@@ -1,6 +1,10 @@
 # SeCuton - Selenium Cucumber Skeleton Generator
 
 
+### Looking for the documentation how to use it after generating an project from this archetype?
+[follow this link](src/main/resources/archetype-resources/README.md)
+
+
 ## How to generate a skeleton with this archetype
 
 
