@@ -15,7 +15,7 @@ OR
 
 copy a jar from releases to your local maven repository in the correct path:
 
-<user dir, depens on your OS>/.m2/repository/at/co/boris/secuton-archetype/<version>/secuton-archetype-<version>.jar
+<user dir, depens on your OS>/.m2/repository/at/co/boris/secuton-archetype/<version>secuton-archetype-<version>.jar
 
 You're all set - feel free to use the archetype.
 
