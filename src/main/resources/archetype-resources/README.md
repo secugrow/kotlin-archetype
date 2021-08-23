@@ -1,5 +1,7 @@
 # SeCuton - Selenium Cucumber Skeleton
 
+main
+
 If you want to start as fast as possible with [Selenium](https://github.com/SeleniumHQ/selenium) in combination with [Cucumber](https://github.com/cucumber/cucumber) you are absolutely right here. Just clone this repo and start it. It contains executable minimalistic examples so you can create your own scenarios easily and fast.
 
 You should be familiar with [Kotlin](https://kotlinlang.org/) (or Java) and Cucumber to create new scenarios and corresponding glue code.
@@ -12,7 +14,7 @@ Reports will be generated with [Cluecumber Report](https://github.com/trivago/cl
 
 
 ## Prerequisites
-* Java SDK (tested with Version 11 and 12)
+* Java SDK (recommended Version 15)
 * Maven
 
 ### Optional
@@ -28,6 +30,7 @@ Reports will be generated with [Cluecumber Report](https://github.com/trivago/cl
 
 * Option 2: Start directly from IDEA with a runConfiguration
 ![idea run configuration](docs/images/idea_runConfig.png)
+Use the runConfiguration File which is located in the resources-folder and adapt the parameter for your need
 
 In both cases you need to define some parameters to get the tests running:
 
@@ -123,3 +126,15 @@ Example of runtime configuration for running a test on a emulated Android device
         -Dselenium.grid=http://localhost:4723
         -Ddriver.version=2.34
         -Ddevice.id="emulator-5554"
+
+
+# Troubleshooting
+## IDEA Configuration
+
+If the generated project does not compile or cannot be started from IDEA, check the Version of the JDK
+Use an JDK Version from 12 to 15
+
+* File - Project Structure ...
+![name](src/test/resources/docs/project_sdk_settings.png)
+
+//TODO show how to add jar for intellij to classpath

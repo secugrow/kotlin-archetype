@@ -1,7 +1,7 @@
 package ${package}.step_definitions
 
 import ${package}.driverutil.DriverType
-import io.cucumber.core.api.Scenario
+import io.cucumber.java.Scenario
 import java.util.*
 
 
@@ -10,6 +10,7 @@ class TestDataContainer {
 
     init {
         testDataMap["testId"] = "init"
+        testDataMap["initialized"] = false
     }
 
     fun getScenario() = testDataMap["scenario"] as Scenario
@@ -80,10 +81,7 @@ class TestDataContainer {
         }
     }
 
-    fun needsInitializing(): Boolean {
-        val init = (testDataMap["initialized"] as Boolean)
-        return !init
-    }
+    fun needsInitializing(): Boolean = (testDataMap["initialized"] as Boolean)
 
     fun isLocalRun(): Boolean {
         return (testDataMap["localRun"] as Boolean)

@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit
 
 object DriverFactory {
 
+    private const val TIMEOUT : Long = 10
     private val log by logger()
 
     fun createWebDriver(scenarioId: String): WebDriver {
@@ -57,15 +58,14 @@ object DriverFactory {
                 webDriver = RemoteChromeMobileWebDriverFactory().createDriver()
             }
             DriverType.REMOTE_ANDROID -> {
-               webDriver = RemoteAndroidWebDriverFactory().createDriver()
+                webDriver = RemoteAndroidWebDriverFactory().createDriver()
             }
             DriverType.APPIUM_ANDROID_DEVICE -> {
                 webDriver = AppiumAndroidWebDriverFactory().createDriver()
             }
         }
 
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
-
+        webDriver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS)
         return webDriver
     }
 

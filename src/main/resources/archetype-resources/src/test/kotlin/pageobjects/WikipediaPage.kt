@@ -8,7 +8,7 @@ import org.openqa.selenium.By
 class WikipediaPage(session: WebDriverSession) : MainPage(session)  {
 
     fun isSearchbarPresent(): Boolean {
-        return webDriver.findElements(By.id("searchInput")).size >= 1
+        return webDriver.findElements(By.id("txtSearch")).size >= 1
     }
 
 
