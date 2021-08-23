@@ -10,7 +10,7 @@ class OperaWebDriverFactory : WebDriverFactory() {
 
         val driverVersion = System.getProperty("driver.version")
 
-        WebDriverManager.operadriver().version(driverVersion).setup()
+        WebDriverManager.operadriver().driverVersion(driverVersion).setup()
         val options = OperaOptions()
 
         webDriver = OperaDriver(options)

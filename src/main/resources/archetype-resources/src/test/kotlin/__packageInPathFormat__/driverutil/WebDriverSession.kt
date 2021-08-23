@@ -41,7 +41,7 @@ class WebDriverSession(private val testId: String) {
 
         val fullUrl = baseUrl + subUrl.subUrl
         webDriver.get(fullUrl)
-        scenario.write("URL used: $fullUrl")
+        scenario.log("URL used: $fullUrl")
         openPage(subUrl, pageClass)
     }
 

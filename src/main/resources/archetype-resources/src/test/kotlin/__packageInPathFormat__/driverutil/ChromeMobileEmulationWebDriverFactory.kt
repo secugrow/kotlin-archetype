@@ -10,7 +10,7 @@ class ChromeMobileEmulationWebDriverFactory : WebDriverFactory() {
 
 
     override fun createDriver(): WebDriver {
-        WebDriverManager.chromedriver().version(getDriverVersion()).setup()
+        WebDriverManager.chromedriver().driverVersion(getDriverVersion()).setup()
 
         val capabilities = DesiredCapabilities()
         capabilities.browserName = "chrome"
