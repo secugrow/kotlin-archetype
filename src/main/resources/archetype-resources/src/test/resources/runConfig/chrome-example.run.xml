@@ -3,7 +3,7 @@
     <option name="FILE_PATH" value="src/test/resources/features" />
     <option name="GLUE" value="${groupId}.step_definitions" />
     <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-    <module name="XXXXXXX" />
+    <module name="${artifactId}" />
     <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --tags &quot;@all&quot; --plugin &quot;json:target/cucumber-report/json/report.json&quot; --plugin &quot;html:target/cucumber-report/html&quot;" />
     <shortenClasspath name="NONE" />
     <option name="VM_PARAMETERS" value="-Dbrowser=chrome -DbaseUrl=&quot;https://www.wikipedia.org&quot;" />
