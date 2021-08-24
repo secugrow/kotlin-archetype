@@ -19,7 +19,6 @@
     <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
     <maven.failsafe.plugin.version>2.22.1</maven.failsafe.plugin.version>
     <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
-    <cluecumber.report.version>2.2.0</cluecumber.report.version>
   </properties>
 
   <dependencies>
@@ -175,28 +174,6 @@
           <!--<reuseForks>false</reuseForks>-->
           <argLine>-Dfile.encoding=UTF-8</argLine>
           <disableXmlReport>true</disableXmlReport>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>com.trivago.rta</groupId>
-        <artifactId>cluecumber-report-plugin</artifactId>
-        <version>${cluecumber.report.version}</version>
-        <executions>
-          <execution>
-            <id>report</id>
-            <phase>post-integration-test</phase>
-            <goals>
-              <goal>reporting</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
-          <customParameters>
-            <Projektname>Customer Portal</Projektname>
-            <Test_Environment>Jeknins URL Here</Test_Environment>
-          </customParameters>
-          <generatedHtmlReportDirectory>${project.build.directory}/test-report</generatedHtmlReportDirectory>
         </configuration>
       </plugin>
       <plugin>
