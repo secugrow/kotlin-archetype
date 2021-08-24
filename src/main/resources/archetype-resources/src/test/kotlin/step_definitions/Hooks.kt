@@ -1,3 +1,8 @@
+#set( $dollar = '$' )
+#set( $curlyOpen = '{' )
+#set( $curlyClose = '}' )
+#set( $bracketOpen = '(' )
+#set( $bracketClose = ')' )
 package ${package}.step_definitions
 
 import ${package}.driverutil.WebDriverSessionStore
@@ -45,15 +50,17 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         //Do Database resets here
 
         if (jobname != null) {
-            log.debug("#".padEnd(debuglength, fillchar))
-            log.debug(" JENKINS INFOS: ".padStart(18, fillchar).padEnd(debuglength, fillchar))
-            log.debug(String.format("BUILD_NUMBER: %s", java.lang.System.getenv("BUILD_NUMBER")).padEnd(debuglength, fillchar))
-            log.debug("# BUILD_NUMBER: " +  System.getenv("BUILD_NUMBER") +"".padEnd(debuglength, fillchar))
-            log.debug("# JOB_NAME: " + System.getenv("JOB_NAME") + "".padEnd(debuglength, fillchar))
-            log.debug("# JENKINS_URL: " +  System.getenv("JENKINS_URL") + "".padEnd(debuglength, fillchar))
-            log.debug("# WORKSPACE: " +  System.getenv("WORKSPACE") + "".padEnd(debuglength, fillchar))
-            log.debug("# NODE_NAME: " +  System.getenv("NODE_NAME") + "".padEnd(debuglength, fillchar))
-            log.debug("#".padEnd(debuglength, fillchar))
+            log.debug(
+                "${fillchar.toString().padEnd(debuglength, fillchar)}\n" +
+                        " JENKINS INFOS:".padStart(18, fillchar).padEnd(debuglength, fillchar) + "\n" +
+                        "$dollar$curlyOpen String.format("BUILD_NUMBER: %s", System.getProperty("BUILD_NUMBER")).padEnd(debuglength, fillchar)$curlyClose\n" +
+                        "# BUILD_NUMBER:".plus(System.getenv("BUILD_NUMBER")).plus("".padEnd(debuglength, fillchar)).plus("\n") +
+                        "# JOB_NAME: " + System.getenv("JOB_NAME") + "".padEnd(debuglength, fillchar) + "\n" +
+                        "# JENKINS_URL: " + System.getenv("JENKINS_URL") + "".padEnd(debuglength, fillchar) + "\n" +
+                        "# WORKSPACE: " + System.getenv("WORKSPACE") + "".padEnd(debuglength, fillchar) + "\n" +
+                        "# NODE_NAME: " + System.getenv("NODE_NAME") + "".padEnd(debuglength, fillchar) + "\n" +
+                        "#".padEnd(debuglength, fillchar)
+            )
             testDataContainer.setTestData("localRun", false)
         } else {
             testDataContainer.setTestData("localRun", true)

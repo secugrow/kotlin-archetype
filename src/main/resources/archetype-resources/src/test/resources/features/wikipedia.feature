@@ -1,7 +1,6 @@
 @all
 Feature: [wikipedia] Example Feature
 
-
   Scenario: [WIK-01 [wikipedia]
     Given the start page is loaded
     Then the searchbar is visible

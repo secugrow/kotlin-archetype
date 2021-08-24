@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${groupId}</groupId>
@@ -18,7 +19,6 @@
     <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
     <maven.failsafe.plugin.version>2.22.1</maven.failsafe.plugin.version>
     <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
-    <cluecumber.report.version>2.2.0</cluecumber.report.version>
   </properties>
 
   <dependencies>
@@ -30,7 +30,7 @@
     <dependency>
       <groupId>com.willowtreeapps.assertk</groupId>
       <artifactId>assertk-jvm</artifactId>
-      <version>0.17</version>
+      <version>0.23</version>
     </dependency>
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
@@ -140,11 +140,11 @@
           <sources>
             <source>${project.build.directory}/parallel/runners</source>
           </sources>
-          <value />
-          <source />
-          <fileSet />
-          <name />
-          <regex />
+          <value/>
+          <source/>
+          <fileSet/>
+          <name/>
+          <regex/>
         </configuration>
       </plugin>
       <plugin>
@@ -177,28 +177,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>com.trivago.rta</groupId>
-        <artifactId>cluecumber-report-plugin</artifactId>
-        <version>${cluecumber.report.version}</version>
-        <executions>
-          <execution>
-            <id>report</id>
-            <phase>post-integration-test</phase>
-            <goals>
-              <goal>reporting</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <sourceJsonReportDirectory>${project.build.directory}/cucumber-report</sourceJsonReportDirectory>
-          <customParameters>
-            <Projektname>Customer Portal</Projektname>
-            <Test_Environment>Jeknins URL Here</Test_Environment>
-          </customParameters>
-          <generatedHtmlReportDirectory>${project.build.directory}/test-report</generatedHtmlReportDirectory>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven.compiler.plugin.version}</version>
@@ -219,8 +197,8 @@
           </execution>
         </executions>
         <configuration>
-          <source>8</source>
-          <target>8</target>
+          <source>15</source>
+          <target>15</target>
         </configuration>
       </plugin>
     </plugins>
