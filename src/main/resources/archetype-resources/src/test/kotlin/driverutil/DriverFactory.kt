@@ -20,53 +20,27 @@ object DriverFactory {
         val driverType = DriverType.valueOf(browserName)
 
 
-        when (driverType) {
-            DriverType.CHROME -> { //checked
-                webDriver = ChromeWebDriverFactory().createDriver()
-            }
-            DriverType.FIREFOX -> { //checked
-                webDriver = FirefoxWebDriverFactory().createDriver()
-            }
-            DriverType.EDGE -> { //checked
-                webDriver = EdgeWebDriverFactory().createDriver()
-            }
-            DriverType.IE -> {
-                webDriver = IEWebDriverFactory().createDriver()
-            }
-            DriverType.OPERA -> {
-                webDriver = OperaWebDriverFactory().createDriver()
-            }
+        val webdriver = when (driverType) {
+            DriverType.CHROME -> ChromeWebDriverFactory().createDriver()
+            DriverType.FIREFOX -> FirefoxWebDriverFactory().createDriver()
+            DriverType.EDGE -> EdgeWebDriverFactory().createDriver()
 
-            DriverType.LOCAL_CHROME_MOBILE_EMULATION -> { //checked
-                webDriver = ChromeMobileEmulationWebDriverFactory().createDriver()
-            }
+            DriverType.IE -> IEWebDriverFactory().createDriver()
+            DriverType.OPERA -> OperaWebDriverFactory().createDriver()
+            DriverType.LOCAL_CHROME_MOBILE_EMULATION -> ChromeMobileEmulationWebDriverFactory().createDriver()
 
             /* Appium Implementations */
             DriverType.APPIUM_NATIVE_APP_ANDROID -> AppiumNativeAppAndroidDriverFactory(proxyPort).createDriver(2)
 
             /* REMOTE Implementations */
 
-            DriverType.REMOTE_CHROME_MOBILE_EMULATION -> { //checked
-                webDriver = RemoteChromeMobileEmulationWebDriverFactory().createDriver()
-            }
-            DriverType.REMOTE_OPERA -> { //checked
-                webDriver = RemoteOperaWebDriverFactory().createDriver()
-            }
-            DriverType.REMOTE_CHROME -> { //checked
-                webDriver = RemoteChromeWebDriverFactory().createDriver()
-            }
-            DriverType.REMOTE_FIREFOX -> { //checked
-                webDriver = RemoteFirefoxWebDriverFactory().createDriver()
-            }
-            DriverType.REMOTE_CHROME_MOBILE -> {
-                webDriver = RemoteChromeMobileWebDriverFactory().createDriver()
-            }
-            DriverType.REMOTE_ANDROID -> {
-                webDriver = RemoteAndroidWebDriverFactory().createDriver()
-            }
-            DriverType.APPIUM_ANDROID_DEVICE -> {
-                webDriver = AppiumAndroidWebDriverFactory().createDriver()
-            }
+            DriverType.REMOTE_CHROME_MOBILE_EMULATION -> RemoteChromeMobileEmulationWebDriverFactory().createDriver()
+            DriverType.REMOTE_OPERA -> RemoteOperaWebDriverFactory().createDriver()
+            DriverType.REMOTE_CHROME -> RemoteChromeWebDriverFactory().createDriver()
+            DriverType.REMOTE_FIREFOX -> RemoteFirefoxWebDriverFactory().createDriver()
+            DriverType.REMOTE_CHROME_MOBILE -> RemoteChromeMobileWebDriverFactory().createDriver()
+            DriverType.REMOTE_ANDROID -> RemoteAndroidWebDriverFactory().createDriver()
+            DriverType.APPIUM_ANDROID_DEVICE -> AppiumAndroidWebDriverFactory().createDriver()
         }
 
         webDriver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS)
