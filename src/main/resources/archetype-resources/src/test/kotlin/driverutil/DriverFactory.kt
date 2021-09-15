@@ -40,6 +40,10 @@ object DriverFactory {
             DriverType.LOCAL_CHROME_MOBILE_EMULATION -> { //checked
                 webDriver = ChromeMobileEmulationWebDriverFactory().createDriver()
             }
+
+            /* Appium Implementations */
+            DriverType.APPIUM_NATIVE_APP_ANDROID -> AppiumNativeAppAndroidDriverFactory(proxyPort).createDriver(2)
+
             /* REMOTE Implementations */
 
             DriverType.REMOTE_CHROME_MOBILE_EMULATION -> { //checked
