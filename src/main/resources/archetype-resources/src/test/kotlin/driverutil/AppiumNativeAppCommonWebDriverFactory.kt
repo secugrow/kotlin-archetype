@@ -1,4 +1,4 @@
-package `archetype-resources`.src.test.kotlin.driverutil
+package ${package}.driverutil
 
 abstract class AppiumNativeAppCommonWebDriverFactory: RemoteWebDriverFactory() {
     protected fun getMobileDeviceId(): String {
