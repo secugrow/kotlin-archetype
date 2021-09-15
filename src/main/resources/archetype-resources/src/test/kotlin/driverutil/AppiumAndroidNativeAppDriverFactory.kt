@@ -17,7 +17,6 @@ import java.net.URL
 
 class AppiumAndroidNativeAppDriverFactory(private val proxyPort: Int? = null): AppiumNativeAppCommonWebDriverFactory() {
     override fun createDriver(): WebDriver {
-        if (proxyPort != null) setProxy(proxyPort)
         return createDriver(2)
     }
 
