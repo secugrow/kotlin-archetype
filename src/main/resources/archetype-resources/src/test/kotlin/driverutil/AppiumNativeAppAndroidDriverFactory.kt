@@ -1,4 +1,9 @@
-package `archetype-resources`.src.test.kotlin.driverutil
+#set( $dollar = '$' )
+#set( $curlyOpen = '{' )
+#set( $curlyClose = '}' )
+#set( $bracketOpen = '(' )
+#set( $bracketClose = ')' )
+package ${package}.driverutil
 
 import assertk.fail
 import io.appium.java_client.android.AndroidDriver
@@ -33,7 +38,7 @@ class AppiumNativeAppAndroidDriverFactory(private val proxyPort: Int? = null): A
         caps.setCapability(MobileCapabilityType.UDID, getMobileDeviceId())
         caps.setCapability(MobileCapabilityType.APP, System.getProperty("apk.path", "missing parameter for path to apk 'apk.path'"))
 
-        val appiumServer = URL("${getRemoteTestingServer()}/wd/hub")
+        val appiumServer = URL("$dollar$curlyOpen getRemoteTestingServer$bracketOpen$bracketClose$curlyClose/wd/hub")
         try {
             webDriver = AndroidDriver<AndroidElement>(appiumServer, caps)
         } catch (e: WebDriverException) {
