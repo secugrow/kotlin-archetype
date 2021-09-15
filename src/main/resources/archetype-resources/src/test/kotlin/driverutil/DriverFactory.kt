@@ -30,7 +30,7 @@ object DriverFactory {
             DriverType.LOCAL_CHROME_MOBILE_EMULATION -> ChromeMobileEmulationWebDriverFactory().createDriver()
 
             /* Appium Implementations */
-            DriverType.APPIUM_NATIVE_APP_ANDROID -> AppiumNativeAppAndroidDriverFactory(proxyPort).createDriver(2)
+            DriverType.APPIUM_NATIVE_APP_ANDROID -> AppiumNativeAppAndroidDriverFactory().createDriver(2)
 
             /* REMOTE Implementations */
 
