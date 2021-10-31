@@ -1,6 +1,7 @@
-# SeCuGrow - Let your Selenium Cucumber Project grow
 
 ![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_800x400.png)
+
+# SeCuGrow - Let your Selenium Cucumber Project grow
 
 ### Looking for the documentation how to use it after generating an project from this archetype?
 [follow this link](src/main/resources/archetype-resources/README.md)
@@ -25,27 +26,23 @@ You're all set - feel free to use the archetype.
 
 
 
-
-Thx to Adi Musilek (https://github.com/adimusilek) for support
-
 ## Use this archetype to generate a project
 
 
      mvn archetype:generate \  
-        -DarchetypeArtifactId=secuton-archetype \
-        -DarchetypeGroupId=at.co.boris \
+        -DarchetypeArtifactId=kotlin-archetype \
+        -DarchetypeGroupId=io.secugrow \
         -DarchetypeVersion=1.0.0 \
         -DgroupId=<your-group-id> \
         -DartifactId=<your artifactid> \
         -DinteractiveMode=false
 
 
-
 example
 
      mvn archetype:generate \  
-        -DarchetypeArtifactId=secuton-archetype \
-        -DarchetypeGroupId=at.co.boris \
+        -DarchetypeArtifactId=kotlin-archetype \
+        -DarchetypeGroupId=io.secugrow\
         -DarchetypeVersion=1.0 \
         -DgroupId=at.some.test \
         -DartifactId=testArchetype \
