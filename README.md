@@ -1,15 +1,15 @@
-# SeCuton - Selenium Cucumber Skeleton Generator
+# SeCuGrow - Let your Selenium Cucumber Project grow
 
+![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_800x400.png)
 
 ### Looking for the documentation how to use it after generating an project from this archetype?
 [follow this link](src/main/resources/archetype-resources/README.md)
 
 
-## How to generate a skeleton with this archetype
+## How to generate a ready to start project with this archetype
 
-
-This archetype will generate you a SeCuton Skeleton for your projects with your choosen packagenames
-A ready to use showcase ca be cloned/downloaded/forked from https://github.com/boris779/SeCuton.
+This archetype will generate you a Selenium Cucumber Skeleton for your projects with your choosen packagenames
+A ready to use showcase ca be cloned/downloaded/forked from https://github.com/secugrow/generated-project.
 
 ### Installation
 Before being able to make use of the `archetype:generate` command, the project has to be built from its root directory 
