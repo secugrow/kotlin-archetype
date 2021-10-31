@@ -1,5 +1,5 @@
 
-![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_800x400.png)
+![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_150x75.png)
 
 # SeCuGrow - Let your Selenium Cucumber Project grow
 
