@@ -8,7 +8,7 @@ class WikipediaSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(te
 
     init {
         Then("the searchbar is visible") {
-            assertThat(getPage(WikipediaPage::class).isSearchbarPresent(), "Searchbar is not present").isTrue()
+            assertThat(getPage(WikipediaPage::class).isSearchbarPresent(), "Searchbar is present").isTrue()
 
         }
     }
