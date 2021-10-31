@@ -1,5 +1,5 @@
-
-# ![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_150x75.png) - Let your Selenium Cucumber Project grow
+![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_150x75.png)
+# Let your Selenium Cucumber Project grow
 
 ### Looking for the documentation how to use it after generating an project from this archetype?
 [follow this link](src/main/resources/archetype-resources/README.md)
