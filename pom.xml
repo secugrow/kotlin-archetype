@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.secugrow</groupId>
-    <artifactId>secugrow-archetype</artifactId>
-    <version>1.2.0-SNAPSHOT</version>
+    <artifactId>secugrow-kotlin-archetype</artifactId>
+    <version>1.2.1-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>secuton-kotlin-archetype</name>
