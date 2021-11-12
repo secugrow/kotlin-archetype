@@ -28,7 +28,7 @@ You're all set - feel free to use the archetype.
 
 
      mvn archetype:generate \  
-        -DarchetypeArtifactId=kotlin-archetype \
+        -DarchetypeArtifactId=secugrow-kotlin-archetype \
         -DarchetypeGroupId=io.secugrow \
         -DarchetypeVersion=1.0.0 \
         -DgroupId=<your-group-id> \
@@ -39,9 +39,9 @@ You're all set - feel free to use the archetype.
 example
 
      mvn archetype:generate \  
-        -DarchetypeArtifactId=kotlin-archetype \
+        -DarchetypeArtifactId=secugrow-kotlin-archetype \
         -DarchetypeGroupId=io.secugrow\
         -DarchetypeVersion=1.0 \
-        -DgroupId=at.some.test \
-        -DartifactId=testArchetype \
+        -DgroupId=det.atd.live \
+        -DartifactId=fromArchetype \
         -DinteractiveMode=false
