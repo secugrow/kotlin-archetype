@@ -12,7 +12,7 @@ class ChromeWebDriverFactory : WebDriverFactory() {
         WebDriverManager.chromedriver().driverVersion(getDriverVersion()).setup()
         val options = ChromeOptions()
 
-        webDriver = ChromeDriver(options)
+        webDriver = ChromeDriver(options.merge(caps))
         webDriver.manage().window().size = screenDimension.dimension
 
         return webDriver
