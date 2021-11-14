@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="chrome-example" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+  <configuration default="false" name="firefox-example" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
     <option name="FILE_PATH" value="src/test/resources/features" />
     <option name="GLUE" value="${groupId}.step_definitions" />
     <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />

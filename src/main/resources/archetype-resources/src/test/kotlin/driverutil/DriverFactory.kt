@@ -24,6 +24,9 @@ object DriverFactory {
             DriverType.CHROME -> { //checked
                 webDriver = ChromeWebDriverFactory().createDriver()
             }
+            DriverType.CHROMIUM -> {
+                webDriver = ChromiumWebDriverFactory().createDriver()
+            }
             DriverType.FIREFOX -> { //checked
                 webDriver = FirefoxWebDriverFactory().createDriver()
             }
