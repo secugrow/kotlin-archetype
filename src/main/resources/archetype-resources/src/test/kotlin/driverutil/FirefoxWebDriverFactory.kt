@@ -11,8 +11,9 @@ class FirefoxWebDriverFactory : WebDriverFactory() {
     override fun createDriver(): WebDriver {
 
         WebDriverManager.firefoxdriver().driverVersion(getDriverVersion()).setup()
+        val ffOptions = FirefoxOptions()
 
-        webDriver = FirefoxDriver(FirefoxOptions())
+        webDriver = FirefoxDriver(ffOptions.merge(caps))
         webDriver.manage().window().size = screenDimension.dimension
 
         return webDriver

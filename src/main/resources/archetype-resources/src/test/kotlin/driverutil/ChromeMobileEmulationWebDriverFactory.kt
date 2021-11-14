@@ -17,12 +17,12 @@ class ChromeMobileEmulationWebDriverFactory : WebDriverFactory() {
         capabilities.version = getBrowserVersion()
 
         val chromeOptions = ChromeOptions()
-        chromeOptions.merge(capabilities)
+
 
         val mobileEmulation = HashMap<String, String>()
         mobileEmulation["deviceName"] = System.getProperty("emulated.device", emulatedDevices.Pixel_2.phoneName)
         chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation)
-        webDriver = ChromeDriver(chromeOptions)
+        webDriver = ChromeDriver(chromeOptions.merge(capabilities))
         return webDriver
     }
 }
