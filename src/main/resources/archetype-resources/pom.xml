@@ -10,7 +10,7 @@
   <name>Selenium Cucumber Skeleton - Secuton</name>
 
   <properties>
-    <selenium.version>3.141.59</selenium.version>
+    <selenium.version>4.0.0</selenium.version>
     <webdrivermanager.version>5.0.3</webdrivermanager.version>
     <kotlin.version>1.5.31</kotlin.version>
     <cucumber.version>6.11.0</cucumber.version>
