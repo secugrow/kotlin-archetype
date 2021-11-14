@@ -1,11 +1,12 @@
 @all
 Feature: [wikipedia] Example Feature
 
+  @boris
   Scenario: [WIK-01 [wikipedia]
     Given the start page is loaded
     Then the searchbar is visible
 
-  @boris @no_mobile
+  @no_appium
   Scenario: [WIK-02 [wikipedia]
     Given the start page for "User_1" is loaded
     And the start page for "User_2" is loaded
