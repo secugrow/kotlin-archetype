@@ -12,7 +12,7 @@ object DriverFactory {
     fun createWebDriver(scenarioId: String): WebDriver {
 
         val webDriver: WebDriver
-        val browserName = System.getProperty("browser", DriverType.CHROME.toString()).toUpperCase()
+        val browserName = System.getProperty("browser", DriverType.CHROME.toString()).uppercase()
         val driverType = DriverType.valueOf(browserName)
 
 
