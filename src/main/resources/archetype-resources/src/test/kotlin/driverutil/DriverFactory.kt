@@ -1,12 +1,8 @@
 package ${package}.driverutil
 
 import logger
-import org.apache.commons.lang3.StringUtils
-import org.openqa.selenium.Point
 import org.openqa.selenium.WebDriver
-import java.awt.GraphicsDevice
-import java.awt.GraphicsEnvironment
-import java.util.concurrent.TimeUnit
+import java.time.Duration
 
 object DriverFactory {
 
