@@ -11,7 +11,7 @@ fun RemoteWebDriver.isMobile(): Boolean {
 
     val caps = this.capabilities
 
-    if (caps.browserVersion.contains("mobile")) {
+    if (caps.version.contains("mobile")) {
         return true
     }
 
