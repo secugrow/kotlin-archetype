@@ -22,7 +22,7 @@ class EdgeWebDriverFactory : WebDriverFactory(){
             log.warn("Your OS seems not to be Windows")
         }
 
-        if (!System.getenv("Path").toLowerCase().contains("edge")) {
+        if (!System.getenv("Path").lowercase().contains("edge")) {
             log.warn("Your SystemPath seems not to contain edge binary")
         }
 
