@@ -19,11 +19,6 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
         WebDriverManager.chromedriver().driverVersion(getBrowserVersion()).setup()
 
-        val path2chromeDriver = WebDriverManager.chromedriver().downloadedDriverPath.substringBeforeLast(File.separator)
-
-
-        caps.setCapability("chromedriverExecutableDir", path2chromeDriver)
-        caps.setCapability(MobileCapabilityType.APPIUM_VERSION, "1.21.0")
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android")
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium_Android_Device")
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2")
