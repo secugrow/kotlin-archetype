@@ -12,7 +12,7 @@ fun String.md5(): String {
 
 
 fun String.toBoolean(): Boolean {
-    return when (toLowerCase()) {
+    return when (lowercase()) {
         "true", "ja", "yes" -> true
         "false", "nein", "no" -> false
         else -> return false

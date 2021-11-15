@@ -68,7 +68,7 @@ object DriverFactory {
             }
         }
 
-        webDriver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS)
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT))
         return webDriver
     }
 
