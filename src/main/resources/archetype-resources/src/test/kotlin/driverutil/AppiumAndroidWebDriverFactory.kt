@@ -38,7 +38,7 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
             webDriver = AndroidDriver<AndroidElement>(appiumServer, caps)
 
         } catch (e: WebDriverException) {
-            fail("Appium error: $appiumServer ::: Appium started?")
+            fail("Appium error: $appiumServer  exception message: $dollar$curlyOpen e.localizedMessage$curlyClose ::: Appium started?")
         }
 
 
