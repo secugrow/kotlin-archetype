@@ -12,13 +12,16 @@ object DriverFactory {
     fun createWebDriver(scenarioId: String): WebDriver {
 
         val webDriver: WebDriver
-        val browserName = System.getProperty("browser", DriverType.CHROME.toString()).toUpperCase()
+        val browserName = System.getProperty("browser", DriverType.CHROME.toString()).uppercase()
         val driverType = DriverType.valueOf(browserName)
 
 
         when (driverType) {
             DriverType.CHROME -> { //checked
                 webDriver = ChromeWebDriverFactory().createDriver()
+            }
+            DriverType.CHROMIUM -> {
+                webDriver = ChromiumWebDriverFactory().createDriver()
             }
             DriverType.FIREFOX -> { //checked
                 webDriver = FirefoxWebDriverFactory().createDriver()

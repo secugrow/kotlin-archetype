@@ -4,6 +4,7 @@ import org.openqa.selenium.Dimension
 
 enum class DriverType {
     CHROME,
+    CHROMIUM,
     FIREFOX,
     OPERA,
     EDGE,
