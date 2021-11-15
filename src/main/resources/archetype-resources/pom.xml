@@ -7,7 +7,7 @@
   <artifactId>${artifactId}</artifactId>
   <version>${version}</version>
 
-  <name>Selenium Cucumber Skeleton - Secuton</name>
+  <name>Selenium Cucumber Generator - SeCuGrow</name>
 
   <properties>
     <selenium.version>4.0.0</selenium.version>
