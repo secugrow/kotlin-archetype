@@ -26,7 +26,7 @@ Reports will be generated with [Cluecumber Report](https://github.com/trivago/cl
 
 * Option 1: Start with Maven
 
-     `clean install -DbaseUrl=http://peso.inso.tuwien.ac.at -f pom.xml` 
+     `mvn clean verify -Dbrowser=chrome -DbaseUrl="https://www.wikipedia.org" -Ddriver.version=95` 
 
 * Option 2: Start directly from IDEA with a runConfiguration
 ![idea run configuration](docs/images/idea_runConfig.png)
