@@ -4,7 +4,7 @@
     <option name="GLUE" value="${groupId}.step_definitions" />
     <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
     <module name="${artifactId}" />
-    <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --tags &quot;not @no_mobile&quot; --plugin &quot;json:target/cucumber-report/json/report.json&quot; --plugin &quot;html:target/cucumber-report/html&quot;" />
+    <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --tags &quot;not @no_appium&quot; --plugin &quot;json:target/cucumber-report/json/report.json&quot; --plugin &quot;html:target/cucumber-report/html&quot;" />
     <shortenClasspath name="NONE" />
     <option name="VM_PARAMETERS" value="-Dbrowser=local_chrome_mobile_emulation -DbaseUrl=&quot;https://www.wikipedia.org&quot; -Ddriver.version=95" />
     <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
