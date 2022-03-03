@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Pushes to another repository
+      uses: ./.github/actions/generate_archetype_output
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
