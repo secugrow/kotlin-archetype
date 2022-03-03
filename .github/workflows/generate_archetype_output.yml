@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: use the archetype
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -13,8 +13,6 @@ on:
         description: 'Person to greet'
         # Default value if no value is explicitly provided
         default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -34,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Pushes to another repository
+        uses: secugrow/kotlin-archetype@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
