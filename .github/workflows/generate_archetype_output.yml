@@ -32,7 +32,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Pushes to another repository
-        uses: secugrow/kotlin-archetype@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
