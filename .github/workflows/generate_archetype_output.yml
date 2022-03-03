@@ -31,6 +31,8 @@ jobs:
   deploy:   
     runs-on: ubuntu-latest
     steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
     - name: Pushes to another repository
       uses: ./.github/actions/generate_archetype_output
       env:
