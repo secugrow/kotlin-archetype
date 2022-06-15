@@ -20,7 +20,11 @@ OR
 
 copy a jar from releases to your local maven repository in the correct path:
 
-<user dir, depens on your OS>/.m2/repository/io/secugrow/secugrow-kotlin-archetype/<version>/secugrow-kotlin-archetype-<version>.jar
+    <user dir, depens on your OS>/.m2/repository/io/secugrow/secugrow-kotlin-archetype/<version>/secugrow-kotlin-archetype-<version>.jar
+
+OR
+
+using a release archetype from maven-central (comming soon)
 
 You're all set - feel free to use the archetype.
 
@@ -32,7 +36,7 @@ You're all set - feel free to use the archetype.
      mvn archetype:generate \  
         -DarchetypeArtifactId=secugrow-kotlin-archetype \
         -DarchetypeGroupId=io.secugrow \
-        -DarchetypeVersion=1.2.1 \
+        -DarchetypeVersion=1.2.2 \
         -DgroupId=<your-group-id> \
         -DartifactId=<your artifactid> \
         -DinteractiveMode=false
@@ -43,7 +47,7 @@ example
      mvn archetype:generate \  
         -DarchetypeArtifactId=secugrow-kotlin-archetype \
         -DarchetypeGroupId=io.secugrow\
-        -DarchetypeVersion=1.2.1 \
+        -DarchetypeVersion=1.2.2 \
         -DgroupId=demo.atd.live \
         -DartifactId=fromArchetype \
         -DinteractiveMode=false
