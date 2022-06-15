@@ -1,4 +1,5 @@
 [![CI-CD](https://github.com/secugrow/kotlin-archetype/actions/workflows/generate_archetype_output.yml/badge.svg?branch=main)](https://github.com/secugrow/kotlin-archetype/actions/workflows/generate_archetype_output.yml)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.secugrow/secugrow-kotlin-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.secugrow/secugrow-kotlin-archetype)
 
 ![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_300x150.png)
 # Let your Selenium Cucumber Project grow
