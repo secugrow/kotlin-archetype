@@ -30,7 +30,7 @@ jobs:
         run:  |
           mvn clean install archetype:update-local-catalog
       - name: Generate Archetype    
-        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-kotlin-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=1.2.2-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
+        run: mvn archetype:generate -DarchetypeArtifactId=secugrow-kotlin-archetype -DarchetypeGroupId=io.secugrow -DarchetypeVersion=1.2.3-SNAPSHOT -DgroupId=at.some.test -DartifactId=secugrowTestArchetype -DinteractiveMode=false -DoutputDirectory=target/
       - name: publish to maven-repo
         run: echo "Not implemented yet"
       - name: Push to generated-kotlin repository
