@@ -25,14 +25,12 @@ copy a jar from releases to your local maven repository in the correct path:
 
 OR
 
-using a release archetype from maven-central (comming soon)
+using a release archetype from a maven repository
 
 You're all set - feel free to use the archetype.
 
 
-
 ## Use this archetype to generate a project
-
 
      mvn archetype:generate \  
         -DarchetypeArtifactId=secugrow-kotlin-archetype \
@@ -49,6 +47,6 @@ example
         -DarchetypeArtifactId=secugrow-kotlin-archetype \
         -DarchetypeGroupId=io.secugrow\
         -DarchetypeVersion=1.2.2 \
-        -DgroupId=demo.atd.live \
+        -DgroupId=io.secugrow.demo \
         -DartifactId=fromArchetype \
         -DinteractiveMode=false
