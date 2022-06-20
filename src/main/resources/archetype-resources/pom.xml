@@ -12,7 +12,7 @@
   <properties>
     <selenium.version>4.2.2</selenium.version>
     <webdrivermanager.version>5.2.0</webdrivermanager.version>
-    <kotlin.version>1.5.31</kotlin.version>
+    <kotlin.version>1.6.21</kotlin.version>
     <cucumber.version>7.2.3</cucumber.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
