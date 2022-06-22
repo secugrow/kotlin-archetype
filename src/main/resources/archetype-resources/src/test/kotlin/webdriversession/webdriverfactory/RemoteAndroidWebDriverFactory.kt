@@ -4,7 +4,7 @@
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
 
-package ${package}.driverutil
+package ${package}.webdriversession.webdriverfactory
 
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.AndroidElement

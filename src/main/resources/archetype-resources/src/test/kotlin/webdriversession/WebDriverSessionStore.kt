@@ -1,4 +1,4 @@
-package ${package}.driverutil
+package ${package}.webdriversession
 
 object WebDriverSessionStore {
 

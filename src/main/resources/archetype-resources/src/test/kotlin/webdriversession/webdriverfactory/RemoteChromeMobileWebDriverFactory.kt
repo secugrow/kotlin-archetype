@@ -5,7 +5,7 @@
 #set( $bracketClose = ')' )
 
 
-package ${package}.driverutil
+package ${package}.webdriversession.webdriverfactory
 
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
