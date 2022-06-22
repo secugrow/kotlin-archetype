@@ -1,12 +1,11 @@
 # SeCuton - Selenium Cucumber Skeleton
 
-main
 
 If you want to start as fast as possible with [Selenium](https://github.com/SeleniumHQ/selenium) in combination with [Cucumber](https://github.com/cucumber/cucumber) you are absolutely right here. Just clone this repo and start it. It contains executable minimalistic examples so you can create your own scenarios easily and fast.
 
 You should be familiar with [Kotlin](https://kotlinlang.org/) (or Java) and Cucumber to create new scenarios and corresponding glue code.
 
-This is a skeleton which is based on Selenium, Cucumber with Kotlin, and parallel-execution support with Cucable.
+This is a skeleton which is based on Selenium, Cucumber with Kotlin, and parallel-execution support with JUnit 5.
 Also, [Cucumber Picocontainers](https://github.com/cucumber/cucumber-jvm/tree/master/picocontainer) were added for a smooth usage of test data among all steps.
 For a quick and easy setup of Webdriver, [WebDriverManager](https://github.com/bonigarcia/webdrivermanager) from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used. 
 
@@ -14,19 +13,19 @@ Reports will be generated with [Cluecumber Report](https://github.com/trivago/cl
 
 
 ## Prerequisites
-* Java SDK (recommended Version 15)
+* Java SDK (recommended Version > 15)
 * Maven
 
 ### Optional
 * If you do not want to run the test locally: Selenium Grid, [Selenoid](https://github.com/aerokube/selenoid) or Moon
-* For Android test execution: [Appium](https://github.com/appium/appium)  
+* For Android or iOS test execution you can use it with [Appium](https://github.com/appium/appium)  
 
 
 # How to run tests locally
 
 * Option 1: Start with Maven
 
-     `mvn clean verify -Dbrowser=chrome -DbaseUrl="https://www.wikipedia.org" -Ddriver.version=95` 
+     `mvn clean verify -Dbrowser=chrome -DbaseUrl="https://www.wikipedia.org" -Ddriver.version=101` 
 
 * Option 2: Start directly from IDEA with a runConfiguration
 ![idea run configuration](docs/images/idea_runConfig.png)
@@ -53,9 +52,9 @@ In both cases you need to define some parameters to get the tests running:
 Example runtime parameters:
 
     -Dbrowser=chrome
-    -Dbrowser.version=76.0
-    -DbaseUrl="http://peso.inso.tuwien.ac.at"
-    -Ddriver.version="76.0.3809.126"
+    -Dbrowser.version=101.0
+    -DbaseUrl="http://www.wikipedia.at"
+    -Ddriver.version="101"
 
 # Scenarios
 ### Feature file structure
@@ -66,16 +65,16 @@ In order to find scenarios faster - especially if they fail - a scenario templat
 example:
 
 
-    Feature: [peso] Example Feature
+    Feature: [WIK [wikipedia] Example Feature
 
       Background:
         Given the start page is loaded
 
-      Scenario: [HWD-01 [peso]
-        Then the peso logo should be displayed
+      Scenario: [WIK-01 [wikipedia] 
+        Then the searchbar is visible
       
       
-[peso] means that "peso" is the filename. This makes it much easier to locate steps when IntelliJ Runner or Jenkins Cucumber report mark a scenario or step as failed.
+[wikipedia] means that "wikipedia" is the filename. This makes it much easier to locate steps when IntelliJ Runner or Jenkins Cucumber report mark a scenario or step as failed.
 
 Scenarios have a unique ID which you have to assign manually and keep track of. If a scenario fails, you can easily jump to the step definitions via text search in your IDE.
 
@@ -106,7 +105,7 @@ Example of a runtime configuration for an emulated Pixel 2 with a desktop Chrome
     -Dbrowser=chrome_mobile_emulation
     -Dbrowser.version=75.0
     -Ddriver.version=75
-    -DbaseUrl="http://peso.inso.tuwien.ac.at"
+    -DbaseUrl="http://www.wikipedia.at"
     -Demulated.device="Pixel 2"
     
 ### Android device (via Appium)
@@ -122,7 +121,7 @@ Use parameter to set the ID `-Ddevice.id="emulator-5554"`
 Example of runtime configuration for running a test on a emulated Android device on Appium (which runs locally on Port 4723):
 
         -Dbrowser=appium_android_device
-        -DbaseUrl="http://peso.inso.tuwien.ac.at"
+        -DbaseUrl="http://www.wikipedia.at"
         -Dselenium.grid=http://localhost:4723
         -Ddriver.version=2.34
         -Ddevice.id="emulator-5554"
@@ -132,7 +131,7 @@ Example of runtime configuration for running a test on a emulated Android device
 ## IDEA Configuration
 
 If the generated project does not compile or cannot be started from IDEA, check the Version of the JDK
-Use an JDK Version from 12 to 15
+Use an JDK Version above 12
 
 * File - Project Structure ...
 ![name](src/test/resources/docs/project_sdk_settings.png)

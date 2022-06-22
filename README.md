@@ -1,4 +1,5 @@
 [![CI-CD](https://github.com/secugrow/kotlin-archetype/actions/workflows/generate_archetype_output.yml/badge.svg?branch=main)](https://github.com/secugrow/kotlin-archetype/actions/workflows/generate_archetype_output.yml)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.secugrow/secugrow-kotlin-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.secugrow/secugrow-kotlin-archetype)
 
 ![SeCuGrow Logo](/docs/pics/SeCuGrow_Logo_300x150.png)
 # Let your Selenium Cucumber Project grow
@@ -20,19 +21,21 @@ OR
 
 copy a jar from releases to your local maven repository in the correct path:
 
-<user dir, depens on your OS>/.m2/repository/io/secugrow/secugrow-kotlin-archetype/<version>/secugrow-kotlin-archetype-<version>.jar
+    <user dir, depens on your OS>/.m2/repository/io/secugrow/secugrow-kotlin-archetype/<version>/secugrow-kotlin-archetype-<version>.jar
+
+OR
+
+using a release archetype from a maven repository
 
 You're all set - feel free to use the archetype.
 
 
-
 ## Use this archetype to generate a project
-
 
      mvn archetype:generate \  
         -DarchetypeArtifactId=secugrow-kotlin-archetype \
         -DarchetypeGroupId=io.secugrow \
-        -DarchetypeVersion=1.2.1 \
+        -DarchetypeVersion=1.3.0 \
         -DgroupId=<your-group-id> \
         -DartifactId=<your artifactid> \
         -DinteractiveMode=false
@@ -43,7 +46,7 @@ example
      mvn archetype:generate \  
         -DarchetypeArtifactId=secugrow-kotlin-archetype \
         -DarchetypeGroupId=io.secugrow\
-        -DarchetypeVersion=1.2.1 \
-        -DgroupId=demo.atd.live \
+        -DarchetypeVersion=1.3.0 \
+        -DgroupId=io.secugrow.demo \
         -DartifactId=fromArchetype \
         -DinteractiveMode=false

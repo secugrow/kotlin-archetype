@@ -10,10 +10,10 @@
   <name>Selenium Cucumber Generator - SeCuGrow</name>
 
   <properties>
-    <selenium.version>3.141.59</selenium.version>
-    <webdrivermanager.version>5.0.3</webdrivermanager.version>
-    <kotlin.version>1.5.31</kotlin.version>
-    <cucumber.version>6.11.0</cucumber.version>
+    <selenium.version>4.2.2</selenium.version>
+    <webdrivermanager.version>5.2.0</webdrivermanager.version>
+    <kotlin.version>1.6.21</kotlin.version>
+    <cucumber.version>7.2.3</cucumber.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
     <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
@@ -26,9 +26,14 @@
       <version>${selenium.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-devtools-v102</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+    <dependency>
       <groupId>com.willowtreeapps.assertk</groupId>
       <artifactId>assertk-jvm</artifactId>
-      <version>0.23</version>
+      <version>0.25</version>
     </dependency>
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
@@ -66,7 +71,7 @@
     <dependency>
       <groupId>org.sonatype.sisu</groupId>
       <artifactId>sisu-guice</artifactId>
-      <version>3.2.5</version>
+      <version>4.2.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
