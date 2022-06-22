@@ -6,6 +6,7 @@
   <groupId>${groupId}</groupId>
   <artifactId>${artifactId}</artifactId>
   <version>${version}</version>
+  <logo>https://raw.githubusercontent.com/secugrow/kotlin-archetype/main/docs/pics/SeCu_Logo.png</logo>
 
   <name>Selenium Cucumber Generator - SeCuGrow</name>
 
