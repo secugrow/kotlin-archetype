@@ -10,8 +10,8 @@
   <name>Selenium Cucumber Generator - SeCuGrow</name>
 
   <properties>
-    <selenium.version>4.2.2</selenium.version>
-    <webdrivermanager.version>5.2.0</webdrivermanager.version>
+    <selenium.version>4.3.0</selenium.version>
+    <webdrivermanager.version>5.2.1</webdrivermanager.version>
     <kotlin.version>1.7.0</kotlin.version>
     <cucumber.version>7.2.3</cucumber.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
