@@ -12,11 +12,13 @@
   <properties>
     <selenium.version>4.2.2</selenium.version>
     <webdrivermanager.version>5.2.0</webdrivermanager.version>
-    <kotlin.version>1.6.21</kotlin.version>
+    <kotlin.version>1.7.0</kotlin.version>
     <cucumber.version>7.2.3</cucumber.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
     <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+    <log4j.version>1.7.36</log4j.version>
+    <java.version>17</java.version>
   </properties>
 
   <dependencies>
@@ -88,7 +90,7 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.26</version>
+      <version>${log4j.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -107,7 +109,7 @@
         <artifactId>kotlin-maven-plugin</artifactId>
         <version>${kotlin.version}</version>
         <configuration>
-          <jvmTarget>15</jvmTarget>
+          <jvmTarget>${java.version}</jvmTarget>
         </configuration>
         <executions>
           <execution>
@@ -152,8 +154,8 @@
           </execution>
         </executions>
         <configuration>
-          <source>15</source>
-          <target>15</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
     </plugins>

@@ -5,6 +5,7 @@ import io.cucumber.java.Scenario
 import java.util.*
 
 
+@Suppress("UNCHECKED_CAST")
 class TestDataContainer {
     private val testDataMap: MutableMap<String, Any> = mutableMapOf()
 
@@ -34,43 +35,31 @@ class TestDataContainer {
     }
 
     fun getCurrentSessionId(): String {
-        return testDataMap["session.id"] as String
+        return getAs("session.id")
     }
 
     private fun getBrowser(): String {
-        return testDataMap["browser"] as String
+        return getAs("browser")
     }
 
     private fun getBrowserType(): DriverType {
-        return testDataMap.get("browser.type") as DriverType
+        return getAs("browser.type")
     }
 
     private fun getBrowserVersion(): String {
-        return testDataMap["browser.version"] as String
+        return getAs("browser.version")
     }
 
 
     fun isMobile(): Boolean {
-        if (getBrowserVersion().contains("mobile")) {
-            return true
+        return when {
+            getBrowserVersion().contains("mobile") -> true
+            getBrowser().contains("mobile") -> true
+            getBrowserType() == DriverType.LOCAL_CHROME_MOBILE_EMULATION -> true
+            getBrowserType() == DriverType.REMOTE_CHROME_MOBILE_EMULATION -> true
+            getAs<Boolean>("mobileEmulation") -> true
+            else -> false
         }
-        if (getBrowser().contains("mobile")) {
-            return true
-        }
-
-        if (getBrowserType() == DriverType.LOCAL_CHROME_MOBILE_EMULATION) {
-            return true
-        }
-
-        if (getBrowserType() == DriverType.REMOTE_CHROME_MOBILE_EMULATION) {
-            return true
-        }
-
-        if (testDataMap["mobileEmulation"] as Boolean) {
-            return true
-        }
-
-        return false
     }
 
     fun isMobileEmulation(): Boolean {
@@ -81,10 +70,17 @@ class TestDataContainer {
         }
     }
 
-    fun needsInitializing(): Boolean = (testDataMap["initialized"] as Boolean)
+    fun needsInitializing(): Boolean = getAs("initialized")
 
-    fun isLocalRun(): Boolean {
-        return (testDataMap["localRun"] as Boolean)
+    fun isLocalRun(): Boolean = getAs("localRun")
+
+
+    fun <T> getAs(key: String): T {
+        return if (testDataMap.containsKey(key)) {
+            testDataMap[key] as T
+        } else {
+            throw IllegalArgumentException("given $key not available in testDataMap")
+        }
     }
 
 }
