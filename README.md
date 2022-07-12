@@ -46,8 +46,8 @@ example
 
      mvn archetype:generate \  
         -DarchetypeArtifactId=secugrow-kotlin-archetype \
-        -DarchetypeGroupId=io.secugrow\
-        -DarchetypeVersion=1.3.0 \
+        -DarchetypeGroupId=io.secugrow \
+        -DarchetypeVersion=1.4.0 \
         -DgroupId=io.secugrow.demo \
         -DartifactId=fromArchetype \
         -DinteractiveMode=false

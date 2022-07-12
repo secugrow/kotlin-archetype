@@ -1,11 +1,11 @@
 # SeCuton - Selenium Cucumber Skeleton
 
 
-If you want to start as fast as possible with [Selenium](https://github.com/SeleniumHQ/selenium) in combination with [Cucumber](https://github.com/cucumber/cucumber) you are absolutely right here. Just clone this repo and start it. It contains executable minimalistic examples so you can create your own scenarios easily and fast.
+If you want to start as fast as possible with [Selenium](https://github.com/SeleniumHQ/selenium) in combination with [Cucumber](https://github.com/cucumber/cucumber) - here's your place to be. Just clone this repo and start it. It contains executable minimalistic examples so you can create your own scenarios easily and fast.
 
 You should be familiar with [Kotlin](https://kotlinlang.org/) (or Java) and Cucumber to create new scenarios and corresponding glue code.
 
-This is a skeleton which is based on Selenium, Cucumber with Kotlin, and parallel-execution support with JUnit 5.
+This is a skeleton based on Selenium, Cucumber with Kotlin and parallel-execution support with JUnit 5.
 Also, [Cucumber Picocontainers](https://github.com/cucumber/cucumber-jvm/tree/master/picocontainer) were added for a smooth usage of test data among all steps.
 For a quick and easy setup of Webdriver, [WebDriverManager](https://github.com/bonigarcia/webdrivermanager) from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used. 
 
