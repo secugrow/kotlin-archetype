@@ -17,7 +17,7 @@ class RemoteChromeMobileEmulationWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
 
         caps.browserName = "chrome"
-        caps.version = getBrowserVersion()
+        caps.setVersion(getBrowserVersion())
 
         val options = ChromeOptions()
         options.merge(caps)

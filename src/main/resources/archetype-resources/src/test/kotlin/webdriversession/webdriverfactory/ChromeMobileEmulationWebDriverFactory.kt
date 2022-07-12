@@ -14,7 +14,7 @@ class ChromeMobileEmulationWebDriverFactory : WebDriverFactory() {
 
         val capabilities = DesiredCapabilities()
         capabilities.browserName = "chrome"
-        capabilities.version = getBrowserVersion()
+        capabilities.setVersion(getBrowserVersion())
 
         val chromeOptions = ChromeOptions()
 

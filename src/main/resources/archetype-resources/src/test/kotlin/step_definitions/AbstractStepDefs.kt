@@ -31,7 +31,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
 
         if (testDataContainer.needsInitializing()) {
             if (webDriverSession.webDriver is RemoteWebDriver) {
-                testDataContainer.setTestData("browser.version", (webDriverSession.webDriver as RemoteWebDriver).capabilities.version)
+                testDataContainer.setTestData("browser.version", (webDriverSession.webDriver as RemoteWebDriver).capabilities.browserVersion)
                 testDataContainer.setTestData("browser", (webDriverSession.webDriver as RemoteWebDriver).capabilities.browserName)
             }
 

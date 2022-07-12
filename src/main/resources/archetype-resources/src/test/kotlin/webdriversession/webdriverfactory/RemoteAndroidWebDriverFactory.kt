@@ -16,7 +16,7 @@ class RemoteAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
 
         caps.browserName = "android"
-        caps.version = "8.1"
+        caps.setVersion("8.1")
         caps.setCapability("enableVNC", true)
         caps.setCapability("enableVideo", false)
         //caps.setCapability("screenResolution", screenSize)
