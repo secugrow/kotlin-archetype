@@ -55,6 +55,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
         val page = getWebDriverSession().currentPage
 
         if (pageClass.isInstance(page)) {
+            doA11YCheck()
             return page as T
         }
         log.error("Expect Page from type $pageClass but was $page")
@@ -67,6 +68,35 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
 
     fun setCurrentPage(page: AbstractPage) {
         getWebDriverSession().currentPage = page
+    }
+
+
+    private fun doA11YCheck() {
+        if (testDataContainer.doA11YCheck()) {
+            val scenario = testDataContainer.getScenario()
+            val a11yExclusions = extractA11YExclusions(scenario)
+            val webDriver = getWebDriver()
+            val issues = A11yHelper.hasAccessibilityIssues(webDriver, a11yExclusions)
+
+            if (issues.isNotEmpty()) {
+                issues.forEach { violation ->
+                    val violationString = "Violated Rule: ${violation.id} on page ${
+                        getCurrentPage().toString().substringAfterLast(".")
+                    } - ${violation.nodes.joinToString(separator = "") { node -> "\n\ton: ${node.html}" }}"
+                    testDataContainer.addScreenshot(
+                        (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
+                        "Forced A11y screenshot for step#${testDataContainer.getStepInex()} - ${violation.description}"
+                    )
+                    testDataContainer.addA11Ydescription(violationString)
+                }
+
+                val softAssertions = testDataContainer.getSoftAssertionObject()
+                softAssertions
+                    .assertThat(issues)
+                    .`as`(TextDescription("Found ${issues.size} relevant A11Y violations in sceanrio \"${scenario.name}\" step# ${testDataContainer.getStepInex()}"))
+                    .isEmpty()
+            }
+        }
     }
 }
 
