@@ -20,6 +20,7 @@
     <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
     <log4j.version>1.7.36</log4j.version>
     <java.version>17</java.version>
+    <axe-core.version>4.4.1</axe-core.version>
   </properties>
 
   <dependencies>
@@ -99,7 +100,11 @@
       <artifactId>imgscalr-lib</artifactId>
       <version>4.2</version>
     </dependency>
-
+    <dependency>
+      <groupId>com.deque.html.axe-core</groupId>
+      <artifactId>selenium</artifactId>
+      <version>${axe-core.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
