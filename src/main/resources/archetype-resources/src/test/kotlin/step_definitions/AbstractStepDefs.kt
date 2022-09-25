@@ -1,3 +1,10 @@
+#set( $doublequote = '"' )
+#set( $bracketOpen = '(' )
+#set( $bracketClose = ')' )
+#set( $curlyOpen = '{' )
+#set( $curlyClose = '}' )
+#set( $dollar = '$' )
+
 package ${package}.step_definitions
 
 import assertk.fail
@@ -80,9 +87,9 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
 
             if (issues.isNotEmpty()) {
                 issues.forEach { violation ->
-                    val violationString = "Violated Rule: ${violation.id} on page ${
+                    val violationString = "Violated Rule: $dollar$curlyOpenviolation.id$curlyClose on page ${
                         getCurrentPage().toString().substringAfterLast(".")
-                    } - ${violation.nodes.joinToString(separator = "") { node -> "\n\ton: ${node.html}" }}"
+                    } - $dollar$curlyOpen violation.nodes.joinToString("") { node -> $doublequote ton: $dollar{node.html} $doublequote }$curlyClose"
                     testDataContainer.addScreenshot(
                         (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
                         "Forced A11y screenshot for step#${testDataContainer.getStepInex()} - ${violation.description}"

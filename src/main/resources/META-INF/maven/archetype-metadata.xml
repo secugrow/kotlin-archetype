@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="secuton"
+<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+                      name="secugrow"
     xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+  <requiredProperties>
+    <requiredProperty key="a11y"/>
+  </requiredProperties>
+
+
   <fileSets>
     <fileSet encoding="UTF-8" filtered="true">
       <directory>src/test/resources</directory>
@@ -12,11 +20,20 @@
         <include>junit-platform.properties</include>
       </includes>
     </fileSet>
-    <fileSet filtered="true" encoding="UTF-8" packaged="true">
+    <fileSet filtered="true" encoding="UTF-8" packaged="true" a11y="true">
+      <directory>src/test/kotlin/a11y</directory>
+      <includes>
+        <include>**/A11yHelper.kt</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8" packaged="true" a11y="false">
       <directory>src/test/kotlin</directory>
       <includes>
         <include>**/*.kt</include>
       </includes>
+      <excludes>
+        <exclude>**/A11yHelper.kt</exclude>
+      </excludes>
     </fileSet>
     <fileSet encoding="UTF-8">
       <!-- DEV-NOTE: needs to be here although it's empty. otherwise LICENSE.txt and README.md are not packaged -->

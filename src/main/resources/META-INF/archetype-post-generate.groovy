@@ -10,4 +10,14 @@ Files.move(
         Paths.get(projectPath.toAbsolutePath().toString(), ".gitignore"),
         StandardCopyOption.REPLACE_EXISTING)
 
+Properties properties = request.properties
+println " -> properties: $properties"
 
+def packageName = properties.get("package")
+println " -> package: $packageName"
+
+def a11y = properties.get("a11y")
+println " -> a11y: $a11y"
+
+def packagePath = packageName.replace(".", "/")
+println " -> packagePath: $packagePath"
