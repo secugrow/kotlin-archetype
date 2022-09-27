@@ -39,7 +39,8 @@ You're all set - feel free to use the archetype.
         -DarchetypeVersion=1.3.0 \
         -DgroupId=<your-group-id> \
         -DartifactId=<your artifactid> \
-        -DinteractiveMode=false
+        -DinteractiveMode=false \
+        -Da11y=<insert boolean here>
 
 
 example
@@ -50,4 +51,6 @@ example
         -DarchetypeVersion=1.4.0 \
         -DgroupId=io.secugrow.demo \
         -DartifactId=fromArchetype \
-        -DinteractiveMode=false
+        -DinteractiveMode=false \
+        -Da11y=false
+
