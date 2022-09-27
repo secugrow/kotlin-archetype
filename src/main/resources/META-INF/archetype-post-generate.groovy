@@ -13,26 +13,22 @@ Files.move(
         StandardCopyOption.REPLACE_EXISTING)
 
 Properties properties = request.properties
-println " -> properties: $properties"
-
 def packageName = properties.get("package").toString()
-println " -> package: $packageName"
-
 def a11y = properties.get("a11y").toString()
-println " -> a11y: $a11y"
-
 def packagePath = packageName.replace(".", "/").toString()
-println " -> converted to packagePath: $packagePath"
-
 def packageBasePath = Paths.get(projectPath.toString(), "/src/test/kotlin/", packagePath)
 
 if (Boolean.valueOf(a11y)) {
     def pathToFile = Paths.get(packageBasePath.toString(), "/step_definitions/AbstractStepDefs_noa11y.kt")
-    println " -> deleting file: $pathToFile"
-    def exists = Files.deleteIfExists(pathToFile.toAbsolutePath())
-    println " -> file was deleted $exists"
+    def isDeleted = Files.deleteIfExists(pathToFile.toAbsolutePath())
 } else {
-    println " -> a11y-value $a11y\n" +
-            "\t -> TODO delete AbstractStepDefs.kt in $packagePath/step_definitions and rename AbstractStepDefs_noa11y.kt to AbstractStepDefs.kt"
+    def pathToAbstractStepDefs_noa11y = Paths.get(packageBasePath.toString(), "/step_definitions/AbstractStepDefs_noa11y.kt")
+    def pathToAbstractStepDefs = Paths.get(packageBasePath.toString(), "/step_definitions/AbstractStepDefs.kt")
 
+    Files.deleteIfExists(pathToAbstractStepDefs.toAbsolutePath())
+    def a11yPackage = Paths.get(packageBasePath.toString(), "a11y")
+
+    FileUtils.deleteDirectory(a11yPackage.toAbsolutePath().toFile())
+
+    pathToAbstractStepDefs_noa11y.toFile().renameTo(pathToAbstractStepDefs.toFile())
 }
