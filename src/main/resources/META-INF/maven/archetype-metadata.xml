@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
-                      name="secugrow"
+<archetype-descriptor
+    xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+    name="secugrow"
     xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 
   <requiredProperties>
-    <requiredProperty key="a11y"/>
+    <requiredProperty key="a11y">
+      <defaultValue>false</defaultValue>
+    </requiredProperty>
   </requiredProperties>
 
 
