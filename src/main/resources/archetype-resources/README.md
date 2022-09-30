@@ -1,4 +1,4 @@
-# SeCuton - Selenium Cucumber Skeleton
+# SeCuGrow - your generated Selenium Cucumber test automation project
 
 
 If you want to start as fast as possible with [Selenium](https://github.com/SeleniumHQ/selenium) in combination with [Cucumber](https://github.com/cucumber/cucumber) - here's your place to be. Just clone this repo and start it. It contains executable minimalistic examples so you can create your own scenarios easily and fast.
