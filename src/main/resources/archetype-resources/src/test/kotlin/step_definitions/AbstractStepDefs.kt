@@ -16,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.remote.RemoteWebDriver
 import ${package}.pageobjects.AbstractPage
 import io.cucumber.java8.En
-import io.cucumber.java8.Scenario
+import io.cucumber.java.Scenario
 import ${package}.a11y.A11yHelper
 import kotlin.reflect.KClass
 import logger
