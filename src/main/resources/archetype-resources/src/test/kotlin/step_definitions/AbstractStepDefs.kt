@@ -99,7 +99,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
                         (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
                         "Forced A11y screenshot for step#${testDataContainer.getStepIndex()} - ${violation.description}"
                     )
-                    testDataContainer.addA11Ydescription(violationString)
+                    testDataContainer.addA11ydescription(violationString)
                 }
 
                 val softAssertions = testDataContainer.getSoftAssertionObject()
