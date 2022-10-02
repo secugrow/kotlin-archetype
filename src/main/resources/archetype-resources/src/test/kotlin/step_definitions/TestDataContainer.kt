@@ -18,7 +18,7 @@ class TestDataContainer {
     fun getScenario() = testDataMap["scenario"] as Scenario
     fun getTestId() = testDataMap["testId"] as String
     fun getScenarioTags() = getScenario().sourceTagNames
-    fun doA11YCheck() = getAs<Boolean>("skipA11Y").not()
+    fun doA11YCheck() = getAs<Boolean>("skipA11y").not()
 
     fun setScenario(scenario: Scenario) {
         testDataMap["scenario"] = scenario

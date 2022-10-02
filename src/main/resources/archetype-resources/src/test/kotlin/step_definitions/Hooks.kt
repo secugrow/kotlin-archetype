@@ -43,6 +43,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         testDataContainer.setTestData("browser.version", System.getProperty("browser.version", "no version set"))
         testDataContainer.setTestData("initialized", false)
         testDataContainer.setTestData("baseurl", System.getProperty("baseUrl", "no base Url given"))
+        testDataContainer.setTestData("skipA11y", System.getProperty("skipA11y", "true").toBoolean())
 
         // to check if it runs on Jenkins or local
         val jobname = System.getenv("JOB_NAME")
