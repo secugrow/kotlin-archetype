@@ -16,8 +16,11 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.remote.RemoteWebDriver
 import ${package}.pageobjects.AbstractPage
 import io.cucumber.java8.En
+import io.cucumber.java8.Scenario
+import ${package}.a11y.A11yHelper
 import kotlin.reflect.KClass
 import logger
+import org.assertj.core.description.TextDescription
 
 open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) : En {
 
@@ -114,5 +117,9 @@ fun extractTestIdFromScenarioName(scenarioName: String): String {
     } catch (e: NullPointerException) {
         fail("Scenarioname is not correct formated $scenarioName. Pattern: '[XXX-99 [Filename]")
     }
+}
+
+private fun extractA11YExclusions(scenario: Scenario): List<String> {
+    return scenario.sourceTagNames.filter { it.startsWith("@A11YExclude:") }.map { it.substring(it.indexOf(":")+1) }
 }
 

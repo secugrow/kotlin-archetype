@@ -84,4 +84,8 @@ class TestDataContainer {
         }
     }
 
+    fun getSoftAssertionObject(): SoftAssertions {
+        return testDataMap["softAssertion.object"] as SoftAssertions
+    }
+
 }
