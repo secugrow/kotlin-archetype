@@ -104,4 +104,8 @@ class TestDataContainer {
         }
     }
 
+    fun getStepIndex(): Long {
+        return getAsLongFromTestDataMap("stepIndex")
+    }
+
 }

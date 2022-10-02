@@ -97,7 +97,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
                     } - $dollar$curlyOpen violation.nodes.joinToString("") { node -> $doublequote \n\t on: $dollar$curlyOpen node.html $curlyClose $doublequote $curlyClose $curlyClose $doublequote
                     testDataContainer.addScreenshot(
                         (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
-                        "Forced A11y screenshot for step#${testDataContainer.getStepInex()} - ${violation.description}"
+                        "Forced A11y screenshot for step#${testDataContainer.getStepIndex()} - ${violation.description}"
                     )
                     testDataContainer.addA11Ydescription(violationString)
                 }
@@ -105,7 +105,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
                 val softAssertions = testDataContainer.getSoftAssertionObject()
                 softAssertions
                     .assertThat(issues)
-                    .`as`(TextDescription("Found ${issues.size} relevant A11Y violations in sceanrio \"${scenario.name}\" step# ${testDataContainer.getStepInex()}"))
+                    .`as`(TextDescription("Found ${issues.size} relevant A11Y violations in sceanrio \"${scenario.name}\" step# ${testDataContainer.getStepIndex()}"))
                     .isEmpty()
             }
         }
