@@ -8,7 +8,7 @@ import org.assertj.core.api.SoftAssertions
 class TestDataContainer {
     private val testDataMap: MutableMap<String, Any> = mutableMapOf()
 
-    private FINAL val SCREENSHOTS = "screenshots"
+    private val SCREENSHOTS = "screenshots"
 
     init {
         testDataMap["testId"] = "init"
