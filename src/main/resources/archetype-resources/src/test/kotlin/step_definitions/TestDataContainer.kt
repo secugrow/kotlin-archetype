@@ -2,12 +2,13 @@ package ${package}.step_definitions
 
 import ${package}.driverutil.DriverType
 import io.cucumber.java.Scenario
-import java.util.*
-
+import org.assertj.core.api.SoftAssertions
 
 @Suppress("UNCHECKED_CAST")
 class TestDataContainer {
     private val testDataMap: MutableMap<String, Any> = mutableMapOf()
+
+    private FINAL val SCREENSHOTS = "screenshots"
 
     init {
         testDataMap["testId"] = "init"
@@ -86,6 +87,21 @@ class TestDataContainer {
 
     fun getSoftAssertionObject(): SoftAssertions {
         return testDataMap["softAssertion.object"] as SoftAssertions
+    }
+
+    fun addScreenshot(screenshot: ByteArray?, description: String = "description not set") {
+        val screenshots = getScreenshots()
+        screenshots.add(Pair(screenshot!!, description))
+        setTestData(SCREENSHOTS, screenshots)
+    }
+
+    fun getScreenshots(): MutableList<Pair<ByteArray, String?>> = getScreenshotArrayFromTestDataMap()
+
+    private getScreenshotArrayFromTestDataMap(): MutableList<Pair<ByteArray, String>> {
+        return when (testDataMap.containsKey(SCREENSHOTS)) {
+            true -> getAs(SCREENSHOTS)
+            false -> mutableListof()
+        }
     }
 
 }
