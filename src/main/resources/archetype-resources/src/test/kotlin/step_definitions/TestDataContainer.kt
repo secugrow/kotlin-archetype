@@ -104,8 +104,27 @@ class TestDataContainer {
         }
     }
 
+    fun addA11ydescription(violationString: String) {
+        addStringtoList("a11y.description" violationString)
+    }
+
+    fun getA11yDescription(): List<String> {
+        return getAs("a11y.description")
+    }
+
     fun getStepIndex(): Long {
         return getAsLongFromTestDataMap("stepIndex")
+    }
+
+    fun addStringtoList(key: String, stringToAdd: String) {
+        when(testDataMap.containsKey(key)) {
+            true -> {
+                val list : List<String> = getAs(key)
+                list.add(stringToAdd)
+                testDataMap[key] = list
+            }
+            false -> testDataMap[key] = mutableListOf(stringToAdd)
+        }
     }
 
 }
