@@ -99,7 +99,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
                 } else {
                     val jsExecutor = (webDriverSession.webDriver as JavascriptExecutor)
                     jsExecutor.executeScript("windowscrollTo(0,0)")
-                    val isScrollbarPresent = jsExecutor.executeScript("return document.documentElement.scrollHeigh>window.screen.height") as Boolean
+                    val isScrollbarPresent = jsExecutor.executeScript("return document.documentElement.scrollHeight>window.screen.height") as Boolean
                     if (isScrollbarPresent) {
                         val heightDocument = jsExecutor.executeScript("return document.body.scrollHeight") as Long
                         val heightViewport = jsExecutor.executeScript("return window.innerHeight") as Long
