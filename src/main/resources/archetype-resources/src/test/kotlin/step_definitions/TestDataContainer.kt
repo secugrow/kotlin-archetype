@@ -95,9 +95,9 @@ class TestDataContainer {
         setTestData(SCREENSHOTS, screenshots)
     }
 
-    fun getScreenshots(): MutableList<Pair<ByteArray, String?>> = getScreenshotArrayFromTestDataMap()
+    fun getScreenshots(): MutableList<Pair<ByteArray, String>> = getScreenshotArrayFromTestDataMap()
 
-    private getScreenshotArrayFromTestDataMap(): MutableList<Pair<ByteArray, String>> {
+    private fun getScreenshotArrayFromTestDataMap(): MutableList<Pair<ByteArray, String>> {
         return when (testDataMap.containsKey(SCREENSHOTS)) {
             true -> getAs(SCREENSHOTS)
             false -> mutableListof()
@@ -105,7 +105,7 @@ class TestDataContainer {
     }
 
     fun addA11ydescription(violationString: String) {
-        addStringtoList("a11y.description" violationString)
+        addStringtoList("a11y.description", violationString)
     }
 
     fun getA11yDescription(): List<String> {
@@ -113,13 +113,13 @@ class TestDataContainer {
     }
 
     fun getStepIndex(): Long {
-        return getAsLongFromTestDataMap("stepIndex")
+        return getAs("stepIndex")
     }
 
     fun addStringtoList(key: String, stringToAdd: String) {
         when(testDataMap.containsKey(key)) {
             true -> {
-                val list : List<String> = getAs(key)
+                val list : MutableList<String> = getAs(key)
                 list.add(stringToAdd)
                 testDataMap[key] = list
             }
