@@ -21,6 +21,8 @@ import ${package}.a11y.A11yHelper
 import kotlin.reflect.KClass
 import logger
 import org.assertj.core.description.TextDescription
+import org.openqa.selenium.OutputType
+import org.openqa.selenium.TakesScreenshot
 
 open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) : En {
 
