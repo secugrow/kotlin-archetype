@@ -100,7 +100,7 @@ class TestDataContainer {
     private fun getScreenshotArrayFromTestDataMap(): MutableList<Pair<ByteArray, String>> {
         return when (testDataMap.containsKey(SCREENSHOTS)) {
             true -> getAs(SCREENSHOTS)
-            false -> mutableListof()
+            false -> mutableListOf()
         }
     }
 

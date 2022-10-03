@@ -92,9 +92,9 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
 
             if (issues.isNotEmpty()) {
                 issues.forEach { violation ->
-                    val violationString = "Violated Rule: $dollar$curlyOpenviolation.id$curlyClose on page ${
+                    val violationString = "Violated Rule: $dollar$curlyOpen violation.id $curlyClose on page ${
                         getCurrentPage().toString().substringAfterLast(".")
-                    } - $dollar$curlyOpen violation.nodes.joinToString("") { node -> $doublequote \n\t on: $dollar$curlyOpen node.html $curlyClose $doublequote $curlyClose $curlyClose $doublequote
+                    } - $dollar$curlyOpen violation.nodes.joinToString("") { node -> $doublequote\n\t on: $dollar$curlyOpen node.html $curlyClose$doublequote$curlyClose$curlyClose$doublequote
                     testDataContainer.addScreenshot(
                         (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
                         "Forced A11y screenshot for step#${testDataContainer.getStepIndex()} - ${violation.description}"

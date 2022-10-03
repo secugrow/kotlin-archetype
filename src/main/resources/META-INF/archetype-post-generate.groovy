@@ -20,7 +20,7 @@ def packageBasePath = Paths.get(projectPath.toString(), "/src/test/kotlin/", pac
 
 if (Boolean.valueOf(a11y)) {
     def pathToFile = Paths.get(packageBasePath.toString(), "/step_definitions/AbstractStepDefs_noa11y.kt")
-    def isDeleted = Files.deleteIfExists(pathToFile.toAbsolutePath())
+    Files.deleteIfExists(pathToFile.toAbsolutePath())
 } else {
     def pathToAbstractStepDefs_noa11y = Paths.get(packageBasePath.toString(), "/step_definitions/AbstractStepDefs_noa11y.kt")
     def pathToAbstractStepDefs = Paths.get(packageBasePath.toString(), "/step_definitions/AbstractStepDefs.kt")
