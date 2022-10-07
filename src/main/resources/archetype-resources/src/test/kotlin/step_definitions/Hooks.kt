@@ -135,7 +135,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
                 //processing forced screenshots during test
                 testDataContainer.getScreenshots().forEachIndexed { index, screenshot ->
-                    scenario.attach(screenshot.first, "image/png", "Forced Screenshot - ${index + 1} - ${screenshot.second}")
+                    scenario.attach(screenshot.first, "image/png", "Forced Screenshot - $dollar$curlyOpen index + 1 $curlyClose - $dollar$curlyOpen screenshot.second $curlyClose ")
                 }
 
                 if (testDataContainer.isLocalRun()) {
