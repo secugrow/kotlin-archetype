@@ -9,8 +9,6 @@ This is a skeleton based on Selenium, Cucumber with Kotlin and parallel-executio
 Also, [Cucumber Picocontainers](https://github.com/cucumber/cucumber-jvm/tree/master/picocontainer) were added for a smooth usage of test data among all steps.
 For a quick and easy setup of Webdriver, [WebDriverManager](https://github.com/bonigarcia/webdrivermanager) from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used. 
 
-Reports will be generated with [Cluecumber Report](https://github.com/trivago/cluecumber-report-plugin) or - if you run the test in a Jenkins environment - [Cucumber Report](https://wiki.jenkins.io/display/JENKINS/Cucumber+Reports+Plugin) can be used for smooth reports.
-
 
 ## Prerequisites
 * Java SDK (recommended Version > 15)
@@ -135,5 +133,3 @@ Use an JDK Version above 12
 
 * File - Project Structure ...
 ![name](src/test/resources/docs/project_sdk_settings.png)
-
-//TODO show how to add jar for intellij to classpath
