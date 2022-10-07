@@ -118,7 +118,10 @@ class TestDataContainer {
     }
 
     fun getA11yDescription(): List<String> {
-        return getAs("a11y.description")
+        when (testDataMap.containsKey("a11y.description")) {
+            true -> return getAs("a11y.description")
+            false -> return emptyList()
+        }
     }
 
     fun getStepIndex(): Long {
@@ -127,9 +130,7 @@ class TestDataContainer {
 
     fun incrementStepIndex() {
         testDataMap["stepIndex"] = getStepIndex().inc()
-
     }
-
 
     fun addStringtoList(key: String, stringToAdd: String) {
         when(testDataMap.containsKey(key)) {

@@ -24,6 +24,7 @@ import org.openqa.selenium.OutputType
 import org.openqa.selenium.TakesScreenshot
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.remote.RemoteWebDriver
+import org.openqa.selenium.Dimension
 import java.awt.image.BufferedImage
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
@@ -49,17 +50,19 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
 
         testDataContainer.setScenario(scenario)
-        testDataContainer.setTestData("browser.type", DriverType.valueOf(System.getProperty("browser", "no browser set").uppercase()))
+        testDataContainer.setTestData(
+            "browser.type",
+            DriverType.valueOf(System.getProperty("browser", "no browser set").uppercase())
+        )
         testDataContainer.setTestData("browser.version", System.getProperty("browser.version", "no version set"))
         testDataContainer.setTestData("initialized", false)
         testDataContainer.setTestData("baseurl", System.getProperty("baseUrl", "no base Url given"))
         testDataContainer.setTestData("skipA11y", skipA11Y)
-
         testDataContainer.setTestData("stepIndex", 0)
         testDataContainer.setTestData("softAssertion.object", SoftAssertions())
+        testDataContainer.setTestData("softAssertions.present", skipA11Y.not())
 
         if (skipA11Y.not()) {
-            testDataContainer.setTestData("softAssertions.present", true)
             testDataContainer.setTestData("a11y.description", mutableListOf<String>())
         }
 
@@ -86,7 +89,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         }
 
         log.debug("#".padEnd(debuglength, fillchar))
-        log.info("# executing Scenario: " +  scenario.name + "".padEnd(debuglength, fillchar))
+        log.info("# executing Scenario: " + scenario.name + "".padEnd(debuglength, fillchar))
         log.debug("#".padEnd(debuglength, fillchar))
     }
 
@@ -106,43 +109,36 @@ class Hooks(private val testDataContainer: TestDataContainer) {
                 val isMobile = (webDriverSession.webDriver as RemoteWebDriver).isMobile()
                 scenario.log("isMobile active for used webdriver: " + isMobile)
                 scenario.log("Last page which was used: " + webDriverSession.currentPage)
-                scenario.attach(webDriverSession.webDriver.pageSource.toByteArray(), "text/html","pagesource")
+                scenario.attach(webDriverSession.webDriver.pageSource.toByteArray(), "text/html", "pagesource")
 
+                testDataContainer.setTestData("windowsize", webDriverSession.webDriver.manage().window().size)
                 if (isMobile) {
-                    val currentContext = (webDriverSession.webDriver as AppiumDriver<*>).context
-                    (webDriverSession.webDriver as AppiumDriver<*>).context("NATIVE_APP")
-                    scenario.attach((webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),"image/png", "Screenshot")
-
-                    (webDriverSession.webDriver as AppiumDriver<*>).context(currentContext)
+                    mobileScreenshot(webDriverSession.webDriver, scenario)
                 } else {
-                    val jsExecutor = (webDriverSession.webDriver as JavascriptExecutor)
-                    jsExecutor.executeScript("window.scrollTo(0,0)")
-                    val isScrollbarPresent = jsExecutor.executeScript("return document.documentElement.scrollHeight>window.screen.height") as Boolean
-                    if (isScrollbarPresent) {
-                        val heightDocument = jsExecutor.executeScript("return document.body.scrollHeight") as Long
-                        val heightViewport = jsExecutor.executeScript("return window.innerHeight") as Long
-                        var pos: Long = 0
-
-                        while (pos < heightDocument) {
-                            scenario.addResizedScreenshotToReport(webDriverSession.webDriver)
-                            pos += heightViewport
-                            jsExecutor.executeScript("window.scrollBy(0," + heightViewport + ")")
-                        }
-                    }
-                    scenario.addResizedScreenshotToReport(webDriverSession.webDriver)
-
+                    desktopScreenshot(webDriverSession.webDriver, scenario)
                 }
 
                 //processing forced screenshots during test
                 testDataContainer.getScreenshots().forEachIndexed { index, screenshot ->
-                    scenario.attach(screenshot.first, "image/png", "Forced Screenshot - $dollar$curlyOpen index + 1 $curlyClose - $dollar$curlyOpen screenshot.second $curlyClose ")
+                    scenario.attach(
+                        resizeScreenshot(screenshot.first),
+                        "image/png",
+                        "Forced Screenshot - $dollar$curlyOpen index + 1 $curlyClose - $dollar$curlyOpen screenshot.second $curlyClose "
+                    )
                 }
 
                 if (testDataContainer.isLocalRun()) {
                     val screenshot = (webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.FILE)
-                    FileUtils.copyFile(screenshot, File(System.getProperty("user.dir") + "/target/error_selenium_" + testId + "_" + testDataContainer.getCurrentSessionId() + ".png"))
+                    FileUtils.copyFile(
+                        screenshot,
+                        File(System.getProperty("user.dir") + "/target/error_selenium_" + testId + "_" + testDataContainer.getCurrentSessionId() + ".png")
+                    )
                 } else {
-                    scenario.attach((webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES), "image/png", "Screenshot")
+                    scenario.attach(
+                        (webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
+                        "image/png",
+                        "Screenshot"
+                    )
                 }
 
             } finally {
@@ -150,7 +146,6 @@ class Hooks(private val testDataContainer: TestDataContainer) {
             }
         }
     }
-
 
 
     @After(order = 1100)
@@ -164,36 +159,71 @@ class Hooks(private val testDataContainer: TestDataContainer) {
     @AfterStep
     fun a11y(scenario: Scenario) {
         testDataContainer.getAndClearA11Ydescriptions().forEachIndexed { index, issue ->
-            scenario.attach(issue, "text/plain", "A11Y Issue $dollar$curlyOpen index + 1 $curlyClose in stepnumber $dollar$curlyOpen testDataContainer.getStepIndex() $curlyClose ")
+            scenario.attach(
+                issue,
+                "text/plain",
+                "A11Y Issue $dollar$curlyOpen index + 1 $curlyClose in stepnumber $dollar$curlyOpen testDataContainer.getStepIndex() $curlyClose "
+            )
         }
     }
 
 
+    private fun mobileScreenshot(webDriver: WebDriver, scenario: Scenario) {
+        val currentContext = (webDriver as AppiumDriver<*>).context
+        (webDriver as AppiumDriver<*>).context("NATIVE_APP")
+        scenario.attach(
+            (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
+            "image/png",
+            "Screenshot"
+        )
+        (webDriver as AppiumDriver<*>).context(currentContext)
+    }
+
+    private fun desktopScreenshot(webDriver: WebDriver, scenario: Scenario) {
+        val jsExecutor = (webDriver as JavascriptExecutor)
+        jsExecutor.executeScript("window.scrollTo(0,0)")
+        val isScrollbarPresent =
+            jsExecutor.executeScript("return document.documentElement.scrollHeight>window.screen.height") as Boolean
+        if (isScrollbarPresent) {
+            val heightDocument = jsExecutor.executeScript("return document.body.scrollHeight") as Long
+            val heightViewport = jsExecutor.executeScript("return window.innerHeight") as Long
+            var pos: Long = 0
+
+            while (pos < heightDocument) {
+                scenario.addResizedScreenshotToReport(webDriver)
+                pos += heightViewport
+                jsExecutor.executeScript("window.scrollBy(0," + heightViewport + ")")
+            }
+        }
+        scenario.addResizedScreenshotToReport(webDriver)
+    }
 
     private fun Scenario.addResizedScreenshotToReport(webDriver: WebDriver) {
+
+        val screenshot = (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES)
+
+        if (testDataContainer.getAs<Dimension>("windowsize").width > 1100) {
+            this.attach(resizeScreenshot(screenshot), "image/png", "resized Screenshot")
+            return
+        }
         if (testDataContainer.isMobileEmulation()) {
-            this.attach(resizeScreenshot(webDriver), "image/png", "Mobile Screenshot")
+            this.attach(resizeScreenshot(screenshot), "image/png", "Mobile Screenshot")
             return
         }
-
         if (webDriver is AndroidDriver<*>) {
-            this.attach(resizeScreenshot(webDriver), "image/png", "Android Screenshot")
+            this.attach(resizeScreenshot(screenshot), "image/png", "Android Screenshot")
             return
         }
 
-        //else
         this.attach((webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES), "image/png", "Screenshot")
-
     }
 
 
-    private fun resizeScreenshot(webDriver: WebDriver): ByteArray {
-        val image = (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES)
-        val testimage: BufferedImage = Scalr.resize(ImageIO.read(ByteArrayInputStream(image)), 800)
+    private fun resizeScreenshot(screenshot: ByteArray): ByteArray {
+        val testimage: BufferedImage = Scalr.resize(ImageIO.read(ByteArrayInputStream(screenshot)), 800)
         val outputStream = ByteArrayOutputStream()
         ImageIO.write(testimage, "png", outputStream)
         return outputStream.toByteArray()
     }
-
 
 }
