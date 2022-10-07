@@ -20,6 +20,7 @@
     <log4j.version>1.7.36</log4j.version>
     <java.version>17</java.version>
     <axe-core.version>4.4.1</axe-core.version>
+    <assertj.version>3.23.1</assertj.version>
   </properties>
 
   <dependencies>
@@ -41,7 +42,7 @@
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>3.20.2</version>
+      <version>${assertj.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
