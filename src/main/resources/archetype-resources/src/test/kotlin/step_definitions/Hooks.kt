@@ -72,7 +72,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         log.debug("#".padEnd(debuglength, fillchar))
     }
 
-    @After
+    @After(order = 1000)
     fun afterScenario(scenario: Scenario) {
 
         val testId = testDataContainer.getTestId()
@@ -127,6 +127,24 @@ class Hooks(private val testDataContainer: TestDataContainer) {
             }
         }
     }
+
+
+
+    @After(order = 1100)
+    fun softAssertAll() {
+        if (testDataContainer.hasSoftAssertions() || !skipA11Y) {
+            testDataContainer.getSoftAssertionObject().assertAll()
+        }
+    }
+
+
+    @AfterStep
+    fun a11y(scenario: Scenario) {
+        testDataContainer.getAndClearA11Ydescriptions().forEachIndexed { index, issue ->
+            scenario.attach(issue, "text/plain", "A11Y Issue ${index + 1} in stepnumber ${testDataContainer.getStepIndex()}")
+        }
+    }
+
 
 
     private fun Scenario.addResizedScreenshotToReport(webDriver: WebDriver) {
