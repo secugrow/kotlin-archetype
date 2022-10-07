@@ -105,7 +105,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
                 val softAssertions = testDataContainer.getSoftAssertionObject()
                 softAssertions
                     .assertThat(issues)
-                    .`as`(TextDescription("Found ${issues.size} relevant A11Y violations in sceanrio \"${scenario.name}\" step# ${testDataContainer.getStepIndex()}"))
+                    .`as`(TextDescription("Found ${issues.size} relevant A11Y violations in sceanrio '${scenario.name}' step# ${testDataContainer.getStepIndex()}"))
                     .isEmpty()
             }
         }
