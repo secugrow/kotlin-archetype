@@ -40,11 +40,19 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
 
         testDataContainer.setScenario(scenario)
-        testDataContainer.setTestData("browser.type", System.getProperty("browser", "no browser set"))
+        testDataContainer.setTestData("browser.type", DriverType.valueOf(System.getProperty("browser", "no browser set").uppercase()))
         testDataContainer.setTestData("browser.version", System.getProperty("browser.version", "no version set"))
         testDataContainer.setTestData("initialized", false)
         testDataContainer.setTestData("baseurl", System.getProperty("baseUrl", "no base Url given"))
         testDataContainer.setTestData("skipA11y", skipA11Y)
+
+        testDataContainer.setTestData("stepIndex", 0)
+        testDataContainer.setTestData("softAssertion.object", SoftAssertions())
+
+        if (skipA11Y.not()) {
+            testDataContainer.setTestData("softAssertions.present", true)
+            testDataContainer.setTestData("a11y.description", mutableListOf<String>())
+        }
 
         // to check if it runs on Jenkins or local
         val jobname = System.getenv("JOB_NAME")
