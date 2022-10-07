@@ -98,7 +98,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
                     (webDriverSession.webDriver as AppiumDriver<*>).context(currentContext)
                 } else {
                     val jsExecutor = (webDriverSession.webDriver as JavascriptExecutor)
-                    jsExecutor.executeScript("windowscrollTo(0,0)")
+                    jsExecutor.executeScript("window.scrollTo(0,0)")
                     val isScrollbarPresent = jsExecutor.executeScript("return document.documentElement.scrollHeight>window.screen.height") as Boolean
                     if (isScrollbarPresent) {
                         val heightDocument = jsExecutor.executeScript("return document.body.scrollHeight") as Long
