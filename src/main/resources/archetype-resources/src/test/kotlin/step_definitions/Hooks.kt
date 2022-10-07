@@ -13,6 +13,7 @@ import io.appium.java_client.android.AndroidDriver
 import io.cucumber.java.After
 import io.cucumber.java.AfterStep
 import io.cucumber.java.Before
+import io.cucumber.java.BeforeStep
 import io.cucumber.java.Scenario
 import logger
 import org.apache.commons.io.FileUtils
@@ -34,6 +35,11 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
     private val log by logger()
     private val skipA11Y = System.getProperty("skipA11y", "true").toBoolean()
+
+    @BeforeStep
+    fun beforeStep() {
+        testDataContainer.incrementStepIndex()
+    }
 
     @Before
     fun beforeScrenario(scenario: Scenario) {

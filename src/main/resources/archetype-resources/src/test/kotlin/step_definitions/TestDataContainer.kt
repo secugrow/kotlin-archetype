@@ -125,6 +125,12 @@ class TestDataContainer {
         return getAs("stepIndex")
     }
 
+    fun incrementStepIndex() {
+        testDataMap["stepIndex"] = getStepIndex().inc()
+
+    }
+
+
     fun addStringtoList(key: String, stringToAdd: String) {
         when(testDataMap.containsKey(key)) {
             true -> {
