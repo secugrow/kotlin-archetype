@@ -7,13 +7,16 @@ package ${package}.step_definitions
 
 import ${package}.driverutil.WebDriverSessionStore
 import ${package}.driverutil.isMobile
+import ${package}.driverutil.DriverType
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import io.cucumber.java.After
+import io.cucumber.java.AfterStep
 import io.cucumber.java.Before
 import io.cucumber.java.Scenario
 import logger
 import org.apache.commons.io.FileUtils
+import org.assertj.core.api.SoftAssertions
 import org.imgscalr.Scalr
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.OutputType

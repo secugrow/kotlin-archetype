@@ -108,16 +108,17 @@ class TestDataContainer {
         addStringtoList("a11y.description", violationString)
     }
 
-    fun getA11yDescription(): List<String> {
-        return getAs("a11y.description")
-    }
-
     fun hasSoftAssertions() = getAs<Boolean>("softAssertions.present")
 
+
     fun getAndClearA11Ydescriptions(): List<String> {
-        val descriptions = getA11Ydescriptions()
+        val descriptions = getA11yDescription()
         testDataMap.replace("a11y.description", mutableListOf<String>())
         return descriptions
+    }
+
+    fun getA11yDescription(): List<String> {
+        return getAs("a11y.description")
     }
 
     fun getStepIndex(): Long {
