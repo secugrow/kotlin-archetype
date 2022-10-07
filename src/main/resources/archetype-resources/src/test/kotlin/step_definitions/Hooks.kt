@@ -141,7 +141,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
     @AfterStep
     fun a11y(scenario: Scenario) {
         testDataContainer.getAndClearA11Ydescriptions().forEachIndexed { index, issue ->
-            scenario.attach(issue, "text/plain", "A11Y Issue ${index + 1} in stepnumber ${testDataContainer.getStepIndex()}")
+            scenario.attach(issue, "text/plain", "A11Y Issue $dollar$curlyOpen index + 1 $curlyClose in stepnumber $dollar$curlyOpen testDataContainer.getStepIndex() $curlyClose ")
         }
     }
 
