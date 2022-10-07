@@ -127,6 +127,11 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
                 }
 
+                //processing forced screenshots during test
+                testDataContainer.getScreenshots().forEachIndexed { index, screenshot ->
+                    scenario.attach(screenshot.first, "image/png", "Forced Screenshot - ${index + 1} - ${screenshot.second}")
+                }
+
                 if (testDataContainer.isLocalRun()) {
                     val screenshot = (webDriverSession.webDriver as TakesScreenshot).getScreenshotAs(OutputType.FILE)
                     FileUtils.copyFile(screenshot, File(System.getProperty("user.dir") + "/target/error_selenium_" + testId + "_" + testDataContainer.getCurrentSessionId() + ".png"))
