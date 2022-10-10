@@ -11,7 +11,7 @@ For a quick and easy setup of Webdriver, [WebDriverManager](https://github.com/b
 
 
 ## Prerequisites
-* Java SDK (recommended Version > 15)
+* Java SDK (recommended Version > 17)
 * Maven
 
 ### Optional
@@ -36,11 +36,11 @@ In both cases you need to define some parameters to get the tests running:
 | baseUrl* | The base URL for your website under test. |
 | browser | Choose the browser type. Allowed values are defined in [DriverTypes Class](src/test/kotlin/at.co.boris.secton/driverutil/DriverTypes.kt). default = chrome |
 | browser.version | If you do not want to use the latest browser version, which is provided by the Webdriver manager, you can set the version with this parameter.|
-| driver.version | Sometimes it is necessary to define the Webdriver version, depending on which browser.version you are using or is installed on your local machine. To define browser.version and driver.version use Boni Garcia's [WebDriverManager](https://github.com/bonigarcia/webdrivermanager).|  
 | screen | If running tests on a multi monitor system, this parameter will move the browser window to the specified screen ID. |
 | printScreen | Gives you the ID's of connected screens in log for next run using the screen parameter |
 | selenium.grid | URL of Selenium grid server or a service which implements the Selenium grid protocol like Selenoid or Appium. |
-| device.id | only used if you want to run with mit mobile-chrome
+| device.id | only used if you want to run with mit mobile-chrome |
+| skipA11y | default = true, false -> activates the accessiblity audtis while your testruns |
 \* is mandatory
 
 ### Run tests with Selenium grid, Selenoid or Appium
@@ -50,9 +50,8 @@ In both cases you need to define some parameters to get the tests running:
 Example runtime parameters:
 
     -Dbrowser=chrome
-    -Dbrowser.version=101.0
+    -Dbrowser.version=106.0
     -DbaseUrl="http://www.wikipedia.at"
-    -Ddriver.version="101"
 
 # Scenarios
 ### Feature file structure
