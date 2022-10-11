@@ -18,7 +18,10 @@ class TestDataContainer {
     fun getScenario() = testDataMap["scenario"] as Scenario
     fun getTestId() = testDataMap["testId"] as String
     fun getScenarioTags() = getScenario().sourceTagNames
+
+    //<A11y-Begin>
     fun doA11YCheck() = getAs<Boolean>("skipA11y").not()
+    //<A11y-End>
 
     fun setScenario(scenario: Scenario) {
         testDataMap["scenario"] = scenario
@@ -85,10 +88,6 @@ class TestDataContainer {
         }
     }
 
-    fun getSoftAssertionObject(): SoftAssertions {
-        return testDataMap["softAssertion.object"] as SoftAssertions
-    }
-
     fun addScreenshot(screenshot: ByteArray?, description: String = "description not set") {
         val screenshots = getScreenshots()
         screenshots.add(Pair(screenshot!!, description))
@@ -104,12 +103,16 @@ class TestDataContainer {
         }
     }
 
-    fun addA11ydescription(violationString: String) {
-        addStringtoList("a11y.description", violationString)
+    fun getSoftAssertionObject(): SoftAssertions {
+        return testDataMap["softAssertion.object"] as SoftAssertions
     }
 
     fun hasSoftAssertions() = getAs<Boolean>("softAssertions.present")
 
+    //<A11y-Beginn>
+    fun addA11ydescription(violationString: String) {
+        addStringtoList("a11y.description", violationString)
+    }
 
     fun getAndClearA11Ydescriptions(): List<String> {
         val descriptions = getA11yDescription()
@@ -123,6 +126,7 @@ class TestDataContainer {
             false -> return emptyList()
         }
     }
+    //<A11y-End>
 
     fun getStepIndex(): Long {
         return getAs("stepIndex")
@@ -142,5 +146,4 @@ class TestDataContainer {
             false -> testDataMap[key] = mutableListOf(stringToAdd)
         }
     }
-
 }
