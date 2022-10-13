@@ -8,7 +8,7 @@
 
   <requiredProperties>
     <requiredProperty key="a11y">
-      <defaultValue>false</defaultValue>
+      <defaultValue>true</defaultValue>
     </requiredProperty>
   </requiredProperties>
 

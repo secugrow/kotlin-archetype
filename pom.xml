@@ -52,8 +52,8 @@
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <archetype-packaging.version>3.1.2</archetype-packaging.version>
-    <kotlin.version>1.7.0</kotlin.version>
+    <archetype-packaging.version>3.2.0</archetype-packaging.version>
+    <kotlin.version>1.7.20</kotlin.version>
   </properties>
 
   <dependencies>

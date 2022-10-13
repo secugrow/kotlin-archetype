@@ -19,9 +19,9 @@ class TestDataContainer {
     fun getTestId() = testDataMap["testId"] as String
     fun getScenarioTags() = getScenario().sourceTagNames
 
-    //<A11y-Begin>
+    //<a11y-start>
     fun doA11YCheck() = getAs<Boolean>("skipA11y").not()
-    //<A11y-End>
+    //<a11y-end>
 
     fun setScenario(scenario: Scenario) {
         testDataMap["scenario"] = scenario
@@ -109,7 +109,7 @@ class TestDataContainer {
 
     fun hasSoftAssertions() = getAs<Boolean>("softAssertions.present")
 
-    //<A11y-Beginn>
+    //<a11y-start>
     fun addA11ydescription(violationString: String) {
         addStringtoList("a11y.description", violationString)
     }
@@ -126,7 +126,7 @@ class TestDataContainer {
             false -> return emptyList()
         }
     }
-    //<A11y-End>
+    //<a11y-end>
 
     fun getStepIndex(): Long {
         return getAs("stepIndex")
