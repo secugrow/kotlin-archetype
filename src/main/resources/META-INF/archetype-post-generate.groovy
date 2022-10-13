@@ -47,7 +47,7 @@ def handle_a11y_marker(Path path, Boolean isA11y) {
                             Files.write(file, replaced.bytes)
                             break
                         case false:
-                            println "  -> a11y is $isA11y...removing a11y code"
+                            println "  -> a11y is $isA11y...removing a11y code ¯\\_(ツ)_/¯"
                             def replaced = fileAsString.replaceAll("(?s)\\/\\/<a11y-start>.*?\\/\\/<a11y-end>", "")
                             Files.write(file, replaced.bytes)
                             break
