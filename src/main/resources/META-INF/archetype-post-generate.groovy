@@ -15,6 +15,7 @@ def packageName = properties.get("package").toString()
 def a11y = properties.get("a11y").toString()
 def packagePath = packageName.replace(".", "/").toString()
 def packageBasePath = Paths.get(projectPath.toString(), "/src/test/kotlin/", packagePath)
+def resourcePath = Paths.get(projectPath.toString(), "/src/test/resources/")
 
 println "-> packageBasePath: $packageBasePath"
 
@@ -36,19 +37,18 @@ def handle_a11y_marker(Path path, Boolean isA11y) {
             FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
                 def filename = file.fileName
                 def fileAsString = Files.readString(file)
-                if (fileAsString.contains("<a11y-start>")) {
+                if (fileAsString.contains("//a11y-start")) {
                     println "-> $filename contains a11y-marker"
                     switch (isA11y) {
                         case true:
                             println "  -> a11y is $isA11y...removing a11y markers only - NO a11y code gets deleted"
-                            // das replace hier funktioniert irgendwie nicht, (noch) keine Ahnung warum
-                            def replaced = fileAsString.replaceAll("(?s)\\/\\/<a11y-start>", "")
-                                    .replaceAll("(?s)\\/\\/<a11y-end>", "")
+                            def replaced = fileAsString.replaceAll("(?s)\\/\\/a11y-start", "")
+                                    .replaceAll("(?s)\\/\\/a11y-end", "")
                             Files.write(file, replaced.bytes)
                             break
                         case false:
                             println "  -> a11y is $isA11y...removing a11y code ¯\\_(ツ)_/¯"
-                            def replaced = fileAsString.replaceAll("(?s)\\/\\/<a11y-start>.*?\\/\\/<a11y-end>", "")
+                            def replaced = fileAsString.replaceAll("(?s)\\/\\/a11y-start.*?\\/\\/a11y-end", "")
                             Files.write(file, replaced.bytes)
                             break
                     }

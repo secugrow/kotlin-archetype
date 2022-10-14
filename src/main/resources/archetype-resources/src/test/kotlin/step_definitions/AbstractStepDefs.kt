@@ -17,9 +17,9 @@ import org.openqa.selenium.remote.RemoteWebDriver
 import ${package}.pageobjects.AbstractPage
 import io.cucumber.java8.En
 import io.cucumber.java.Scenario
-//<a11y-start>
+//a11y-start
 import ${package}.a11y.A11yHelper
-//<a11y-end>
+//a11y-end
 import kotlin.reflect.KClass
 import logger
 import org.assertj.core.description.TextDescription
@@ -69,9 +69,9 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
         val page = getWebDriverSession().currentPage
 
         if (pageClass.isInstance(page)) {
-            //<a11y-start>
+            //a11y-start
             doA11YCheck()
-            //<a11y-end>
+            //a11y-end
             return page as T
         }
         log.error("Expect Page from type $pageClass but was $page")
@@ -86,7 +86,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
         getWebDriverSession().currentPage = page
     }
 
-    //<a11y-start>
+    //a11y-start
     private fun doA11YCheck() {
         if (testDataContainer.doA11YCheck()) {
             val scenario = testDataContainer.getScenario()
@@ -114,7 +114,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
             }
         }
     }
-    //<a11y-end>
+    //a11y-end
 }
 
 fun extractTestIdFromScenarioName(scenarioName: String): String {
@@ -126,9 +126,9 @@ fun extractTestIdFromScenarioName(scenarioName: String): String {
     }
 }
 
-//<a11y-start>
+//a11y-start
 private fun extractA11YExclusions(scenario: Scenario): List<String> {
     return scenario.sourceTagNames.filter { it.startsWith("@A11YExclude:") }.map { it.substring(it.indexOf(":")+1) }
 }
-//<a11y-end>
+//a11y-end
 

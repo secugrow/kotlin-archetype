@@ -58,7 +58,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         testDataContainer.setTestData("initialized", false)
         testDataContainer.setTestData("baseurl", System.getProperty("baseUrl", "no base Url given"))
         testDataContainer.setTestData("stepIndex", 0)
-        //<a11y-start>
+        //a11y-start
         testDataContainer.setTestData("skipA11y", skipA11Y)
         testDataContainer.setTestData("softAssertion.object", SoftAssertions())
         testDataContainer.setTestData("softAssertions.present", skipA11Y.not())
@@ -66,7 +66,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         if (skipA11Y.not()) {
             testDataContainer.setTestData("a11y.description", mutableListOf<String>())
         }
-        //<a11y-end>
+        //a11y-end
 
         // to check if it runs on Jenkins or local
         val jobname = System.getenv("JOB_NAME")
@@ -149,7 +149,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
         }
     }
 
-    //<a11y-start>
+    //a11y-start
     @After(order = 1100)
     fun softAssertAll() {
         if (testDataContainer.hasSoftAssertions() || !skipA11Y) {
@@ -167,7 +167,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
             )
         }
     }
-    //<a11y-end>
+    //a11y-end
 
     private fun mobileScreenshot(webDriver: WebDriver, scenario: Scenario) {
         val currentContext = (webDriver as AppiumDriver<*>).context
