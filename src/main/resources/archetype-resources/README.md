@@ -139,7 +139,7 @@ Example of runtime configuration for running a test on a emulated Android device
 ## IDEA Configuration
 
 If the generated project does not compile or cannot be started from IDEA, check the Version of the JDK
-Use an JDK Version above 12
+Use an JDK Version above 17
 
 * File - Project Structure ...
   ![name](src/test/resources/docs/project_sdk_settings.png)
