@@ -80,6 +80,7 @@ if (Boolean.valueOf(a11y)) {
 } else {
     def a11yPackage = Paths.get(packageBasePath.toString(), "a11y")
     FileUtils.deleteDirectory(a11yPackage.toAbsolutePath().toFile())
-
+    def pathToFile = Paths.get(resourcePath.toString(), "/runConfig/chrome-example-a11y.run.xml")
+    Files.deleteIfExists(pathToFile.toAbsolutePath())
     handle_a11y_marker(packageBasePath, false)
 }
