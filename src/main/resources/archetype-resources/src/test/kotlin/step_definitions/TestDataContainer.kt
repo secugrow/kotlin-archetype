@@ -2,12 +2,13 @@ package ${package}.step_definitions
 
 import ${package}.driverutil.DriverType
 import io.cucumber.java.Scenario
-import java.util.*
-
+import org.assertj.core.api.SoftAssertions
 
 @Suppress("UNCHECKED_CAST")
 class TestDataContainer {
     private val testDataMap: MutableMap<String, Any> = mutableMapOf()
+
+    private val SCREENSHOTS = "screenshots"
 
     init {
         testDataMap["testId"] = "init"
@@ -17,6 +18,10 @@ class TestDataContainer {
     fun getScenario() = testDataMap["scenario"] as Scenario
     fun getTestId() = testDataMap["testId"] as String
     fun getScenarioTags() = getScenario().sourceTagNames
+
+    //a11y-start
+    fun doA11YCheck() = getAs<Boolean>("skipA11y").not()
+    //a11y-end
 
     fun setScenario(scenario: Scenario) {
         testDataMap["scenario"] = scenario
@@ -83,4 +88,62 @@ class TestDataContainer {
         }
     }
 
+    fun addScreenshot(screenshot: ByteArray?, description: String = "description not set") {
+        val screenshots = getScreenshots()
+        screenshots.add(Pair(screenshot!!, description))
+        setTestData(SCREENSHOTS, screenshots)
+    }
+
+    fun getScreenshots(): MutableList<Pair<ByteArray, String>> = getScreenshotArrayFromTestDataMap()
+
+    private fun getScreenshotArrayFromTestDataMap(): MutableList<Pair<ByteArray, String>> {
+        return when (testDataMap.containsKey(SCREENSHOTS)) {
+            true -> getAs(SCREENSHOTS)
+            false -> mutableListOf()
+        }
+    }
+
+    fun getSoftAssertionObject(): SoftAssertions {
+        return testDataMap["softAssertion.object"] as SoftAssertions
+    }
+
+    fun hasSoftAssertions() = getAs<Boolean>("softAssertions.present")
+
+    //a11y-start
+    fun addA11ydescription(violationString: String) {
+        addStringtoList("a11y.description", violationString)
+    }
+
+    fun getAndClearA11Ydescriptions(): List<String> {
+        val descriptions = getA11yDescription()
+        testDataMap.replace("a11y.description", mutableListOf<String>())
+        return descriptions
+    }
+
+    fun getA11yDescription(): List<String> {
+        when (testDataMap.containsKey("a11y.description")) {
+            true -> return getAs("a11y.description")
+            false -> return emptyList()
+        }
+    }
+    //a11y-end
+
+    fun getStepIndex(): Long {
+        return getAs("stepIndex")
+    }
+
+    fun incrementStepIndex() {
+        testDataMap["stepIndex"] = getStepIndex().inc()
+    }
+
+    fun addStringtoList(key: String, stringToAdd: String) {
+        when(testDataMap.containsKey(key)) {
+            true -> {
+                val list : MutableList<String> = getAs(key)
+                list.add(stringToAdd)
+                testDataMap[key] = list
+            }
+            false -> testDataMap[key] = mutableListOf(stringToAdd)
+        }
+    }
 }

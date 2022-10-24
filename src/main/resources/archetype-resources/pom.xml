@@ -6,20 +6,21 @@
   <groupId>${groupId}</groupId>
   <artifactId>${artifactId}</artifactId>
   <version>${version}</version>
-  <logo>https://raw.githubusercontent.com/secugrow/kotlin-archetype/main/docs/pics/SeCu_Logo.png</logo>
 
   <name>Selenium Cucumber Generator - SeCuGrow</name>
 
   <properties>
     <selenium.version>4.3.0</selenium.version>
     <webdrivermanager.version>5.2.1</webdrivermanager.version>
-    <kotlin.version>1.7.0</kotlin.version>
+    <kotlin.version>1.7.20</kotlin.version>
     <cucumber.version>7.2.3</cucumber.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
     <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
     <log4j.version>1.7.36</log4j.version>
     <java.version>17</java.version>
+    <axe-core.version>4.4.1</axe-core.version>
+    <assertj.version>3.23.1</assertj.version>
   </properties>
 
   <dependencies>
@@ -37,6 +38,12 @@
       <groupId>com.willowtreeapps.assertk</groupId>
       <artifactId>assertk-jvm</artifactId>
       <version>0.25</version>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
@@ -99,7 +106,11 @@
       <artifactId>imgscalr-lib</artifactId>
       <version>4.2</version>
     </dependency>
-
+    <dependency>
+      <groupId>com.deque.html.axe-core</groupId>
+      <artifactId>selenium</artifactId>
+      <version>${axe-core.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
