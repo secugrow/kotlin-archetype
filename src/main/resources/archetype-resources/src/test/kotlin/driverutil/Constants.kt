@@ -2,6 +2,8 @@ package ${package}.driverutil
 
 import org.openqa.selenium.Dimension
 
+const val WEBDRIVER_TIMEOUT_SECONDS: Long = 15
+
 enum class DriverType {
     CHROME,
     CHROMIUM,

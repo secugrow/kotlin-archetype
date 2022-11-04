@@ -6,6 +6,8 @@ import ${package}.pageobjects.PageUrls
 import ${package}.step_definitions.TestDataContainer
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.remote.RemoteWebDriver
+import org.openqa.selenium.support.ui.WebDriverWait
+import java.time.Duration
 import kotlin.reflect.KClass
 import kotlin.reflect.full.primaryConstructor
 
@@ -14,6 +16,7 @@ class WebDriverSession(private val testId: String) {
     var currentPage: AbstractPage? = null
     private var lastPage: AbstractPage? = null
     val webDriver: WebDriver by lazy { DriverFactory.createWebDriver(testId) }
+    val wdwait: WebDriverWait by lazy { WebDriverWait(webDriver, Duration.ofSeconds(WEBDRIVER_TIMEOUT_SECONDS)) }
     private val baseUrl: String by lazy {
         if (System.getProperty("baseUrl").isBlank()) {
             fail("No BaseUrl is defined, do not know where to run the tests. Use '-DbaseUrl' to add the url where testenvironment is running ")
