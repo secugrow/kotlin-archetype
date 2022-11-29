@@ -7,7 +7,6 @@
 package ${package}.driverutil
 
 import io.appium.java_client.android.AndroidDriver
-import io.appium.java_client.android.AndroidElement
 import io.appium.java_client.remote.MobileCapabilityType
 import org.openqa.selenium.WebDriver
 import java.net.URL
@@ -29,7 +28,7 @@ class RemoteAndroidWebDriverFactory : RemoteWebDriverFactory() {
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2")
         caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 12000)
 
-        webDriver = AndroidDriver<AndroidElement>(URL("$dollar$curlyOpen getRemoteTestingServer$bracketOpen$bracketClose$curlyClose/wd/hub"), caps)
+        webDriver = AndroidDriver(URL("$dollar$curlyOpen getRemoteTestingServer$bracketOpen$bracketClose$curlyClose/wd/hub"), caps)
         return webDriver
 
     }

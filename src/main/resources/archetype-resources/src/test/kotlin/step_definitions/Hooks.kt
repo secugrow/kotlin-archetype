@@ -170,14 +170,14 @@ class Hooks(private val testDataContainer: TestDataContainer) {
     //a11y-end
 
     private fun mobileScreenshot(webDriver: WebDriver, scenario: Scenario) {
-        val currentContext = (webDriver as AppiumDriver<*>).context
-        (webDriver as AppiumDriver<*>).context("NATIVE_APP")
+        val currentContext = (webDriver as AndroidDriver).context
+        (webDriver as AndroidDriver).context("NATIVE_APP")
         scenario.attach(
             (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
             "image/png",
             "Screenshot"
         )
-        (webDriver as AppiumDriver<*>).context(currentContext)
+        (webDriver as AndroidDriver).context(currentContext)
     }
 
     private fun desktopScreenshot(webDriver: WebDriver, scenario: Scenario) {
@@ -211,7 +211,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
             this.attach(resizeScreenshot(screenshot), "image/png", "Mobile Screenshot")
             return
         }
-        if (webDriver is AndroidDriver<*>) {
+        if (webDriver is AndroidDriver) {
             this.attach(resizeScreenshot(screenshot), "image/png", "Android Screenshot")
             return
         }

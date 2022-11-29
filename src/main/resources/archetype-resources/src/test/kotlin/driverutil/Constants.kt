@@ -8,7 +8,6 @@ enum class DriverType {
     CHROME,
     CHROMIUM,
     FIREFOX,
-    OPERA,
     EDGE,
     IE,
     REMOTE_CHROME,

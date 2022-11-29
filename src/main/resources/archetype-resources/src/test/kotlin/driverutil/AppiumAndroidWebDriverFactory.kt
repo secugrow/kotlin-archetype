@@ -7,7 +7,6 @@ package ${package}.driverutil
 
 import assertk.fail
 import io.appium.java_client.android.AndroidDriver
-import io.appium.java_client.android.AndroidElement
 import io.appium.java_client.remote.MobileCapabilityType
 import io.github.bonigarcia.wdm.WebDriverManager
 import org.openqa.selenium.WebDriver
@@ -30,7 +29,7 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         val appiumServer = URL("$dollar$curlyOpen getRemoteTestingServer$bracketOpen$bracketClose$curlyClose/wd/hub")
 
         try {
-            webDriver = AndroidDriver<AndroidElement>(appiumServer, caps)
+            webDriver = AndroidDriver(appiumServer, caps)
 
         } catch (e: WebDriverException) {
             fail("Appium error: $appiumServer  exception message: $dollar$curlyOpen e.localizedMessage$curlyClose ::: Appium started?")

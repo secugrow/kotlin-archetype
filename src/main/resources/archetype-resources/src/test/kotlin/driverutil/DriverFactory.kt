@@ -32,9 +32,6 @@ object DriverFactory {
             DriverType.IE -> {
                 webDriver = IEWebDriverFactory().createDriver()
             }
-            DriverType.OPERA -> {
-                webDriver = OperaWebDriverFactory().createDriver()
-            }
 
             DriverType.LOCAL_CHROME_MOBILE_EMULATION -> { //checked
                 webDriver = ChromeMobileEmulationWebDriverFactory().createDriver()

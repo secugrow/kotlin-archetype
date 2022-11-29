@@ -10,7 +10,7 @@
   <name>Selenium Cucumber Generator - SeCuGrow</name>
 
   <properties>
-    <selenium.version>4.3.0</selenium.version>
+    <selenium.version>4.6.0</selenium.version>
     <webdrivermanager.version>5.2.1</webdrivermanager.version>
     <kotlin.version>1.7.20</kotlin.version>
     <cucumber.version>7.2.3</cucumber.version>
@@ -21,6 +21,7 @@
     <java.version>17</java.version>
     <axe-core.version>4.4.1</axe-core.version>
     <assertj.version>3.23.1</assertj.version>
+    <appium.version>8.2.1</appium.version>
   </properties>
 
   <dependencies>
@@ -31,7 +32,7 @@
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-devtools-v102</artifactId>
+      <artifactId>selenium-devtools-v107</artifactId>
       <version>${selenium.version}</version>
     </dependency>
     <dependency>
@@ -93,7 +94,7 @@
     <dependency>
       <groupId>io.appium</groupId>
       <artifactId>java-client</artifactId>
-      <version>7.6.0</version>
+      <version>${appium.version}</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
