@@ -8,7 +8,6 @@ abstract class RemoteWebDriverFactory: WebDriverFactory() {
         val videoRecording = System.getProperty("videoRecording", "no")
 
         caps.setVersion(getBrowserVersion())
-        caps.setCapability("sessionTimeout", "5m")
         caps.setCapability("enableVNC", true)
 
 
