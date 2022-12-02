@@ -8,12 +8,16 @@ abstract class RemoteWebDriverFactory: WebDriverFactory() {
         val videoRecording = System.getProperty("videoRecording", "no")
 
         caps.setVersion(getBrowserVersion())
-        caps.setCapability("enableVNC", true)
+        val executionTag = System.getProperty("execution.tag", "executionTag_not_set")
+        val providerName = System.getProperty("remote.options", "selenoid")
+        val providerOptions = mutableMapOf(
+            "env" to listOf("LANG=de_AT.UTF-8", "LANGUAGE=at:de", "LC_ALL=de_AT.UTF-8", "TZ=Europe/Vienna"),
+            "name" to executionTag,
+            "screenResolution" to getScreenSizeAsString(screenDimension),
+            "enableVNC" to true
+        )
 
-
-        val executionTag = System.getProperty("executionTag", "executionTag_not_set")
-        caps.setCapability("name", executionTag)
-
+        caps.setCapability("$providerName:options", providerOptions)
         caps.setCapability("screenResolution", getScreenSizeAsString(screenDimension))
 
         if (videoRecording.toBoolean()) {
