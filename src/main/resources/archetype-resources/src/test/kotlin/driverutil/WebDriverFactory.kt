@@ -21,7 +21,7 @@ abstract class WebDriverFactory {
         }
     }
 
-
+    @Deprecated
     fun getDriverVersion(): String? {
         return System.getProperty("driver.version")
     }

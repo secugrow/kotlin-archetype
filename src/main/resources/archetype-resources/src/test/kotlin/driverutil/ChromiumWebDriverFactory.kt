@@ -9,7 +9,7 @@ class ChromiumWebDriverFactory : WebDriverFactory() {
 
     override fun createDriver(): WebDriver {
 
-        WebDriverManager.chromiumdriver().driverVersion(getDriverVersion()).setup()
+        WebDriverManager.chromiumdriver().driverVersion(getBrowserVersion()).setup()
         val options = ChromeOptions()
 
         webDriver = ChromeDriver(options)

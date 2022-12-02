@@ -10,7 +10,7 @@ class FirefoxWebDriverFactory : WebDriverFactory() {
 
     override fun createDriver(): WebDriver {
 
-        WebDriverManager.firefoxdriver().driverVersion(getDriverVersion()).setup()
+        WebDriverManager.firefoxdriver().driverVersion(getBrowserVersion()).setup()
         val ffOptions = FirefoxOptions()
 
         webDriver = FirefoxDriver(ffOptions.merge(caps))

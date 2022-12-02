@@ -8,7 +8,7 @@ import org.openqa.selenium.ie.InternetExplorerOptions
 class IEWebDriverFactory : WebDriverFactory(){
 
     override fun createDriver(): WebDriver {
-        WebDriverManager.iedriver().driverVersion(getDriverVersion()).setup()
+        WebDriverManager.iedriver().driverVersion(getBrowserVersion()).setup()
         val options = InternetExplorerOptions()
 
         webDriver = InternetExplorerDriver(options)
