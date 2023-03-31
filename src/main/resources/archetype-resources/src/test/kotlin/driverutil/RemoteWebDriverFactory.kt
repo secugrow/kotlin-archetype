@@ -18,7 +18,6 @@ abstract class RemoteWebDriverFactory: WebDriverFactory() {
         )
 
         caps.setCapability("$providerName:options", providerOptions)
-        caps.setCapability("screenResolution", getScreenSizeAsString(screenDimension))
 
         if (videoRecording.toBoolean()) {
             caps.setCapability("enableVideo", true)

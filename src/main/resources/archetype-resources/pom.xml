@@ -10,18 +10,17 @@
   <name>Selenium Cucumber Generator - SeCuGrow</name>
 
   <properties>
-    <selenium.version>4.6.0</selenium.version>
-    <webdrivermanager.version>5.2.1</webdrivermanager.version>
+    <selenium.version>4.8.3</selenium.version>
     <kotlin.version>1.7.20</kotlin.version>
-    <cucumber.version>7.2.3</cucumber.version>
+    <cucumber.version>7.11.1</cucumber.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
     <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
     <log4j.version>1.7.36</log4j.version>
     <java.version>17</java.version>
-    <axe-core.version>4.4.1</axe-core.version>
+    <axe-core.version>4.6.0</axe-core.version>
     <assertj.version>3.23.1</assertj.version>
-    <appium.version>8.2.1</appium.version>
+    <appium.version>8.3.0</appium.version>
   </properties>
 
   <dependencies>
@@ -30,11 +29,11 @@
       <artifactId>selenium-java</artifactId>
       <version>${selenium.version}</version>
     </dependency>
-    <dependency>
+    <!--dependency>
       <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-devtools-v107</artifactId>
+      <artifactId>selenium-devtools-v111</artifactId>
       <version>${selenium.version}</version>
-    </dependency>
+    </dependency-->
     <dependency>
       <groupId>com.willowtreeapps.assertk</groupId>
       <artifactId>assertk-jvm</artifactId>
@@ -45,11 +44,6 @@
       <artifactId>assertj-core</artifactId>
       <version>${assertj.version}</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>${webdrivermanager.version}</version>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
@@ -77,12 +71,6 @@
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
       <version>${cucumber.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.sonatype.sisu</groupId>
-      <artifactId>sisu-guice</artifactId>
-      <version>4.2.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
