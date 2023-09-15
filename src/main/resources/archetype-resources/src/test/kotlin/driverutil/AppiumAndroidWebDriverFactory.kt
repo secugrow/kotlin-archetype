@@ -16,7 +16,8 @@ import java.net.URL
 
 class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
-        WebDriverManager.chromedriver().driverVersion(getBrowserVersion()).setup()
+        val webDriverManager = WebDriverManager.chromedriver().driverVersion(getBrowserVersion())
+        webDriverManager.setup()
 
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android")
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium_Android_Device")
@@ -25,8 +26,9 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         caps.setCapability(MobileCapabilityType.UDID, getMobileDeviceId())
         caps.setCapability("appium:chromeOptions", mutableMapOf(Pair("w3c", false)));
         caps.setCapability("noReset", true)
+        caps.setCapability("appium:chromedriverExecutable", webDriverManager.downloadedDriverPath)
 
-        val appiumServer = URL("$dollar$curlyOpen getRemoteTestingServer$bracketOpen$bracketClose$curlyClose/wd/hub")
+        val appiumServer = URL(getRemoteTestingServer$bracketOpen$bracketClose)
 
         try {
             webDriver = AndroidDriver(appiumServer, caps)
