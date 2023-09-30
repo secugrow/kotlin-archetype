@@ -3,12 +3,11 @@
 #set( $curlyClose = '}' )
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
-package ${package}.step_definitions
+package ${package}.stepdefinitions
 
 import ${package}.driverutil.WebDriverSessionStore
 import ${package}.driverutil.isMobile
 import ${package}.driverutil.DriverType
-import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
 import io.cucumber.java.After
 import io.cucumber.java.AfterStep
@@ -17,7 +16,6 @@ import io.cucumber.java.BeforeStep
 import io.cucumber.java.Scenario
 import logger
 import org.apache.commons.io.FileUtils
-import org.assertj.core.api.SoftAssertions
 import org.imgscalr.Scalr
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.OutputType
@@ -171,13 +169,13 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
     private fun mobileScreenshot(webDriver: WebDriver, scenario: Scenario) {
         val currentContext = (webDriver as AndroidDriver).context
-        (webDriver as AndroidDriver).context("NATIVE_APP")
+        webDriver.context("NATIVE_APP")
         scenario.attach(
             (webDriver as TakesScreenshot).getScreenshotAs(OutputType.BYTES),
             "image/png",
             "Screenshot"
         )
-        (webDriver as AndroidDriver).context(currentContext)
+        webDriver.context(currentContext)
     }
 
     private fun desktopScreenshot(webDriver: WebDriver, scenario: Scenario) {

@@ -10,9 +10,7 @@ import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.remote.MobileCapabilityType
 import io.github.bonigarcia.wdm.WebDriverManager
 import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebDriverException
-import java.io.File
-import java.net.URL
+import java.net.URI
 
 class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
@@ -28,17 +26,13 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         caps.setCapability("noReset", true)
         caps.setCapability("appium:chromedriverExecutable", webDriverManager.downloadedDriverPath)
 
-        val appiumServer = URL(getRemoteTestingServer$bracketOpen$bracketClose)
+        val appiumServer = URI.create(getRemoteTestingServer$bracketOpen$bracketClose).toURL()
 
-        try {
-            webDriver = AndroidDriver(appiumServer, caps)
-
-        } catch (e: WebDriverException) {
-            fail("Appium error: $appiumServer  exception message: $dollar$curlyOpen e.localizedMessage$curlyClose ::: Appium started?")
+        return runCatching {
+            webDriver.apply { AndroidDriver(appiumServer, caps) }
+        }.getOrElse {
+            fail("Appium error: $appiumServer  exception message: $dollar$curlyOpen it.localizedMessage$curlyClose ::: Appium started?")
         }
-
-
-        return webDriver
     }
 
     private fun getMobileDeviceId(): String {

@@ -54,3 +54,17 @@ example
         -DinteractiveMode=false \
         -Da11y=false
 
+
+## what you need for android
+
+
+```shell
+
+export ANDROID_HOME=$HOME/installed/android_sdk
+export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools
+export ANDROID_CMD_LINE_TOOLS=$ANDROID_HOME/cmdline-tools/latest
+export ANDROID_BUILD_TOOLS_34=$ANDROID_HOME/build-tools/34.0.0
+
+export PATH=$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS:$ANDROID_CMD_LINE_TOOLS/bin:$ANDROID_BUILD_TOOLS_34
+
+```
