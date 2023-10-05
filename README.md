@@ -11,7 +11,7 @@
 
 ## How to generate a ready to start project with this archetype
 
-This archetype will generate you a Selenium Cucumber Skeleton for your projects with your choosen packagenames
+This archetype will generate you a Selenium Cucumber Skeleton for your projects with your chosen package names
 A ready to use showcase ca be cloned/downloaded/forked from https://github.com/secugrow/generated-project.
 
 ### Installation
@@ -53,18 +53,3 @@ example
         -DartifactId=fromArchetype \
         -DinteractiveMode=false \
         -Da11y=false
-
-
-## what you need for android
-
-
-```shell
-
-export ANDROID_HOME=$HOME/installed/android_sdk
-export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools
-export ANDROID_CMD_LINE_TOOLS=$ANDROID_HOME/cmdline-tools/latest
-export ANDROID_BUILD_TOOLS_34=$ANDROID_HOME/build-tools/34.0.0
-
-export PATH=$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS:$ANDROID_CMD_LINE_TOOLS/bin:$ANDROID_BUILD_TOOLS_34
-
-```
