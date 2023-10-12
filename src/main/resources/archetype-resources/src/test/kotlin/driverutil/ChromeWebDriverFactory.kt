@@ -9,7 +9,6 @@ class ChromeWebDriverFactory : WebDriverFactory() {
 
     override fun createDriver(): WebDriver {
 
-        //WebDriverManager.chromedriver().driverVersion(getBrowserVersion()).setup()
         val options = ChromeOptions()
         options.addArguments("--remote-allow-origins=*")
         webDriver = ChromeDriver(options.merge(caps))
