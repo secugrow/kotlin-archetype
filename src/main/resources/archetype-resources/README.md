@@ -11,7 +11,8 @@ This is a skeleton based on Selenium, Cucumber with Kotlin and parallel-executio
 Also, [Cucumber Picocontainers](https://github.com/cucumber/cucumber-jvm/tree/master/picocontainer) were added for a
 smooth usage of test data among all steps.
 For a quick and easy setup of Webdriver, [WebDriverManager](https://github.com/bonigarcia/webdrivermanager)
-from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used.
+from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used to setup android configuration. 
+As the WebDriverManager is included in Selenium since 4.xx there will be no explicit call for local browsers anymore.
 
 ## Prerequisites
 
@@ -56,6 +57,13 @@ Example runtime parameters:
     -Dbrowser.version=106.0
     -DbaseUrl="http://www.wikipedia.at"
 
+If you need to pass additional capabilites for your environment (selenoid, selenium grid or a cloud provider of your choice) 
+you can name the provider with:
+
+    -Dremote.options=selenoid
+
+Add the corresponding options to RemoteWebDriverFactory.kt
+
 # Scenarios
 
 ### Feature file structure
@@ -81,10 +89,9 @@ Jenkins Cucumber report mark a scenario or step as failed.
 Scenarios have a unique ID which you have to assign manually and keep track of. If a scenario fails, you can easily jump
 to the step definitions via text search in your IDE.
 
-//TODO (add here screenshots from jenkins)
-
 ![testresults from IntelliJ](docs/images/testresults_idea.png)
-
+![testresults jenkins overview](docs/images/jenkins_overview.png)
+![testresults jenkins feature](docs/images/jenkins_feature.png)
 #Supported Browser in DriverType enum
 Setup will be done via WebDriverManager as mentioned above.
 
@@ -119,7 +126,7 @@ Example of a runtime configuration for an emulated Pixel 2 with a desktop Chrome
 
 You can use an emulated device (AVD Manager) or a connected real device, which both have to be supported by Appium.
 
-    boris@xps13:~/Android/Sdk/platform-tools$ ./adb devices
+    boris:~/Android/Sdk/platform-tools$ ./adb devices
     List of devices attached
     emulator-5554	device
 
