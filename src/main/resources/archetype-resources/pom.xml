@@ -10,7 +10,7 @@
   <name>Selenium Cucumber Generator - SeCuGrow</name>
 
   <properties>
-    <selenium.version>4.10.0</selenium.version>
+    <selenium.version>4.13.0</selenium.version>
     <webdrivermanager.version>5.5.3</webdrivermanager.version>
     <kotlin.version>1.8.22</kotlin.version>
     <cucumber.version>7.11.1</cucumber.version>
