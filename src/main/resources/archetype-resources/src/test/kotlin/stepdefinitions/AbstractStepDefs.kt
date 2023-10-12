@@ -5,7 +5,7 @@
 #set( $curlyClose = '}' )
 #set( $dollar = '$' )
 
-package ${package}.step_definitions
+package ${package}.stepdefinitions
 
 import assertk.fail
 import ${package}.driverutil.PageNotFoundException

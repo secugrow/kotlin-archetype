@@ -1,4 +1,4 @@
-package ${package}.step_definitions
+package ${package}.stepdefinitions
 
 import ${package}.pageobjects.WikipediaPage
 import ${package}.pageobjects.PageUrls

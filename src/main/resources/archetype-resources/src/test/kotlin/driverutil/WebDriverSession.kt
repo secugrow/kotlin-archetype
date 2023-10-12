@@ -3,7 +3,7 @@ package ${package}.driverutil
 import assertk.fail
 import ${package}.pageobjects.AbstractPage
 import ${package}.pageobjects.PageUrls
-import ${package}.step_definitions.TestDataContainer
+import ${package}.stepdefinitions.TestDataContainer
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.support.ui.WebDriverWait

@@ -3,7 +3,7 @@
 #set( $curlyClose = '}' )
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
-package ${package}.step_definitions
+package ${package}.stepdefinitions
 
 import ${package}.driverutil.WebDriverSessionStore
 import ${package}.driverutil.isMobile

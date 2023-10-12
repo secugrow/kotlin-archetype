@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="chrome-example-a11y" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
     <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features" />
-    <option name="GLUE" value="${groupId}.step_definitions" />
+    <option name="GLUE" value="${groupId}.stepdefinitions" />
     <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
     <module name="${artifactId}" />
     <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --tags &quot;@all&quot; --plugin &quot;json:target/cucumber-report/json/report.json&quot; --plugin &quot;html:target/cucumber-report/report.html&quot;" />
