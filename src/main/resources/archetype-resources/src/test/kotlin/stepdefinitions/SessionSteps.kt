@@ -1,10 +1,8 @@
 package ${package}.stepdefinitions
 
-import assertk.assertThat
-import assertk.assertions.endsWith
-import assertk.assertions.isEqualTo
 import ${package}.pageobjects.MainPage
 import ${package}.pageobjects.PageUrls
+import org.assertj.core.api.Assertions.assertThat
 
 class SessionSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(testDataContainer) {
 
@@ -33,3 +31,4 @@ class SessionSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(test
 
     }
 }
+

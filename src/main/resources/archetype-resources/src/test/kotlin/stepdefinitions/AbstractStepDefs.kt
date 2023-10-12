@@ -7,10 +7,10 @@
 
 package ${package}.stepdefinitions
 
-import assertk.fail
 import ${package}.driverutil.PageNotFoundException
 import ${package}.driverutil.WebDriverSession
 import ${package}.driverutil.WebDriverSessionStore
+import org.assertj.core.api.Assertions.fail
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.remote.RemoteWebDriver
@@ -119,11 +119,12 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
 
 fun extractTestIdFromScenarioName(scenarioName: String): String {
     val regex = "^\\[(.*) \\[.*\$".toRegex()
-    try {
-        return regex.find(scenarioName)!!.groups[1]!!.value
-    } catch (e: NullPointerException) {
+    return runCatching {
+        regex.find(scenarioName)!!.groups[1]!!.value
+    }.getOrElse {
         fail("Scenarioname is not correct formated $scenarioName. Pattern: '[XXX-99 [Filename]")
     }
+
 }
 
 //a11y-start

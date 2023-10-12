@@ -5,7 +5,7 @@
 #set( $bracketClose = ')' )
 package ${package}.driverutil
 
-import assertk.fail
+import org.assertj.core.api.Assertions.fail
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.remote.MobileCapabilityType
 import io.github.bonigarcia.wdm.WebDriverManager
