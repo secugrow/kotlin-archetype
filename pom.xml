@@ -38,8 +38,8 @@
       <organizationUrl>https://secugrow.io</organizationUrl>
     </developer>
     <developer>
-      <name>Adi Musilek</name>
-      <email>adi@secugrow.io</email>
+      <name>Christian Musilek</name>
+      <email>christian@secugrow.io</email>
     </developer>
   </developers>
 
@@ -50,10 +50,10 @@
   </scm>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>20</maven.compiler.source>
+    <maven.compiler.target>20</maven.compiler.target>
     <archetype-packaging.version>3.2.0</archetype-packaging.version>
-    <kotlin.version>1.7.20</kotlin.version>
+    <kotlin.version>1.9.22</kotlin.version>
   </properties>
 
   <dependencies>

@@ -10,18 +10,17 @@
   <name>Selenium Cucumber Generator - SeCuGrow</name>
 
   <properties>
-    <selenium.version>4.10.0</selenium.version>
-    <kotlin.version>1.8.22</kotlin.version>
-    <cucumber.version>7.11.1</cucumber.version>
-    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-    <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
-    <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
-    <log4j.version>1.7.36</log4j.version>
-    <java.version>17</java.version>
+    <selenium.version>4.28.1</selenium.version>
+    <kotlin.version>1.9.22</kotlin.version>
+    <cucumber.version>7.21.1</cucumber.version>
+    <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+    <maven.failsafe.plugin.version>3.1.2</maven.failsafe.plugin.version>
+    <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
+    <logback.version>1.5.16</logback.version>
+    <java.version>20</java.version>
     <axe-core.version>4.6.0</axe-core.version>
     <assertj.version>3.23.1</assertj.version>
-    <appium.version>8.5.1</appium.version>
-    <webdrivermanager.version>5.5.3</webdrivermanager.version>
+    <appium.version>8.6.0</appium.version>
   </properties>
 
   <dependencies>
@@ -30,16 +29,6 @@
       <artifactId>selenium-java</artifactId>
       <version>${selenium.version}</version>
     </dependency>
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>${webdrivermanager.version}</version>
-    </dependency>
-    <!--dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-devtools-v111</artifactId>
-      <version>${selenium.version}</version>
-    </dependency-->
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
@@ -68,6 +57,13 @@
       <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- JUnit 5 Suite API -->
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-api</artifactId>
+      <version>1.11.1</version> <!-- Use latest version -->
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
@@ -86,9 +82,9 @@
       <version>${appium.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>${log4j.version}</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>

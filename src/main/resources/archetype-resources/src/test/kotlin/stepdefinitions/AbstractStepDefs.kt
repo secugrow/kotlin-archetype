@@ -10,21 +10,14 @@ package ${package}.stepdefinitions
 import ${package}.driverutil.PageNotFoundException
 import ${package}.driverutil.WebDriverSession
 import ${package}.driverutil.WebDriverSessionStore
+import ${package}.pageobjects.AbstractPage
+import io.cucumber.java8.En
+import logger
 import org.assertj.core.api.Assertions.fail
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.remote.RemoteWebDriver
-import ${package}.pageobjects.AbstractPage
-import io.cucumber.java8.En
-import io.cucumber.java.Scenario
-//a11y-start
-import ${package}.a11y.A11yHelper
-//a11y-end
 import kotlin.reflect.KClass
-import logger
-import org.assertj.core.description.TextDescription
-import org.openqa.selenium.OutputType
-import org.openqa.selenium.TakesScreenshot
 
 open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) : En {
 

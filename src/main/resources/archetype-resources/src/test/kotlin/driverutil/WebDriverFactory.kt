@@ -21,7 +21,7 @@ abstract class WebDriverFactory {
         }
     }
 
-    @Deprecated("use getBrowserVersion instead")
+    @Deprecated(message = "use getBrowserVersion instead", replaceWith = ReplaceWith("System.getProperty(\"browser.version\")"))
     fun getDriverVersion(): String? {
         return System.getProperty("driver.version")
     }
@@ -29,6 +29,4 @@ abstract class WebDriverFactory {
     fun getBrowserVersion(): String? {
         return System.getProperty("browser.version")
     }
-
-
 }

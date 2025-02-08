@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver
 import java.time.Duration
 import java.time.temporal.ChronoUnit
 
-
 object DriverFactory {
 
     private const val TIMEOUT : Long = 10

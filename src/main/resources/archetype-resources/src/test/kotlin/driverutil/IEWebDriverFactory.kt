@@ -1,6 +1,5 @@
 package ${package}.driverutil
 
-import io.github.bonigarcia.wdm.WebDriverManager
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.ie.InternetExplorerDriver
 import org.openqa.selenium.ie.InternetExplorerOptions
@@ -8,7 +7,6 @@ import org.openqa.selenium.ie.InternetExplorerOptions
 class IEWebDriverFactory : WebDriverFactory(){
 
     override fun createDriver(): WebDriver {
-        WebDriverManager.iedriver().driverVersion(getBrowserVersion()).setup()
         val options = InternetExplorerOptions()
 
         webDriver = InternetExplorerDriver(options)
@@ -16,5 +14,4 @@ class IEWebDriverFactory : WebDriverFactory(){
 
         return webDriver
     }
-
 }
