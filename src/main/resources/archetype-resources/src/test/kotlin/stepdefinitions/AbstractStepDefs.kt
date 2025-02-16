@@ -12,11 +12,19 @@ import ${package}.driverutil.WebDriverSession
 import ${package}.driverutil.WebDriverSessionStore
 import ${package}.pageobjects.AbstractPage
 import io.cucumber.java8.En
+import io.cucumber.java.Scenario
 import logger
 import org.assertj.core.api.Assertions.fail
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.remote.RemoteWebDriver
+//a11y-start
+import ${package}.a11y.A11yHelper
+import org.assertj.core.description.TextDescription
+import org.openqa.selenium.OutputType
+import org.openqa.selenium.TakesScreenshot
+//a11y-end
+
 import kotlin.reflect.KClass
 
 open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) : En {

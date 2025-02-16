@@ -14,6 +14,7 @@ import io.cucumber.java.AfterStep
 import io.cucumber.java.Before
 import io.cucumber.java.BeforeStep
 import io.cucumber.java.Scenario
+import org.assertj.core.api.SoftAssertions
 import logger
 import org.apache.commons.io.FileUtils
 import org.imgscalr.Scalr
