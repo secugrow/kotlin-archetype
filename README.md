@@ -11,7 +11,7 @@
 
 ## How to generate a ready to start project with this archetype
 
-This archetype will generate you a Selenium Cucumber Skeleton for your projects with your choosen packagenames
+This archetype will generate you a Selenium Cucumber Skeleton for your projects with your chosen package names
 A ready to use showcase ca be cloned/downloaded/forked from https://github.com/secugrow/generated-project.
 
 ### Installation
@@ -53,4 +53,3 @@ example
         -DartifactId=fromArchetype \
         -DinteractiveMode=false \
         -Da11y=false
-

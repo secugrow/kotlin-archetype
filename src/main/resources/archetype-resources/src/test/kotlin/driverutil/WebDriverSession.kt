@@ -1,9 +1,10 @@
 package ${package}.driverutil
 
-import assertk.fail
+
 import ${package}.pageobjects.AbstractPage
 import ${package}.pageobjects.PageUrls
 import ${package}.stepdefinitions.TestDataContainer
+import org.assertj.core.api.Assertions.fail
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.support.ui.WebDriverWait
@@ -19,7 +20,7 @@ class WebDriverSession(private val testId: String) {
     val wdwait: WebDriverWait by lazy { WebDriverWait(webDriver, Duration.ofSeconds(WEBDRIVER_TIMEOUT_SECONDS)) }
     private val baseUrl: String by lazy {
         if (System.getProperty("baseUrl").isBlank()) {
-            fail("No BaseUrl is defined, do not know where to run the tests. Use '-DbaseUrl' to add the url where testenvironment is running ")
+            fail<Nothing>("No BaseUrl is defined, do not know where to run the tests. Use '-DbaseUrl' to add the url where testenvironment is running ")
         }
         System.getProperty("baseUrl")
     }
@@ -58,9 +59,9 @@ class WebDriverSession(private val testId: String) {
     private fun <T : AbstractPage> pageOpened(currentPageClass: KClass<T>): T {
         val primaryConstructor = currentPageClass.primaryConstructor
         if (primaryConstructor == null || primaryConstructor.parameters.size != 1 || primaryConstructor.parameters[0].type.classifier != WebDriverSession::class) {
-            fail("invalid primary constructor of page object")
+            fail<Nothing>("invalid primary constructor of page object")
         }
-        return primaryConstructor.call(this)
+        return primaryConstructor!!.call(this)
 
     }
 

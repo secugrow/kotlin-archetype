@@ -2,7 +2,8 @@ package ${package}.driverutil
 
 import logger
 import org.openqa.selenium.WebDriver
-import java.util.concurrent.TimeUnit
+import java.time.Duration
+import java.time.temporal.ChronoUnit
 
 object DriverFactory {
 
@@ -61,7 +62,7 @@ object DriverFactory {
             }
         }
 
-        webDriver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS)
+        webDriver.manage().timeouts().implicitlyWait(Duration.of(TIMEOUT, ChronoUnit.SECONDS))
         return webDriver
     }
 

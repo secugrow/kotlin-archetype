@@ -5,30 +5,32 @@
 #set( $bracketClose = ')' )
 package ${package}.driverutil
 
-import assertk.fail
 import io.appium.java_client.android.AndroidDriver
-import io.appium.java_client.remote.MobileCapabilityType
-import io.github.bonigarcia.wdm.WebDriverManager
+import org.assertj.core.api.Assertions.fail
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebDriverException
-import java.io.File
-import java.net.URL
+import org.openqa.selenium.chrome.ChromeOptions
+import java.net.URI
 
 class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
-        val webDriverManager = WebDriverManager.chromedriver().driverVersion(getBrowserVersion())
-        webDriverManager.setup()
 
-        caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android")
-        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium_Android_Device")
-        caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2")
+        // Create ChromeOptions for DevTools
+        val chromeOptions = ChromeOptions()
+        chromeOptions.addArguments("--disable-extensions")
+        chromeOptions.addArguments("--no-sandbox")
+        chromeOptions.setExperimentalOption("w3c", false) // Important for Appium support
+
+        caps.setCapability("platformName", "Android")
+        caps.setCapability("deviceName", "Appium_Android_Device")
+        caps.setCapability("automationName", "UiAutomator2")
         caps.setCapability("browserName", "chrome")
-        caps.setCapability(MobileCapabilityType.UDID, getMobileDeviceId())
-        caps.setCapability("appium:chromeOptions", mutableMapOf(Pair("w3c", false)));
+        caps.setCapability("udid", getMobileDeviceId())
         caps.setCapability("noReset", true)
-        caps.setCapability("appium:chromedriverExecutable", webDriverManager.downloadedDriverPath)
+        caps.setCapability("appium:chromeOptions", chromeOptions)
+//        caps.setCapability("appium:chromedriverExecutable", webDriverManager.downloadedDriverPath)
 
-        val appiumServer = URL(getRemoteTestingServer$bracketOpen$bracketClose)
+        val appiumServer = URI.create(getRemoteTestingServer$bracketOpen$bracketClose).toURL()
 
         try {
             webDriver = AndroidDriver(appiumServer, caps)
@@ -36,8 +38,6 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         } catch (e: WebDriverException) {
             fail("Appium error: $appiumServer  exception message: $dollar$curlyOpen e.localizedMessage$curlyClose ::: Appium started?")
         }
-
-
         return webDriver
     }
 

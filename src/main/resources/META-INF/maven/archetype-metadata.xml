@@ -30,7 +30,7 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
-      <!-- DEV-NOTE: needs to be here although it's empty. otherwise LICENSE.txt and README.md are not packaged -->
+      <!-- DEV-NOTE: needs to be here, although it's empty. otherwise LICENSE.txt and README.md are not packaged -->
       <directory></directory>
       <includes>
         <include>gitignore</include>
