@@ -1,21 +1,15 @@
-import io.appium.java_client.android.AndroidDriver
-import org.assertj.core.api.Assertions.fail
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebDriverException
-import java.net.URI
-
 #set( $dollar = '$' )
 #set( $curlyOpen = '{' )
 #set( $curlyClose = '}' )
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
-package ${ package }.driverutil
+package ${package}.driverutil
 
 import io.appium.java_client.android.AndroidDriver
+import io.appium.java_client.android.options.UiAutomator2Options
 import org.assertj.core.api.Assertions.fail
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebDriverException
-import org.openqa.selenium.chrome.ChromeOptions
 import java.net.URI
 
 class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
