@@ -5,7 +5,7 @@
 
     <groupId>io.secugrow</groupId>
     <artifactId>secugrow-kotlin-archetype</artifactId>
-    <version>1.9.0-SNAPSHOT</version>
+    <version>1.9.0</version>
     <packaging>maven-archetype</packaging>
 
     <name>secugrow-kotlin-archetype</name>
@@ -100,22 +100,15 @@
                     <jvmTarget>${maven.compiler.target}</jvmTarget>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
-
-    <profiles>
-        <profile>
-            <id>releaseIt</id>
-            <build>
-                <plugins>
-                    <plugin>
+            <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
                         <version>0.7.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
-
+                            <autoPublish>true</autoPublish>
+                            <waitUntil>published</waitUntil>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -166,6 +159,12 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
@@ -177,9 +176,6 @@
                             <goals>clean deploy</goals>
                         </configuration>
                     </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
+        </plugins>
+    </build>
 </project>
