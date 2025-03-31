@@ -21,7 +21,6 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         uiAutomator2Options.setPlatformName("Android")
         uiAutomator2Options.setDeviceName("Appium_Android_Device")
         uiAutomator2Options.withBrowserName("chrome")
-
         uiAutomator2Options.setNoReset(true)
         uiAutomator2Options.setCapability(
             "chromeOptions", mapOf(

@@ -5,6 +5,8 @@ Feature: [wikipedia] Example Feature
   Scenario: [WIK-01 [wikipedia]
     Given the start page is loaded
     Then the searchbar is visible
+    When the Selenium page is opened
+    Then the header should be "Selenium"
 
   @no_appium
   Scenario: [WIK-02 [wikipedia]
