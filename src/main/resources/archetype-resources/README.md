@@ -10,9 +10,6 @@ corresponding glue code.
 This is a skeleton based on Selenium, Cucumber with Kotlin and parallel-execution support with JUnit 5.
 Also, [Cucumber Picocontainers](https://github.com/cucumber/cucumber-jvm/tree/master/picocontainer) were added for a
 smooth usage of test data among all steps.
-For a quick and easy setup of Webdriver, [WebDriverManager](https://github.com/bonigarcia/webdrivermanager)
-from [Boni Garcia](https://github.com/bonigarcia/bonigarcia.github.io) is used to setup android configuration. 
-As the WebDriverManager is included in Selenium since 4.xx there will be no explicit call for local browsers anymore.
 
 ## Prerequisites
 
@@ -54,10 +51,9 @@ In both cases you need to define some parameters to get the tests running:
 Example runtime parameters:
 
     -Dbrowser=chrome
-    -Dbrowser.version=106.0
-    -DbaseUrl="http://www.wikipedia.at"
+    -DbaseUrl="http://www.wikipedia.org"
 
-If you need to pass additional capabilites for your environment (selenoid, selenium grid or a cloud provider of your choice) 
+If you need to pass additional capabilites for your environment (selenoid, selenium grid or a cloud provider of your choice)
 you can name the provider with:
 
     -Dremote.options=selenoid
@@ -117,9 +113,7 @@ at [Aerokube Website](https://aerokube.com)
 Example of a runtime configuration for an emulated Pixel 2 with a desktop Chrome browser:
 
     -Dbrowser=chrome_mobile_emulation
-    -Dbrowser.version=75.0
-    -Ddriver.version=75
-    -DbaseUrl="http://www.wikipedia.at"
+    -DbaseUrl="http://www.wikipedia.org"
     -Demulated.device="Pixel 2"
 
 ### Android device (via Appium)
@@ -136,9 +130,8 @@ Example of runtime configuration for running a test on a emulated Android device
 4723):
 
         -Dbrowser=appium_android_device
-        -DbaseUrl="http://www.wikipedia.at"
+        -DbaseUrl="http://www.wikipedia.org"
         -Dselenium.grid=http://localhost:4723
-        -Ddriver.version=2.34
         -Ddevice.id="emulator-5554"
 
 # Troubleshooting
