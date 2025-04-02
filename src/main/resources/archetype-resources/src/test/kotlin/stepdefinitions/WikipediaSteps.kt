@@ -7,8 +7,15 @@ class WikipediaSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(te
 
     init {
         Then("the searchbar is visible") {
-            assertThat(getPage(WikipediaPage::class).isSearchbarPresent()).isTrue()
+            assertThat(getPage(WikipediaStartPage::class).isSearchbarPresent()).isTrue()
+        }
 
+        When("the Selenium page is opened") {
+            //missing
+        }
+
+        Then("the header should be {string}") { header: String ->
+            TODO("Not yet implemented")
         }
     }
 }
