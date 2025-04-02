@@ -8,7 +8,7 @@ import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.ExpectedConditions
 
-class WikipediaStartPage(session: WebDriverSession) : MainPage(session)  {
+class WikipediaStartPage(session: WebDriverSession) : MainPage(session) {
 
     fun isSearchbarPresent(): Boolean {
         return webDriver.findElements(By.id("searchInput")).size >= 1
