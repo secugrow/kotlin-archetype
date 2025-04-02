@@ -42,9 +42,6 @@ object DriverFactory {
             DriverType.REMOTE_CHROME_MOBILE_EMULATION -> { //checked
                 webDriver = RemoteChromeMobileEmulationWebDriverFactory().createDriver()
             }
-            DriverType.REMOTE_OPERA -> { //checked
-                webDriver = RemoteOperaWebDriverFactory().createDriver()
-            }
             DriverType.REMOTE_CHROME -> { //checked
                 webDriver = RemoteChromeWebDriverFactory().createDriver()
             }
