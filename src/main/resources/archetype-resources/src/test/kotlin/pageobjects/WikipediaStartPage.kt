@@ -28,3 +28,4 @@ class WikipediaStartPage(session: WebDriverSession) : MainPage(session)  {
     fun getSearchbar(): WebElement {
         return wdwait.until(ExpectedConditions.presenceOfElementLocated(By.id("searchInput")))
     }
+}
