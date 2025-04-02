@@ -1,23 +1,22 @@
-package $
-
-import org.openqa.selenium.By
-
-{package}.pageobjects
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.pageobjects;
 
 import ${package}.driverutil.WebDriverSession
-import ${package}.pageobjects.AbstractPage
-import ${package}.pageobjects.MainPage
 import org.openqa.selenium.By
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.support.ui.ExpectedConditions
 
-class WikipediaPage(session: WebDriverSession) : MainPage(session)  {
+class WikipediaStartPage(session: WebDriverSession) : MainPage(session)  {
 
     fun isSearchbarPresent(): Boolean {
         return webDriver.findElements(By.id("searchInput")).size >= 1
     }
 
-    fun submitSearch(): WikiPediaSearchresultPage {
-        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(By.id("cmdSearch"))).click()
-        return WikiPediaSearchresultPage(session)
+    fun submitSearch(): WikipediaContentPage {
+        wdwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))).click()
+        return WikipediaContentPage(session)
     }
 
     fun searchFor(searchstring: String?): WikipediaContentPage {
@@ -26,5 +25,6 @@ class WikipediaPage(session: WebDriverSession) : MainPage(session)  {
         return WikipediaContentPage(session)
     }
 
-
-}
+    fun getSearchbar(): WebElement {
+        return wdwait.until(ExpectedConditions.presenceOfElementLocated(By.id("searchInput")))
+    }

@@ -1,6 +1,7 @@
 package ${package}.stepdefinitions
 
-import  ${package}.pageobjects.WikipediaPage
+import  ${package}.pageobjects.WikipediaContentPage
+import  ${package}.pageobjects.WikipediaStartPage
 import org.assertj.core.api.Assertions.assertThat
 
 class WikipediaSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(testDataContainer) {
@@ -11,11 +12,11 @@ class WikipediaSteps(testDataContainer: TestDataContainer) : AbstractStepDefs(te
         }
 
         When("the Selenium page is opened") {
-            //missing
+            getPage(WikipediaStartPage::class).searchFor("Selenium")
         }
 
-        Then("the header should be {string}") { header: String ->
-            TODO("Not yet implemented")
+        Then("the header should be {string}") { expHeader: String ->
+            assertThat(getPage(WikipediaContentPage::class).getHeader()).contains(expHeader)
         }
     }
 }
