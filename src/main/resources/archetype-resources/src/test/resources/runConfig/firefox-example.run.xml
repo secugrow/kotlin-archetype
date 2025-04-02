@@ -9,7 +9,7 @@
 	<module name="${artifactId}" />
     <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --tags &quot;@all&quot; --plugin &quot;json:target/cucumber-report/json/report.json&quot; --plugin &quot;html:target/cucumber-report/html&quot;" />
     <shortenClasspath name="NONE" />
-    <option name="VM_PARAMETERS" value="-Dbrowser=firefox -DbaseUrl=&quot;https://www.wikipedia.org&quot; -Dbrowser.version=105" />
+    <option name="VM_PARAMETERS" value="-Dbrowser=firefox -DbaseUrl=&quot;https://www.wikipedia.org&quot; " />
     <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
     <method v="2">
       <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="install -DskipTests" />
