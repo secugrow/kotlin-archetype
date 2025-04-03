@@ -1,15 +1,16 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="firefox-example" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
     <envs>
-      <env name="TMPDIR" value="could_be_necessary_for_firefox_linux" />
+      <env name="SE_SKIP_DRIVER_IN_PATH" value="true" />
+      <env name="TMPDIR" value="$USER_HOME$/tmp_selenium" />
     </envs>
     <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features" />
     <option name="GLUE" value="${groupId}.stepdefinitions" />
     <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
 	<module name="${artifactId}" />
-    <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --tags &quot;@all&quot; --plugin &quot;json:target/cucumber-report/json/report.json&quot; --plugin &quot;html:target/cucumber-report/html&quot;" />
+    <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --tags &quot;@all&quot; --plugin &quot;json:target/cucumber-report/json/report.json&quot; --plugin &quot;html:target/cucumber-report/report.html&quot;" />
     <shortenClasspath name="NONE" />
-    <option name="VM_PARAMETERS" value="-Dbrowser=firefox -DbaseUrl=&quot;https://www.wikipedia.org&quot; " />
+    <option name="VM_PARAMETERS" value="-Dbrowser=firefox -DbaseUrl=&quot;https://www.wikipedia.org&quot;" />
     <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
     <method v="2">
       <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="install -DskipTests" />
