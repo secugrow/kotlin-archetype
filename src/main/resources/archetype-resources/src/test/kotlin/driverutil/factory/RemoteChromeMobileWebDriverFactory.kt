@@ -5,7 +5,7 @@
 #set( $bracketClose = ')' )
 
 
-package ${package}.driverutil
+package ${package}.driverutil.factory
 
 import io.appium.java_client.AppiumDriver
 import org.openqa.selenium.WebDriver
@@ -18,7 +18,7 @@ class RemoteChromeMobileWebDriverFactory : RemoteWebDriverFactory() {
 
         //caps.setCapability("adbExecTimeout", 120000)
         val options = ChromeOptions().merge(caps)
-        options.setBrowserVersion("mobile-${ getBrowserVersion()}")
+        options.browserVersion = "mobile-${ getBrowserVersion()}"
         options.setCapability("browserName", "chrome")
 
         //BUG in Android selenoid Image, 20.06.2019

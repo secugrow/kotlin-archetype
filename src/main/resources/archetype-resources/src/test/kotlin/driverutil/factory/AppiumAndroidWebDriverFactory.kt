@@ -3,7 +3,7 @@
 #set( $curlyClose = '}' )
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
-package ${package}.driverutil
+package ${package}.driverutil.factory
 
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.options.UiAutomator2Options
