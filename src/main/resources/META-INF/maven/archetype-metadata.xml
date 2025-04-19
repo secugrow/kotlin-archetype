@@ -27,6 +27,7 @@
       <directory>src/test/kotlin</directory>
       <includes>
         <include>**/*.kt</include>
+        <include>**/*.md</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
