@@ -5,7 +5,7 @@
 #set( $bracketClose = ')' )
 
 
-package ${package}.driverutil
+package ${package}.driverutil.factory
 
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxOptions

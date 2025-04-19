@@ -1,4 +1,4 @@
-package ${package}.driverutil
+package ${package}.driverutil.extensions
 
 import java.security.MessageDigest
 
