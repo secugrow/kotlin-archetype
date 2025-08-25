@@ -22,7 +22,7 @@ class RemoteChromeMobileEmulationWebDriverFactory : RemoteWebDriverFactory() {
 
         val options = ChromeOptions().merge(caps)
         options.setCapability(CapabilityType.BROWSER_NAME, "chrome")
-        options.setCapability(CapabilityType.BROWSER_VERSION, getBrowserVersion())
+        options.setCapability(CapabilityType.BROWSER_VERSION, getBrowserVersion()!!)
 
         val mobileEmulation = HashMap<String, String>()
         mobileEmulation["deviceName"] = System.getProperty("emulated.device", emulatedDevices.Pixel_2.phoneName)
