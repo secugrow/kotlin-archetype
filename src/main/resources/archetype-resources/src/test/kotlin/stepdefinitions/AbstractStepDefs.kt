@@ -119,7 +119,7 @@ open class AbstractStepDefs(protected val testDataContainer: TestDataContainer) 
 }
 
 fun extractTestIdFromScenarioName(scenarioName: String): String {
-    val regex = "^\\[(.*) \\[.*\$".toRegex()
+    val regex = "^(.*) \\[.*\$".toRegex()
     return runCatching {
         regex.find(scenarioName)!!.groups[1]!!.value
     }.getOrElse {
