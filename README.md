@@ -12,7 +12,7 @@
 ## How to generate a ready to start project with this archetype
 
 This archetype will generate you a Selenium Cucumber Skeleton for your projects with your chosen package names
-A ready to use showcase ca be cloned/downloaded/forked from https://github.com/secugrow/generated-project.
+A ready to use showcase ca be cloned/downloaded/forked from https://github.com/secugrow/generated_kotlin.
 
 ### Installation
 Before being able to make use of the `archetype:generate` command, the project has to be built from its root directory 
@@ -22,7 +22,7 @@ OR
 
 copy a jar from releases to your local maven repository in the correct path:
 
-    <user dir, depens on your OS>/.m2/repository/io/secugrow/secugrow-kotlin-archetype/<version>/secugrow-kotlin-archetype-<version>.jar
+    <user dir, depends on your OS>/.m2/repository/io/secugrow/secugrow-kotlin-archetype/<version>/secugrow-kotlin-archetype-<version>.jar
 
 OR
 
