@@ -16,12 +16,13 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
 
         val uiAutomator2Options = UiAutomator2Options()
-        uiAutomator2Options.setUdid(getMobileDeviceId$bracketOpen$bracketClose)
+        uiAutomator2Options.setUdid(getMobileDeviceId())
         uiAutomator2Options.setAutomationName("UiAutomator2")
         uiAutomator2Options.setPlatformName("Android")
         uiAutomator2Options.setDeviceName("Appium_Android_Device")
         uiAutomator2Options.withBrowserName("chrome")
         uiAutomator2Options.setNoReset(true)
+        uiAutomator2Options.setCapability("appium:chromedriver_autodownload", true)
         uiAutomator2Options.setWebSocketUrl(true)
         uiAutomator2Options.setCapability(
             "chromeOptions", mapOf(
