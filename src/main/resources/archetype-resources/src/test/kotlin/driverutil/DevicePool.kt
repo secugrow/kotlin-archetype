@@ -15,9 +15,10 @@ object DevicePool {
             .forEach { offer(it) }
     }
 
+    // ThreadLocal so each parallel scenario thread holds its own device serial
     private val currentDevice = ThreadLocal<String>()
 
-    fun isMultiDevice(): Boolean = devices.isNotEmpty() || currentDevice.get() != null
+    fun isEnabled(): Boolean = devices.isNotEmpty()
 
     fun acquire(): String {
         val serial = devices.take()

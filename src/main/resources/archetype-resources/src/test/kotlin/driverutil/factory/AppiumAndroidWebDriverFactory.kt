@@ -4,15 +4,13 @@
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
 package ${package}.driverutil.factory
-
+import ${package}.driverutil.DevicePool
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.options.UiAutomator2Options
 import org.assertj.core.api.Assertions.fail
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebDriverException
-import org.ucaat.driverutil.factory.RemoteWebDriverFactory
 import java.net.URI
-import org.ucaat.driverutil.DevicePool
 
 class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
@@ -43,12 +41,6 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         return webDriver
     }
 
-    private fun getMobileDeviceId(): String {
-        return if (DevicePool.isMultiDevice()) {
-            DevicePool.current()
-        } else {
-            System.getProperty("device.id", "emulator-5554")
-        }
-    }
+    private fun getMobileDeviceId(): String = DevicePool.current()
 
 }

@@ -6,9 +6,9 @@
 package ${package}.stepdefinitions
 
 import ${package}.driverutil.WebDriverSessionStore
+import ${package}.driverutil.DevicePool
 import ${package}.driverutil.DriverType
 import ${package}.driverutil.extensions.isMobile
-import ${package}.driverutil.DevicePool
 import io.appium.java_client.android.AndroidDriver
 import io.cucumber.java.After
 import io.cucumber.java.AfterStep
@@ -45,7 +45,13 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
     @Before
     fun beforeScrenario(scenario: Scenario) {
-        if (isAppium && DevicePool.isMultiDevice()) {
+
+        /*
+         * Acquire a device from the pool before the scenario starts.
+         * -Ddevices is always used for Appium runs (bare metal or Docker),
+         * resolved dynamically via adb devices at mvn invocation time.
+         */
+        if (isAppium && DevicePool.isEnabled()) {
             val serial = DevicePool.acquire()
             testDataContainer.setTestData("device.serial", serial)
             log.info("Acquired device $dollar$curlyOpen serial $curlyClose for scenario: $dollar$curlyOpen scenario.name $curlyClose")
@@ -109,6 +115,12 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
         if (!scenario.isFailed) {
             WebDriverSessionStore.quitAll()
+            // Release device back to pool after scenario completes
+            if (isAppium && DevicePool.isEnabled()) {
+                val serial = testDataContainer.getAs<String>("device.serial")
+                DevicePool.release(serial)
+                log.info("Released device $dollar$curlyOpen serial $curlyClose")
+            }
             return
         }
 
@@ -151,12 +163,13 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
             } finally {
                 WebDriverSessionStore.remove(testId)
+                // Release device back to pool after failed scenario
+                if (isAppium && DevicePool.isEnabled()) {
+                    val serial = testDataContainer.getAs<String>("device.serial")
+                    DevicePool.release(serial)
+                    log.info("Released device $dollar$curlyOpen serial $curlyClose")
+                }
             }
-        }
-        if (isAppium && DevicePool.isMultiDevice()) {
-            val serial = testDataContainer.getAs<String>("device.serial")
-            DevicePool.release(serial)
-            log.info("Released device $dollar$curlyOpen serial $curlyClose")
         }
     }
 

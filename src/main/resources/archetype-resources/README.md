@@ -39,8 +39,7 @@ In both cases you need to define some parameters to get the tests running:
 | browser | Choose the browser type. Allowed values are defined in DriverTypes Class. default = chrome |
 | browser.version | If you do not want to use the latest browser version, which is provided by the Webdriver manager, you can set the version with this parameter. |
 | selenium.grid | URL of Selenium grid server or a service which implements the Selenium grid protocol like Selenoid or Appium. |
-| device.id | Single Android device serial for Appium runs (e.g. `emulator-5554`). Use `devices` instead for multi-device parallel execution. |
-| devices | Comma-separated list of Android device serials for parallel Appium execution. Automatically resolved via `adb devices` — see example below. |
+| devices | Comma-separated list of Android device serials for Appium execution. Resolved dynamically via `adb devices` — see example below. Works with one or more connected devices. |
 | skipA11y | default = true, false -> activates the accessibility audits while your testruns (if you created your project with (-Da11y=true) |
 
 \* is mandatory
@@ -128,21 +127,7 @@ Example of a runtime configuration for an emulated Pixel 2 with a desktop Chrome
 ### Android device (via Appium)
 
 You can use an emulated device (AVD Manager) or a connected real device, which both have to be supported by Appium.
-
-    boris:~/Android/Sdk/platform-tools$ ./adb devices
-    List of devices attached
-    emulator-5554	device
-
-**Single device** — use `-Ddevice.id` to target a specific device:
-
-```
--Dbrowser=appium_android_device
--DbaseUrl="http://www.wikipedia.org"
--Dselenium.grid=http://localhost:4723
--Ddevice.id="emulator-5554"
-```
-
-**Multiple devices (parallel execution)** — use `-Ddevices` with a comma-separated list of serials. Tests are distributed automatically across all connected devices, with each device running one test at a time. The serial list is resolved dynamically at run time — no manual configuration needed when adding or removing devices. This also works with a single device connected.
+Connected devices are discovered automatically via `adb devices` — the same command works whether one or multiple devices are connected.
 
 **Bare metal** — `adb` is installed locally on the machine running the tests:
 
