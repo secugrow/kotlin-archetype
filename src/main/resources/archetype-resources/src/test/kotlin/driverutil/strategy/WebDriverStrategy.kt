@@ -1,6 +1,6 @@
 package ${package}.driverutil.strategy
 
-import at.ptss.driverutil.factory.WebDriverFactory
+import ${package}.driverutil.factory.WebDriverFactory
 import org.openqa.selenium.WebDriver
 
 /**

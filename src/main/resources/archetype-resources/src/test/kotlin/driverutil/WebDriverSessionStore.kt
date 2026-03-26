@@ -2,6 +2,7 @@ package ${package}.driverutil
 
 import ${package}.driverutil.strategy.DriverContext
 import logger
+import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Singleton object responsible for managing WebDriverSession instances.
@@ -21,7 +22,7 @@ object WebDriverSessionStore {
     /**
      * Internal storage for WebDriverSession instances, keyed by session name.
      */
-    private val store = HashMap<String, WebDriverSession>()
+    private val store = ConcurrentHashMap<String, WebDriverSession>()
 
     /**
      * Retrieves an existing WebDriverSession or creates a new one with a default DriverContext.
@@ -32,7 +33,6 @@ object WebDriverSessionStore {
      * @param sessionName A unique identifier for the session
      * @return The WebDriverSession associated with the given name
      */
-    @Synchronized
     fun get(sessionName: String): WebDriverSession {
         return get(sessionName, DriverContext())
     }

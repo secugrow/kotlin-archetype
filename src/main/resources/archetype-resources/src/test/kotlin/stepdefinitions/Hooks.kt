@@ -8,6 +8,7 @@ package ${package}.stepdefinitions
 import ${package}.driverutil.WebDriverSessionStore
 import ${package}.driverutil.DriverType
 import ${package}.driverutil.extensions.isMobile
+import ${package}.driverutil.DevicePool
 import io.appium.java_client.android.AndroidDriver
 import io.cucumber.java.After
 import io.cucumber.java.AfterStep
@@ -35,6 +36,7 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
     private val log by logger()
     private val skipA11Y = System.getProperty("skipA11y", "true").toBoolean()
+    private val isAppium = System.getProperty("browser", "") == "appium_android_device"
 
     @BeforeStep
     fun beforeStep() {
@@ -43,6 +45,11 @@ class Hooks(private val testDataContainer: TestDataContainer) {
 
     @Before
     fun beforeScrenario(scenario: Scenario) {
+        if (isAppium && DevicePool.isMultiDevice()) {
+            val serial = DevicePool.acquire()
+            testDataContainer.setTestData("device.serial", serial)
+            log.info("Acquired device $dollar$curlyOpen serial $curlyClose for scenario: $dollar$curlyOpen scenario.name $curlyClose")
+        }
 
         val fillchar = '#'
         val debuglength = 80
@@ -145,6 +152,11 @@ class Hooks(private val testDataContainer: TestDataContainer) {
             } finally {
                 WebDriverSessionStore.remove(testId)
             }
+        }
+        if (isAppium && DevicePool.isMultiDevice()) {
+            val serial = testDataContainer.getAs<String>("device.serial")
+            DevicePool.release(serial)
+            log.info("Released device $dollar$curlyOpen serial $curlyClose")
         }
     }
 

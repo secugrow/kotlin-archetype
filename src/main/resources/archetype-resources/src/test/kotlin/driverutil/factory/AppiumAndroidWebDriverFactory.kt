@@ -10,13 +10,15 @@ import io.appium.java_client.android.options.UiAutomator2Options
 import org.assertj.core.api.Assertions.fail
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebDriverException
+import org.ucaat.driverutil.factory.RemoteWebDriverFactory
 import java.net.URI
+import org.ucaat.driverutil.DevicePool
 
 class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     override fun createDriver(): WebDriver {
 
         val uiAutomator2Options = UiAutomator2Options()
-        uiAutomator2Options.setUdid(getMobileDeviceId())
+        uiAutomator2Options.setUdid(getMobileDeviceId$bracketOpen$bracketClose)
         uiAutomator2Options.setAutomationName("UiAutomator2")
         uiAutomator2Options.setPlatformName("Android")
         uiAutomator2Options.setDeviceName("Appium_Android_Device")
@@ -42,7 +44,11 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
     }
 
     private fun getMobileDeviceId(): String {
-        return System.getProperty("device.id", "emulator-5554")
+        return if (DevicePool.isMultiDevice()) {
+            DevicePool.current()
+        } else {
+            System.getProperty("device.id", "emulator-5554")
+        }
     }
 
 }
