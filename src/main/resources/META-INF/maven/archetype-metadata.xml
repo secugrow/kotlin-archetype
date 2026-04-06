@@ -40,7 +40,7 @@
         </fileSet>
 
         <fileSet filtered="false" packaged="false" encoding="UTF-8">
-            <directory>src/main/resources/docs</directory>
+            <directory>src/test/resources/docs</directory>
             <includes>
                 <include>**/*</include>
             </includes>
