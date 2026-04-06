@@ -10,18 +10,18 @@
     <name>Selenium Cucumber Generator - SeCuGrow</name>
 
     <properties>
-        <selenium.version>4.35.0</selenium.version>
+        <selenium.version>4.41.0</selenium.version>
         <kotlin.version>1.9.22</kotlin.version>
-        <cucumber.version>7.21.1</cucumber.version>
+        <cucumber.version>7.34.3</cucumber.version>
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
         <maven.failsafe.plugin.version>3.1.2</maven.failsafe.plugin.version>
         <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
         <logback.version>1.5.18</logback.version>
         <slf4j.version>2.0.17</slf4j.version>
-        <java.version>21</java.version>
-        <axe-core.version>4.10.1</axe-core.version>
-        <assertj.version>3.27.4</assertj.version>
-        <appium.version>10.0.0</appium.version>
+        <java.version>23</java.version>
+        <axe-core.version>4.11.1</axe-core.version>
+        <assertj.version>3.27.7</assertj.version>
+        <appium.version>10.1.0</appium.version>
     </properties>
 
     <dependencies>
