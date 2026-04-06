@@ -28,7 +28,7 @@ smooth usage of test data among all steps.
   `mvn clean verify -Dbrowser=chrome -DbaseUrl="https://www.wikipedia.org" -Ddriver.version=101`
 
 * Option 2: Start directly from IDEA with a runConfiguration
-  ![idea run configuration](docs/images/idea_runConfig.png)
+  ![idea run configuration](src/test/resources/docs/idea_runConfig.png)
   Use the runConfiguration File which is located in the resources-folder and adapt the parameter for your need
 
 In both cases you need to define some parameters to get the tests running:
