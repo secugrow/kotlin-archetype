@@ -86,8 +86,8 @@ Scenarios have a unique ID which you have to assign manually and keep track of. 
 to the step definitions via text search in your IDE.
 
 ![testresults from IntelliJ](docs/images/testresults_idea.png)
-![testresults jenkins overview](docs/images/jenkins_overview.png)
-![testresults jenkins feature](docs/images/jenkins_feature.png)
+![testresults jenkins overview](src/test/resources/docs/jenkins_overall.png)
+![testresults jenkins feature](src/test/resources/docs/jenkins_feature.png)
 #Supported Browser in DriverType enum
 Setup will be done via WebDriverManager as mentioned above.
 
