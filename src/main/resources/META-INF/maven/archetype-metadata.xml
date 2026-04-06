@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archetype-descriptor
-    xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
-    name="secugrow"
-    xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+        name="secugrow"
+        xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 
-  <requiredProperties>
-    <requiredProperty key="a11y">
-      <defaultValue>true</defaultValue>
-    </requiredProperty>
-  </requiredProperties>
+    <requiredProperties>
+        <requiredProperty key="a11y">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
 
 
-  <fileSets>
-    <fileSet encoding="UTF-8" filtered="true">
-      <directory>src/test/resources</directory>
-      <includes>
-        <include>**/*.feature</include>
-        <include>**/*.java</include>
-        <include>**/*.xml</include>
-        <include>junit-platform.properties</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8" packaged="true">
-      <directory>src/test/kotlin</directory>
-      <includes>
-        <include>**/*.kt</include>
-      </includes>
-    </fileSet>
-    <fileSet encoding="UTF-8">
-      <!-- DEV-NOTE: needs to be here, although it's empty. otherwise LICENSE.txt and README.md are not packaged -->
-      <directory></directory>
-      <includes>
-        <include>gitignore</include>
-        <include>LICENSE.txt</include>
-        <include>README.md</include>
-      </includes>
-    </fileSet>
-  </fileSets>
+    <fileSets>
+        <fileSet encoding="UTF-8" filtered="true">
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>**/*.feature</include>
+                <include>**/*.java</include>
+                <include>**/*.xml</include>
+                <include>junit-platform.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8" packaged="true">
+            <directory>src/test/kotlin</directory>
+            <includes>
+                <include>**/*.kt</include>
+            </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+            <!-- DEV-NOTE: needs to be here, although it's empty. otherwise LICENSE.txt and README.md are not packaged -->
+            <directory></directory>
+            <includes>
+                <include>gitignore</include>
+                <include>LICENSE.txt</include>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
+
+        <fileSet filtered="false" packaged="false" encoding="UTF-8">
+            <directory>src/main/resources/docs</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
 </archetype-descriptor>
