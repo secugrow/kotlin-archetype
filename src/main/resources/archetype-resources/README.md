@@ -85,7 +85,7 @@ Jenkins Cucumber report mark a scenario or step as failed.
 Scenarios have a unique ID which you have to assign manually and keep track of. If a scenario fails, you can easily jump
 to the step definitions via text search in your IDE.
 
-![testresults from IntelliJ](docs/images/testresults_idea.png)
+![testresults from IntelliJ](src/test/resources/docs/testresults_idea.png)
 ![testresults jenkins overview](src/test/resources/docs/jenkins_overall.png)
 ![testresults jenkins feature](src/test/resources/docs/jenkins_feature.png)
 #Supported Browser in DriverType enum
