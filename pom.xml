@@ -36,7 +36,11 @@
         <connection>scm:git:git://github.com/secugrow/kotlin-archetype.git</connection>
         <developerConnection>scm:git:ssh://github.com/secugrow/kotlin-archetype.git</developerConnection>
         <url>https://github.com/secugrow/kotlin-archetype/tree/main</url>
+<<<<<<< HEAD
       <tag>v1.10.0_Milan</tag>
+=======
+      <tag>v1.10.0_Milano</tag>
+>>>>>>> main
   </scm>
 
     <properties>
