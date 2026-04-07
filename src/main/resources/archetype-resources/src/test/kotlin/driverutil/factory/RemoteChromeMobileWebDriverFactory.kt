@@ -23,7 +23,7 @@ class RemoteChromeMobileWebDriverFactory : RemoteWebDriverFactory() {
         log.info("Creating Remote Chrome Mobile WebDriver")
 
         val options = ChromeOptions().merge(caps)
-        options.browserVersion = "mobile-$dollar$curlyOpen getBrowserVersion$bracketOpen$bracketClose$curlyClose"
+        options.browserVersion = "mobile-$dollar$curlyOpen getBrowserVersion$bracketOpen$bracketClose ?: ""$curlyClose"
         options.setCapability("browserName", "chrome")
         options.setCapability("enableVNC", false)
         options.setCapability("sessionTimeout", "15m")

@@ -75,7 +75,7 @@ class TestDataContainer {
         }
     }
 
-    fun needsInitializing(): Boolean = getAs("initialized")
+    fun needsInitializing(): Boolean = !getAs<Boolean>("initialized")
 
     fun isLocalRun(): Boolean = getAs("localRun")
 
