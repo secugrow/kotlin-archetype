@@ -4,7 +4,7 @@
 
     <groupId>io.secugrow</groupId>
     <artifactId>secugrow-kotlin-archetype</artifactId>
-    <version>1.10.0</version>
+    <version>1.11.0-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>secugrow-kotlin-archetype</name>
@@ -36,7 +36,7 @@
         <connection>scm:git:git@github.com:secugrow/kotlin-archetype.git</connection>
         <developerConnection>scm:git:git@github.com:secugrow/kotlin-archetype.git</developerConnection>
         <url>https://github.com/secugrow/kotlin-archetype/tree/main</url>
-      <tag>v1.10.0_Milan</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
