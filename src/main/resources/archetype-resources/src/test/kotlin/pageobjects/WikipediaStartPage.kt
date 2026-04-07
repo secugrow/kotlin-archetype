@@ -5,7 +5,6 @@ package ${package}.pageobjects;
 
 import ${package}.driverutil.WebDriverSession
 import org.openqa.selenium.By
-import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.ExpectedConditions
 
 class WikipediaStartPage(session: WebDriverSession) : MainPage(session) {
@@ -19,13 +18,12 @@ class WikipediaStartPage(session: WebDriverSession) : MainPage(session) {
         return WikipediaContentPage(session)
     }
 
-    fun searchFor(searchstring: String?): WikipediaContentPage {
-        getSearchbar().sendKeys(searchstring)
-        submitSearch()
-        return WikipediaContentPage(session)
-    }
-
-    fun getSearchbar(): WebElement {
-        return wdwait.until(ExpectedConditions.presenceOfElementLocated(By.id("searchInput")))
+    fun searchFor(searchstring: String): WikipediaContentPage {
+        wdwait.until { driver ->
+            requireNotNull(
+                ExpectedConditions.presenceOfElementLocated(By.id("searchInput")).apply(driver)
+            ) { "Searchbar not found" }
+        }.sendKeys(searchstring)
+        return submitSearch()
     }
 }

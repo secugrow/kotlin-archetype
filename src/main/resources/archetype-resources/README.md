@@ -25,7 +25,7 @@ smooth usage of test data among all steps.
 
 * Option 1: Start with Maven
 
-  `mvn clean verify -Dbrowser=chrome -DbaseUrl="https://www.wikipedia.org" -Ddriver.version=101`
+  `mvn test -Dbrowser=chrome -Dheadless=true -DbaseUrl="https://www.wikipedia.org" -Dcucumber.filter.tags=@all`
 
 * Option 2: Start directly from IDEA with a runConfiguration
   ![idea run configuration](src/test/resources/docs/idea_runConfig.png)

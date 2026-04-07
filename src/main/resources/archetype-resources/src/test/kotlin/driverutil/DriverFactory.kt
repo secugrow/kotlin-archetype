@@ -30,9 +30,6 @@ object DriverFactory {
             DriverType.EDGE -> { //checked
                 webDriver = EdgeWebDriverFactory().createDriver()
             }
-            DriverType.IE -> {
-                webDriver = IEWebDriverFactory().createDriver()
-            }
 
             DriverType.LOCAL_CHROME_MOBILE_EMULATION -> { //checked
                 webDriver = ChromeMobileEmulationWebDriverFactory().createDriver()
