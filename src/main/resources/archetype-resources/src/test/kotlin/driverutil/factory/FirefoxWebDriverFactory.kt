@@ -4,23 +4,36 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxOptions
 
+/**
+ * Factory for creating Firefox WebDriver instances.
+ *
+ * This factory creates a FirefoxDriver with the specified options and capabilities.
+ * It supports headless mode and configures the browser window size.
+ */
 class FirefoxWebDriverFactory : WebDriverFactory() {
 
-
     override fun createDriver(): WebDriver {
+        log.info("Creating Firefox WebDriver")
 
         val ffOptions = FirefoxOptions()
 
-        val linux = System.getProperty("os.name").lowercase().contains("linux")
-        if (linux && System.getenv()["TMPDIR"]!!.contains("could_be_necessary_for_firefox_linux")) {
-            log.warn("If you running on Linux and using a snap installed firefox you have to set the TMPDIR to a writeable directory in your homedirectory with the absolute path!")
+        if (headless) {
+            log.info("Running Firefox in headless mode")
+            ffOptions.addArguments("-headless")
         }
 
+        val linux = System.getProperty("os.name").lowercase().contains("linux")
+        if (linux) {
+            log.debug("Running on Linux - if Firefox is installed via snap, set TMPDIR to a writable directory in your home directory with the absolute path")
+        }
 
-        webDriver = FirefoxDriver(ffOptions.merge(caps))
-        webDriver.manage().window().size = screenDimension.dimension
-
-        return webDriver
+        return runCatching {
+            webDriver = FirefoxDriver(ffOptions.merge(caps))
+            webDriver.manage().window().size = screenDimension.dimension
+            configureTimeouts(webDriver)
+        }.getOrElse { e ->
+            log.error("Failed to create Firefox WebDriver: ${e.message}")
+            throw e
+        }
     }
-
 }

@@ -25,15 +25,13 @@ class ChromeWebDriverFactory : WebDriverFactory() {
             options.addArguments("--disable-gpu")
         }
 
-        try {
-        webDriver = ChromeDriver(options.merge(caps))
-        webDriver.manage().window().size = screenDimension.dimension
-
-            // Configure timeouts
-            return configureTimeouts(webDriver)
-        } catch (e: Exception) {
+        return runCatching {
+            webDriver = ChromeDriver(options.merge(caps))
+            webDriver.manage().window().size = screenDimension.dimension
+            configureTimeouts(webDriver)
+        }.getOrElse { e ->
             log.error("Failed to create Chrome WebDriver: ${e.message}")
             throw e
-    }
+        }
     }
 }

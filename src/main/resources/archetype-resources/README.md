@@ -137,8 +137,6 @@ mvn test \
   -DbaseUrl="https://www.wikipedia.org" \
   -Dselenium.grid=http://localhost:4723 \
   -Dcucumber.filter.tags=@all \
-  -Dcucumber.glue=<your.glue.package> \
-  -Dcucumber.features=src/test/resources/features \
   -Ddevices=$(adb devices | grep -w device | awk '{print $1}' | paste -sd,)
 ```
 
@@ -150,8 +148,6 @@ mvn test \
   -DbaseUrl="https://www.wikipedia.org" \
   -Dselenium.grid=http://localhost:4723 \
   -Dcucumber.filter.tags=@all \
-  -Dcucumber.glue=<your.glue.package> \
-  -Dcucumber.features=src/test/resources/features \
   -Ddevices=$(docker exec appium-server adb devices | grep -w device | awk '{print $1}' | paste -sd,)
 ```
 
