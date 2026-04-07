@@ -33,14 +33,14 @@ smooth usage of test data among all steps.
 
 In both cases you need to define some parameters to get the tests running:
 
-| Name | Description                                                                                                                                   |
-|------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| baseUrl* | The base URL for your website under test.                                                                                                     |
-| browser | Choose the browser type. Allowed values are defined in DriverTypes Class. default = chrome                                |
+| Name            | Description                                                                                                                                    |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| baseUrl*        | The base URL for your website under test.                                                                                                      |
+| browser         | Choose the browser type. Allowed values are defined in DriverTypes Class. default = chrome                                                     |
 | browser.version | If you do not want to use the latest browser version, which is provided by the Webdriver manager, you can set the version with this parameter. |
-| selenium.grid | URL of Selenium grid server or a service which implements the Selenium grid protocol like Selenoid or Appium.                                 |
-| device.id | only used if you want to run with mit mobile-chrome (Android or iOS id)                                                                       |
-| skipA11y | default = true, false -> activates the accessiblity audtis while your testruns (if you created your project with (-Da11y=true)                |
+| selenium.grid   | URL of Selenium grid server or a service which implements the Selenium grid protocol like Selenoid or Appium.                                  |
+| device.id       | only used if you want to run with mit mobile-chrome (Android or iOS id)                                                                        |
+| skipA11y        | default = true, false -> activates the accessiblity audtis while your testruns (if you created your project with (-Da11y=true)                 |
 
 \* is mandatory
 
@@ -71,13 +71,15 @@ In order to find scenarios faster - especially if they fail - a scenario templat
 
 example:
 
-    Feature: [WIK [wikipedia] Example Feature
+```gherkin
+Feature: [WIK [wikipedia] Example Feature
 
-      Background:
-        Given the start page is loaded
+  Background:
+    Given the start page is loaded
 
-      Scenario: [WIK-01 [wikipedia] 
-        Then the searchbar is visible
+  Scenario: [WIK-01 [wikipedia] 
+    Then the searchbar is visible
+```
 
 [wikipedia] means that "wikipedia" is the filename. This makes it much easier to locate steps when IntelliJ Runner or
 Jenkins Cucumber report mark a scenario or step as failed.
