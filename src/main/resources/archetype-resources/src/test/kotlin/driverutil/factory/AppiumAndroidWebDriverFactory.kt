@@ -23,11 +23,9 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         uiAutomator2Options.withBrowserName("chrome")
         uiAutomator2Options.setNoReset(true)
         uiAutomator2Options.setCapability("appium:chromedriver_autodownload", true)
-        uiAutomator2Options.setWebSocketUrl(true)
         uiAutomator2Options.setCapability(
             "chromeOptions", mapOf(
-                "args" to listOf("--disable-extensions", "--no-sandbox"),
-                "w3c" to false
+                "args" to listOf("--disable-extensions", "--no-sandbox")
             )
         )
 
