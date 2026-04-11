@@ -1,4 +1,4 @@
-package ${package}.driverutil
+package ${package}.driverutil.extensions
 
 import org.openqa.selenium.remote.RemoteWebDriver
 

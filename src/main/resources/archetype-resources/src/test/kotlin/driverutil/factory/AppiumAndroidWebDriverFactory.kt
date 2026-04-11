@@ -3,8 +3,8 @@
 #set( $curlyClose = '}' )
 #set( $bracketOpen = '(' )
 #set( $bracketClose = ')' )
-package ${package}.driverutil
-
+package ${package}.driverutil.factory
+import ${package}.driverutil.DevicePool
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.options.UiAutomator2Options
 import org.assertj.core.api.Assertions.fail
@@ -22,11 +22,10 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         uiAutomator2Options.setDeviceName("Appium_Android_Device")
         uiAutomator2Options.withBrowserName("chrome")
         uiAutomator2Options.setNoReset(true)
-        uiAutomator2Options.setWebSocketUrl(true)
+        uiAutomator2Options.setCapability("appium:chromedriver_autodownload", true)
         uiAutomator2Options.setCapability(
             "chromeOptions", mapOf(
-                "args" to listOf("--disable-extensions", "--no-sandbox"),
-                "w3c" to false
+                "args" to listOf("--disable-extensions", "--no-sandbox")
             )
         )
 
@@ -41,8 +40,6 @@ class AppiumAndroidWebDriverFactory : RemoteWebDriverFactory() {
         return webDriver
     }
 
-    private fun getMobileDeviceId(): String {
-        return System.getProperty("device.id", "emulator-5554")
-    }
+    private fun getMobileDeviceId(): String = DevicePool.current()
 
 }
