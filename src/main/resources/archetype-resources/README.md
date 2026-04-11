@@ -136,7 +136,7 @@ mvn test \
   -Dbrowser=appium_android_device \
   -DbaseUrl="https://www.wikipedia.org" \
   -Dselenium.grid=http://localhost:4723 \
-  -Dcucumber.filter.tags=@all \
+  "-Dcucumber.filter.tags=@all and not @no_appium" \
   -Ddevices=$(adb devices | grep -w device | awk '{print $1}' | paste -sd,)
 ```
 
@@ -147,9 +147,11 @@ mvn test \
   -Dbrowser=appium_android_device \
   -DbaseUrl="https://www.wikipedia.org" \
   -Dselenium.grid=http://localhost:4723 \
-  -Dcucumber.filter.tags=@all \
+  "-Dcucumber.filter.tags=@all and not @no_appium" \
   -Ddevices=$(docker exec appium-server adb devices | grep -w device | awk '{print $1}' | paste -sd,)
 ```
+
+> **`@no_appium` tag:** Scenarios tagged `@no_appium` require multiple simultaneous browser sessions (e.g. multi-user tests) which cannot run on a single Android device — Appium allows only one Chrome session per device at a time, and a second session creation will kill the first. Always exclude these scenarios from Appium runs via `not @no_appium`.
 
 # Troubleshooting
 
